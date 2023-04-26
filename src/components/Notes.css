@@ -1,0 +1,97 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+.note{
+    width: 20rem;
+    height: 30rem;
+    border: 2px solid black;
+    padding: .2rem;
+    background-color: white;
+    font-family: 'Anuphan', sans-serif;
+}
+
+#title-content {
+    width: 20rem;
+    height: 1.5rem;
+    margin-left: 2rem;
+}
+
+#navigation{
+    margin-bottom: 2rem;
+    height: 6rem;
+    color: white;
+    background-color: #00308F;
+}
+
+.note .note-nav{
+    color: #00308F;
+    display: flex;
+    flex-direction: row;
+    height: 2rem;
+    background-color: rgb(213, 209, 209);
+    justify-content: space-around;
+}
+
+.note .note-nav .note-heading{
+    margin-top: .5rem;
+}
+
+h4, h2{
+    margin: 0;
+}
+
+.nav_cont h2{
+    vertical-align: middle;
+    text-align: center;
+    align-items: center;
+}
+
+
+#image{
+    height: 20px;
+    width: 20px;
+}
+
+.icons > *{
+    margin: .2rem;
+}
+
+.icons > button{
+    border: none;
+    background-color: transparent;
+}
+
+
+.headingTag{
+    width: 3rem;
+    height: 1rem;
+    margin: .2rem;
+}
+
+button#submit{
+    background-color: rgb(248, 244, 244);
+    border: none;
+    border-radius: 2rem;
+    height: 2rem;
+    width: 6rem;
+    margin-left: 2rem;
+    border: 1px solid #00308F;
+    color: #00308F;
+}
+
+button#submit:hover{
+    background-color: white;
+    color: #00308F;
+    border: 2px solid #00308F;
+    cursor: pointer;
+}
+
+.icons > *{
+    margin-top: .3rem;
+}
+
+.content-cont{
+    margin-top: 2rem;
+}
+
