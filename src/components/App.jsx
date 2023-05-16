@@ -3,10 +3,19 @@ import Add from './add'
 import Navigation from "./Navigation";
 import { produce } from "immer";
 import database, { createNote, deleteNote, onValueChange } from "../services/datastore";
+import './../style.scss'
 
 
 
 function App(props){
+
+    function Note(Title, content, x, y, z_index){
+        this.Title = Title;
+        this.content = content;
+        this.x = x;
+        this.y = y;
+        this.z_index = z_index;
+    }
 
     const [Title, setTitle] = useState('')
     const [bodyContent, setBodycontent] = useState({})
@@ -14,16 +23,16 @@ function App(props){
     const onDelete = (identification)=>{
     //    setBodycontent(produce((bodyContent)=>{delete bodyContent[identification]}));
        deleteNote(identification)
+       console.log('deleted' + identification);
     }
-
-    
     
     const onChange = (event)=>{
         setTitle(event.target.value);
     }
 
     const handleCard = ()=>{
-        createNote({Title:Title, content: "", x : 0, y:0})
+        createNote(new Note(Title, '', 0, 0, 0))
+        // createNote({Title:Title, content: "", x : 0, y:0})
         // setBodycontent(produce((bodyContent)=>{
         //     bodyContent[Date.now()] = {Title:Title, content: "", x : 0, y:0}
         // }))
@@ -36,6 +45,7 @@ function App(props){
         })
     }, [])
     
+    console.log(bodyContent);
     
 
     return(

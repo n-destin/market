@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import Note from "./Note";
+import '../style.scss'
 
 
 const Add = (props)=>{
     
     const Notes = Object.entries(props.bodyContent).map(([id, content]) => {
-        return <Note Heading = {content.Title} id ={id} onDelete = {props.onDelete} content = {props.cardCont} handleChange = {props.handleChange} changeContent ={props.changeContent}/>
+        return <li className="theNote"><Note Heading = {content.Title} id = {id} onDelete = {props.onDelete} content = {content.content} handleChange = {props.handleChange} x = {content.x} y = {content.y} index = {content.z_index}/></li>
     }) 
 
     return(

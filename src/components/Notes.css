@@ -95,3 +95,14 @@ button#submit:hover{
     margin-top: 2rem;
 }
 
+#notes{
+    display: flex;
+    flex-direction: row;
+}
+
+.theNote{
+    list-style-type: none;
+}
+
+
+

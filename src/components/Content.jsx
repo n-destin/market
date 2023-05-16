@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { createElement } from "react";
 import reactMarkdown from "react-markdown";
+import Note from "./Note";
 
 const Content = (props)=>{
 
@@ -17,7 +18,6 @@ const Content = (props)=>{
             )
         }
     }
-    
     
     return(
         <div className="content-cont">
