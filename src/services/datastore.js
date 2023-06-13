@@ -4,14 +4,14 @@ import { data } from 'jquery';
 
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBDvOBf2m2YQfyJ5rOC3mIQ4L2kmJdm3OY",
-  authDomain: "notesapp-c668e.firebaseapp.com",
-  databaseURL: "https://notesapp-c668e-default-rtdb.firebaseio.com",
-  projectId: "notesapp-c668e",
-  storageBucket: "notesapp-c668e.appspot.com",
-  messagingSenderId: "499481922320",
-  appId: "1:499481922320:web:ed22fc465ffd284c4db395",
-  measurementId: "G-4LHZL9HJZ1"
+  apiKey: "AIzaSyB8AJvO_cTcphqZJYxhA3QuOx3UuOVb38Q",
+  authDomain: "note-another.firebaseapp.com",
+  databaseURL: "https://note-another-default-rtdb.firebaseio.com",
+  projectId: "note-another",
+  storageBucket: "note-another.appspot.com",
+  messagingSenderId: "568874569454",
+  appId: "1:568874569454:web:4a0ba17bd30171f1b52dff",
+  measurementId: "G-CDQCZECS7H"
 };
 
   firebase.initializeApp(firebaseConfig)
