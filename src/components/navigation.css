@@ -1,0 +1,65 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+.iconbar{
+    background-color: rgb(29, 65, 29);
+    display: flex;
+    flex-direction: row;
+    /* justify-content: space-around; */
+}
+
+ul{
+    text-decoration: none;
+}
+
+.iconbar > div{
+    padding: 2rem;
+}
+
+
+Link{
+    text-decoration: none;
+}
+
+
+.iconbar > .icons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.icon{
+    padding: 0 2rem 0 2rem ;
+}
+
+
+.iconbar > .logo{
+    padding-right: 5rem;
+    font-size: 2rem;
+}
+
+.link {
+    color: white;
+    text-decoration: none;
+}
+
+.link :hover{
+    color: rgb(199, 203, 207);
+}
+
+.icon p{
+    margin-top: -.5rem;
+    text-align: center;
+}
+
+.icon img{
+    /* border-radius: 40%; */
+    height: 2rem;
+}
+
+.iconbar  input {
+    width: 40rem;
+    height: 2rem;
+}
