@@ -1,14 +1,15 @@
 import React from "react";
 import { useState } from "react";
-
+import * as userActions from '../actions/useractions'
 const SignUp = (props) =>{
-
 
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName ] = useState('');
     const [Email, setEmail ] = useState('');
     const [PhoneNumber, setPhoneNumber ] = useState('');
     const [schoolYear, setYear] = useState('');
+    const [Password, setPassword] = useState('');
+    const [isLogin, setLogin] = useState(true);
 
     function setNumber(event){
         setPhoneNumber(event.target.value);
@@ -28,10 +29,9 @@ const SignUp = (props) =>{
         setYear(event.target.value)
     }
 
-
-    return(
-        <div>
-            <h2>The Dartmouth Market</h2>
+    const SingupElelment = () =>{
+            return (
+                <div>
             <div className="">
                 <label htmlFor="">
                     First Name:
@@ -49,14 +49,49 @@ const SignUp = (props) =>{
                     Mobile Number:
                     <input type="text" name="schoolEmail" id="email" onChange={setNumber} />
                 </label>
-
                 <label htmlFor="name">
                     School Year:
                     <input type="text" name="schoolEmail" id="email" onChange={setschoolYear} />
                 </label>
-                <input type="button"  className="submit" value="Submit"/>
+                <input type="button"  className="submit" value="Submit" onClick={()=>{userActions.createAccount({
+                    firstName : firstName,
+                    lastName: lastName,
+                    phoneNumber : PhoneNumber,
+                    Email: Email,
+                    Password : Password,
+                    Class :  schoolYear,
+                })}}/>
             </div>
+            </div>
+            )
+    }
+
+    const SignInElemnent = (props)=>{
+        return(
+            <div>
+                <h4>Sing in</h4>
+                <div>
+                    <label htmlFor="">
+                        Email:
+                        <input type="text" onChange={setEmail}/>
+                    </label>
+                    <label htmlFor="">
+                        Password:
+                        <input type="text" name="" id=""  onChange={setPassword}/>
+                    </label>
+                </div>
+                <input type="button" name="" id="" onChange={userActions.SingIn} value ="Sign in"/>
+            </div>
+        )
+    }
+
+
+    return(
+        <div>
+            <h2>The Dartmouth Market</h2>
+            {(isLogin)? <SignInElemnent/>: <SingupElelment/>}
         </div>
+        
     )
 }
 

@@ -14,7 +14,6 @@ const Navigation = (props) =>{
     const IconsToRender = icons.map(icon=>{
         return <Icon name = 'name' icon = {icon} action = {(icon === inbox) ? 'Inbox' : (icon === donation)? 'Donate' : (icon === tradein)? 'Trade' : (icon === account)? 'Account' : 'Cart'}/>
     })
-    console.log(IconsToRender);
 
 
     return  (

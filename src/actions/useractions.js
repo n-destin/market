@@ -1,20 +1,37 @@
 import axios from "axios"
-
-
-const ROOT_URL = 'URL_HERE'
+const ROOT = 'URL_HERE'
 
 export const ActionsType = {
-    CREATE_ACCOUNT : 'CREATE_ACCOUNT',
     DELETE_ACCOUNT : 'DELETE_ACCOUNT',
-    LOG_IN : 'LOG_IN',
+    AUTHENTICATE_USER : 'AUTHENTICATE_USER',
 }
 
-export default function createAccount(){
-    return (dispatch, navigate, userInfo)=>{
+export function createAccount(userInfo){
+    console.log('sending Info');
+    return (dispatch, navigate)=>{
         try {
-            axios.post('/singup', {userInfo}).then(response=>{
+            axios.post(`${ROOT}/signup`, {userInfo}).then(response=>{
                 if(response){
-                    dispatch(ActionsType.CREATE_ACCOUNT)
+                    dispatch({
+                        type: ActionsType.AUTHENTICATE_USER
+                    })
+                    navigate('/')
+                }
+            })
+        } catch (error) {
+            console.log(error.message);
+        }
+    }
+}
+
+export function SingIn({Email, Password}){
+    return (dispatch)=>{
+        try {
+            axios.post(`${ROOT}/signin`, ({Email, Password})).then(response=>{
+                if(response){
+                    dispatch({
+                        type: ActionsType.AUTHENTICATE_USER
+                    })
                 }
             })
         } catch (error) {
