@@ -11,6 +11,10 @@
     /* justify-content: space-around; */
 }
 
+.navigationBar {
+    /* position: fixed; */
+}
+
 ul{
     text-decoration: none;
 }
