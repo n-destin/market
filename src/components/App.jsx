@@ -3,7 +3,8 @@ import Navigation from "./navigation";
 import { Route, Routes, BrowserRouter } from "react-router-dom";
 import './index.css'
 import Products from "./Products";
-import SignUp from "./signup";
+import Login from "./Login";
+import SingUp from "./craeteAccount";
 
 function App (props){
     return (
@@ -11,7 +12,8 @@ function App (props){
         <Navigation/>
             <Routes>
                 <Route  path="/" element = {<Products/>} />
-                <Route path="/signup" element ={<SignUp />} />
+                <Route path="/login" element ={<Login />} />
+                <Route path="/signup" element ={<SingUp/>} />
             </Routes>
         </BrowserRouter>
     )

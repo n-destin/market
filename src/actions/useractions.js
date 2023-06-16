@@ -1,5 +1,5 @@
 import axios from "axios"
-const ROOT = 'URL_HERE'
+const ROOT = 'https://testapi-9pav.onrender.com/'
 
 export const ActionsType = {
     DELETE_ACCOUNT : 'DELETE_ACCOUNT',
