@@ -1,35 +1,26 @@
 import React from "react";
 import { useState } from "react";
 import * as userActions from '../actions/useractions'
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router";
+import { SingIn } from "../actions/useractions";
+
 const SignUp = (props) =>{
 
-    const [firstName, setFirstName] = useState('');
-    const [lastName, setLastName ] = useState('');
     const [Email, setEmail ] = useState('');
-    const [PhoneNumber, setPhoneNumber ] = useState('');
-    const [schoolYear, setYear] = useState('');
     const [Password, setPassword] = useState('');
-    const [isLogin, setLogin] = useState(true);
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
 
-    const setNumber = (event) =>{
-        setPhoneNumber(event.target.value);
-    }
-
-    const setlastName = (event) =>{
-        setLastName(event.target.value);
-    }
-    const setfirstName = (event) =>{
-        setFirstName(event.target.value)
-    }
     const setMail = (event) =>{
         setEmail(event.target.value);
-        console.log(Email);
     }
-
+ 
     const setpassWord = (event)=>{
         setPassword(event.target.value);
-        console.log(Password);
     }
+
+    const dispatchLogin = SingIn({Email, Password});
 
 
     return(
@@ -39,7 +30,7 @@ const SignUp = (props) =>{
                 <input type="text" name="" id="" onChange={setMail} />
                 <input type="text" name="" id="" onChange={setpassWord}/>
             </div>
-            <input type="button" name="" id="" onChange={userActions.SingIn} value ="Sign in"/>
+            <input type="button" name="" id="" onClick={()=>{dispatchLogin(dispatch, navigate)}} value ="Sign in"/>
         </div>
     )
 }

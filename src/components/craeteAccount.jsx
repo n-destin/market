@@ -1,8 +1,14 @@
 import React from "react";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router";
+import { createAccount } from "../actions/useractions";
 
 
 const SingUp = (props) =>{
+
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
 
 
     const [firstName, setFirstName] = useState('');
@@ -25,7 +31,6 @@ const SingUp = (props) =>{
     }
     const setMail = (event) =>{
         setEmail(event.target.value);
-        console.log(Email);
     }
 
     const setschoolYear = (event) =>{
@@ -34,8 +39,18 @@ const SingUp = (props) =>{
 
     const setpassWord = (event)=>{
         setPassword(event.target.value);
-        console.log(Password);
     }
+
+    const Signup = createAccount(
+        {
+            firstName: firstName,
+            lastName: lastName,
+            Password: Password,
+            Email: Email,
+            phoneNumber: PhoneNumber,
+            Class: schoolYear,
+        }
+    )
 
     return(
         <div>
@@ -66,7 +81,9 @@ const SingUp = (props) =>{
                     <input type="text" name="" id="" onChange={setNumber}/>
                 </label>
             </div>
-            <input type="button" name="" id=""/>
+            <input type="button" name="" id="" value= 'Sign up' onClick = {()=>{
+                Signup(dispatch, navigate);
+            }}/>
         </div>
     )
 }
