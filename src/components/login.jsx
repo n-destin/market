@@ -3,7 +3,7 @@ import { useState } from "react";
 import * as userActions from '../actions/useractions'
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router";
-import { SingIn } from "../actions/useractions";
+import { SignIn } from "../actions/useractions";
 
 const SignUp = (props) =>{
 
@@ -20,7 +20,7 @@ const SignUp = (props) =>{
         setPassword(event.target.value);
     }
 
-    const dispatchLogin = SingIn({Email, Password});
+    const dispatchLogin = SignIn(Email, Password);
 
 
     return(

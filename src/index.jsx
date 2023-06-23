@@ -6,14 +6,14 @@ import rootReducer from "./reducers/rootReducer";
 import { configureStore } from "@reduxjs/toolkit";
 
 
-const Store = configureStore({
+const store = configureStore({
     reducer: rootReducer,
 })
 
 
 const root = createRoot(document.getElementById('main'))
 root.render(
-    <Provider store = {Store}>
+    <Provider store = {store}>
         <App/>
     </Provider>
 )

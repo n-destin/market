@@ -1,5 +1,5 @@
 import axios from "axios"
-const ROOT_URL = 'http://localhost:9090'
+export const ROOT_URL = 'http://localhost:9090/'
 
 export const ActionsType = {
     DELETE_ACCOUNT : 'DELETE_ACCOUNT',
@@ -13,7 +13,7 @@ export function createAccount(userInfo){
     return (dispatch, navigate)=>{
         console.log('entering in the returned function');
         try {
-            axios.post(`${ROOT_URL}/signup`, {userInfo}).then((response)=>{
+            axios.post(`${ROOT_URL}signup`, {userInfo}).then((response)=>{
                 console.log('got the response');
                 if(response){
                     dispatch({
@@ -28,14 +28,17 @@ export function createAccount(userInfo){
     }
 }
 
-export function SingIn({Email, Password}){
+export function SignIn(Email, Password){
+    // you can write some other functionalities here
+    console.log('reached in the signin action function');
     return (dispatch, navigate)=>{
         try {
-            axios.post(`${ROOT_URL}/signin`, {Email, Password}).then(response=>{
+            axios.post(`${ROOT_URL}signin`, {Email, Password}).then(response=>{
                 if(response){
                     dispatch({
                         type: ActionsType.AUTHENTICATE_USER
                     })
+                    localStorage.setItem(('userToken', response.userToken))
                     navigate('/')
                     console.log('navigated to home');
                 }
