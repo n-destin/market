@@ -48,6 +48,7 @@ const CreateProduct = ()=>{
                     Price:
                     <input type="text" name="" id="" onChange={setPrice}/>
                 </label>
+                <input type="file" name="Image-upload" id="images" multiple/>
             </div>
             <input type="button" name="" id="" value='Create' onClick={()=>{createProductHolder(navigate)}}/>
         </div>
