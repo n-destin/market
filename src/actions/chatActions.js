@@ -1,6 +1,6 @@
 import axios from "axios";
 import { chatActions } from "../reducers/chatReducer";
-const ROOT_URL = 'http://localhost:9090'
+const ROOT_URL = 'http://localhost:9090/'
 import { io } from "socket.io-client";
 import { useState } from "react";
 
