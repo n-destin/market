@@ -1,0 +1,31 @@
+div.with-actions{
+    display: flex;
+    flex-direction: row;
+    width: 75vw;
+    justify-content: space-around;
+}
+
+.actions{
+    display: flex;
+    flex-direction: column;
+    width: 40vw;
+}
+.some-buttons{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: .5rem;
+    width: 20vw;
+}
+
+button{
+    height: 2rem;
+}
+
+.some-buttons > button{
+    width: 40%;
+}
+
+.element{
+    display: flex;
+    flex-direction: row;
+}

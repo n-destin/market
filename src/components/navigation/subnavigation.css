@@ -1,0 +1,25 @@
+.subnavigation, .right, .left{
+    display: flex;
+    flex-direction: row;
+}
+
+img.menu-image{
+    height: 3vh;
+}
+
+.sub-link{
+    text-decoration: none;
+    font-size: large;
+    margin: 0 2rem 0 2rem;
+    color: green;
+}
+
+.subnavigation{
+    justify-content: space-between;
+    background-color: #EFF5EE;
+}
+
+.subnavigation > * {
+    padding: .4rem;
+}
+

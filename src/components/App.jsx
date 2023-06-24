@@ -1,5 +1,5 @@
 import React from "react";
-import Navigation from "./navigation";
+import Navigation from "./navigation/navigation";
 import { Route, Routes, BrowserRouter } from "react-router-dom";
 import './index.css'
 import Products from "./productActions/products";

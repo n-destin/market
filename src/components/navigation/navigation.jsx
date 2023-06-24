@@ -1,13 +1,13 @@
 import React from "react";
 import './navigation.css'
-import inbox from '../images/message.jpeg'
-import cart from '../images/cart.jpeg'
-import donation from '../images/donation.png'
-import tradein from '../images/trande.png'
-import account from '../images/account.png'
+import inbox from '../../images/message.jpeg'
+import cart from '../../images/cart.jpeg'
+import donation from '../../images/donation.png'
+import tradein from '../../images/trande.png'
+import account from '../../images/account.png'
 import { Link } from "react-router-dom";
-import Icon from "./icon";
-
+import Icon from "../../components/icon";
+import Subnavigation from "./subnavigation";
 
 const Navigation = (props) =>{
     let icons = [inbox, donation, tradein, account, cart]
@@ -32,6 +32,7 @@ const Navigation = (props) =>{
             <div className="classification">
                 
             </div>
+            <Subnavigation />
         </div>
     )
 }

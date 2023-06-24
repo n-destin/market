@@ -59,3 +59,17 @@ export function getProduct(){
         }
     }
 }
+
+export function addtoCart(userId, productId){
+    return(navigate)=>{
+        try {
+            axios.post(`${ROOT_URL}addtocart/${userId}`).then(response=>{
+                if(response){
+                    navigate('/Cart')
+                }
+            })
+        } catch (error) {
+            console.log(error.messsage);
+        }
+    }
+}
