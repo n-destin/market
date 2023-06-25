@@ -1,10 +1,13 @@
 import axios from "axios"
-import { ROOT_URL } from "./useractions"
+import { ActionsType, ROOT_URL } from "./useractions"
 
 export const productActions = {
     GET_PRODUCTS : 'FETCH_PRODUCTS',
-    GET_PRODUCT : 'FETCH_PRODUCT'
+    GET_PRODUCT : 'FETCH_PRODUCT',
+    GET_CART : 'GET_CART'
 }
+
+export let cartNumber = 0;
 
 
 export function getProducts(){
@@ -61,15 +64,38 @@ export function getProduct(){
 }
 
 export function addtoCart(userId, productId){
-    return(navigate)=>{
+    return(dispatch)=>{
         try {
-            axios.post(`${ROOT_URL}addtocart/${userId}`).then(response=>{
+            axios.post(`${ROOT_URL}addtocart/${userId}?product-id: ${productId}`).then(response=>{
                 if(response){
-                    navigate('/Cart')
+                    cartNumber++;
+                    dispatch({
+                        type: productActions.GET_CART,
+                        payload: response.data
+                    })
                 }
             })
         } catch (error) {
             console.log(error.messsage);
         }
     }
+}
+
+
+export function getRelated(category){
+    return (dispatch)=>{
+        axios.get(`${ROOT_URL}related/${category}`).then(response=>{
+            if(response){
+                dispatch({
+                    type: productActions.GET_PRODUCTS,
+                    payload: response.data
+                })
+            }
+        })
+    }
+}
+
+
+export function getCart(){
+
 }

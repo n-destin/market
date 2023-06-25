@@ -4,13 +4,15 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router";
 import { getProduct } from "../../actions/productActions";
 import './page.css'
+import { getRelated } from "../../actions/productActions";
+import Product from "../product";
+import { addtoCart } from "../../actions/productActions";
 
 const ProductPage = (props)=>{
 
+    
 
-    function addtoCart(userId){
-        
-    }
+    let relatedContent;
 
     const {id} = useParams();
     console.log(id);
@@ -22,7 +24,25 @@ const ProductPage = (props)=>{
     }, [])
 
     const product = useSelector((store)=>{return store.products.single})
-    
+
+    const category = product.Category;
+
+    useEffect(()=>{
+        const getRelatedHolder = getRelated(category);
+        getRelatedHolder(dispatch);
+    }, [product])
+
+    const relatedProdudcts = useSelector(store=>{return store.all});
+
+    if(relatedProdudcts){
+        relatedContent = relatedProdudcts.map(product =>{
+            return <Product />
+        })
+    }
+    const userTokenContainer = localStorage.getItem('userToken')
+
+    const addingToCart = addtoCart(id, (userTokenContainer)? userTokenContainer : 'nothing');
+
 
     return(
         <div>
@@ -36,14 +56,14 @@ const ProductPage = (props)=>{
                         <p>{product.Description}</p>
                         <p>Price : {product.Price}</p>
                         <div className="some-buttons">
-                            <button className="buynow">Add to Cart</button>
+                            <button className="buynow" onClick={addingToCart}>Add to Cart</button>
                             <button className="add-to-cart">Make an Offer</button>
                         </div>
                         <button className="buy Now">Buy Now</button>
                     </div>
                 </div>
                 <div className="related-products">
-                    <p>This is the products holder</p>
+                    {(relatedContent)? relatedContent : 'No API call yet'}
                 </div>
             </div>
         </div>

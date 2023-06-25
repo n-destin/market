@@ -8,6 +8,7 @@ import SingUp from "./craeteAccount";
 import Chat from "./chat/chat";
 import CreateProduct from "./productActions/createProduct";
 import ProductPage from "./productActions/productPart";
+import Cart from "./cart";
 
 function App (props){
     return (
@@ -16,10 +17,11 @@ function App (props){
             <Routes>
                 <Route path="/products/:id" element ={<ProductPage/>}/>
                 <Route  path="/" element = {<Products/>} />
+                <Route path="/Cart" element ={<Cart />}/>
                 <Route path="/login" element ={<Login />} />
                 <Route path="/signup" element ={<SingUp/>} />
                 <Route path ="/chat" element ={<Chat/>}/>
-                <Route path="/createProduct" element ={<CreateProduct/>}/>
+                <Route path="/Trade" element ={<CreateProduct/>}/>
             </Routes>
         </BrowserRouter>
     )

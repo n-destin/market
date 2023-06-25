@@ -3,6 +3,7 @@ import { productActions } from "../actions/productActions"
 
 const initialvalue = {
     all : [],
+    cartElements : [],
     single : {}
 }
 const productReducer = produce((previousState, action = {})=>{
@@ -14,6 +15,8 @@ const productReducer = produce((previousState, action = {})=>{
         case productActions.GET_PRODUCT:
             previousState.single = action.payload;
             break;
+        case productActions.GET_CART:
+            previousState.cartElements = action.payload;
         default:
             return previousState;
             

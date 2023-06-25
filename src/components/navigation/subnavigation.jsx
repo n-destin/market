@@ -6,11 +6,12 @@ import './subnavigation.css'
 
 const Subnavigation = (props)=>{
 
-    const right = ['Donations', 'Orders', 'deals'].map(element =>{
-        return (<Link to={`${element}`} className ="sub-link">{(element === 'Orders')? 'Your Orders' : (element === 'deals')? 'Quick Deals': element}</Link>)
+    const right = [ 'Electronics', 'Sports & Leisure', 'Fashion & Accessories', 'Art & Collectibles', 'Automotive', 'Community', 'Free & Donations', 'men', 'women',
+].map(element =>{
+        return (<Link to={`${element}`} className ="sub-link">{(element === 'men')? 'For men' : (element === 'women')? 'For women': element}</Link>)
     })
-    const left = ['women', 'men'].map(left=>{
-        return <Link to={`${left}`} className ="sub-link">{`For ` + left}</Link>
+    const left = ['orders', 'deals'].map(left=>{
+        return <Link to={`${left}`} className ="sub-link">{(left === 'orders')? 'Your Orders': 'Quick Deals'}</Link>
     })
 
 
