@@ -8,16 +8,21 @@ import account from '../../images/account.png'
 import { Link } from "react-router-dom";
 import Icon from "../../components/icon";
 import Subnavigation from "./subnavigation";
+import { useState } from "react";
 
 const Navigation = (props) =>{
-    let icons = [inbox, donation, tradein, account, cart]
-    const IconsToRender = icons.map(icon=>{
-        return <Icon name = 'name' icon = {icon} action = {(icon === inbox) ? 'Inbox' : (icon === donation)? 'Donate' : (icon === tradein)? 'Trade' : (icon === account)? 'Account' : 'Cart'}/>
+    let iconsNavigations = {'Inbox' : inbox, "Donate": donation, "Sell" : tradein, "Account": account, "Cart" : cart}
+    const IconsToRender = Object.keys(iconsNavigations).map(iconKey=>{
+        return <Icon name = 'name' icon = {iconsNavigations[iconKey]} action = {iconKey}/>
     })
 
 
+    console.log(props.className);
+
+
+
     return  (
-        <div className="navigationBar">
+        <div className={props.className}>
             <div className="iconbar">
                 <div className="logo">
                     <Link to = "/" className="link">The Dartmouth Market</Link>

@@ -7,6 +7,12 @@ import { getProduct } from "../actions/productActions";
 import { useDispatch } from "react-redux";
 const Product  = (props) =>{
 
+
+    function wordtransform(description){
+        let toReturn = '';
+        description = description.split('').map(letter =>{if(toReturn.length != 12) {toReturn += letter}});
+        description = description.map
+    }
     
     const id = props.id;
     const navigate = useNavigate();
@@ -22,12 +28,11 @@ const Product  = (props) =>{
             {console.log(props.content)}
             <div className="product" onClick={()=>{navigate(`products/${id}`)}}  >
                 <img src={props.content.Image} alt="product-image" />
-                <h2>{props.content.Name}</h2>
-                <p>{props.content.Description}</p>
-                <p><span className="price">Price:</span> $ {props.content.Price}</p>
-                <p>{props.content.Views}</p>
-                <button className="cartButton">Add to Cart</button>
-                {/* <button><img src={conversation} alt="" height='30px'/></button> */}
+               <div className="product-content">
+                    <h3> $ {props.content.Price.$numberDecimal
+}</h3>
+                    <p>{props.content.Description}</p>
+               </div>
             </div>
         </div>
     )

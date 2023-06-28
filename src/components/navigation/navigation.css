@@ -12,6 +12,10 @@
     /* justify-content: space-around; */
 }
 
+.nonDisplay{
+    display: none;;
+}
+
 .navigationBar {
     /* position: fixed; */
 }

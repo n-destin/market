@@ -43,7 +43,7 @@ const ProductPage = (props)=>{
 
     const addingToCart = addtoCart(id, (userTokenContainer)? userTokenContainer : 'nothing');
 
-
+    console.log(product);
     return(
         <div>
             <h1 className="heading">{product.Name}</h1>
@@ -54,7 +54,6 @@ const ProductPage = (props)=>{
                     </div>
                     <div className="actions">
                         <p>{product.Description}</p>
-                        <p>Price : {product.Price}</p>
                         <div className="some-buttons">
                             <button className="buynow" onClick={addingToCart}>Add to Cart</button>
                             <button className="add-to-cart">Make an Offer</button>

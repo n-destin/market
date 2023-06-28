@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getProducts } from "../../actions/productActions";
 // import { getProducts } from "../../actions/productActions";
 import Product from "../product";
+import '../index.css'
 
 function Products (){
 
@@ -18,7 +19,7 @@ function Products (){
     console.log((typeof(products)));
 
     return(
-        <div>
+        <div className="productContainer">
             {(products)? products.map(product=>{ return <Product id = {product._id}content = {product} />}) : 'No products Yet'}
         </div>
     )
