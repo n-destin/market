@@ -29,6 +29,7 @@ function App (props){
                 <Route path="/products/:id" element ={<ProductPage/>}/>
                 <Route  path="/" element = {<Products/>} />
                 <Route path="/Account" element = {<Account />}/>
+                    <Route path="/messages" element = {''}/>
                 <Route path="/Cart" element ={<Cart />}/>
                 <Route path="/login" element ={<Login />} />
                 <Route path="/signup" element ={<SingUp/>} />

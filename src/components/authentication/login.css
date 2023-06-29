@@ -1,10 +1,14 @@
-.loginPage{
+.loginPage, .accountPage{
     height: 100vh;
     width: 100vw;
     background-color: #EFF5EE;
     align-items: center;
     display: flex;
     justify-content: center;
+}
+
+.accountPage{
+    height: 94vh;
 }
 
 .loginCard, .accountCard{
@@ -18,7 +22,6 @@
 .accountCard{
     width: 60%;
     height: 60%;
-    margin-bottom: 10rem;
 }
 
 
@@ -63,6 +66,13 @@
     margin-left: 6rem;
 }
 
+.detail{
+    /* background-color: black; */
+    display: flex;
+    flex-direction: column;
+}
+
+
 .spanning_element_email{
     margin-left: 6rem;
 }
@@ -73,6 +83,10 @@
     text-align: left;
 }
 
+span{
+    color: black;
+}
+
 .details{
     display: flex;
     flex-direction: row;
@@ -80,7 +94,13 @@
     /* background-color: black; */
 }
 
-.heading > h4{
+.link{
+    text-decoration: none;
+    padding: 0 0 .9rem 0;
+    color: black;
+}
+
+.head_content{
     font-weight: bolder;
 }
 
@@ -89,7 +109,7 @@ hr{
     width: 70%;
 }
 .heading{
-    text-align: center;
+    /* text-align: center; */
 }
 
 input[type = 'button']{
@@ -147,4 +167,28 @@ h2{
 
 .profileImage{
     border-radius: 50%;
+}
+
+.horizontaldetail{
+    width: 100%;
+    margin-bottom: 3rem;
+}
+
+.account_nativation{
+    background-color: white;
+    padding: 1.2rem;
+    display: flex;
+    flex-direction: row;
+    text-decoration: none;
+}
+.account_nativation .rightLinks{
+    display: flex;
+    flex-direction: row;
+    margin-left: 60%;
+}
+
+.accountLinks{
+    text-decoration: none;
+    padding: 0 0 0 2rem;
+    color: green;
 }

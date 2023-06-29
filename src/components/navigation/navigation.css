@@ -5,11 +5,11 @@
 /* rgb(29, 65, 29) */
 
 .iconbar{
-    background-color: white;
+    background-color: rgb(29, 65, 29);
     display: flex;
     flex-direction: row;
-    height: 9vh;
-    color: rgb(29, 65, 29);
+    height: 8vh;
+    /* color: rgb(29, 65, 29); */
     /* justify-content: space-around; */
 }
 
@@ -23,7 +23,7 @@ ul{
 }
 
 .iconbar > div{
-    padding: 2rem;
+    padding: 1.5rem;
 }
 
 
@@ -38,35 +38,36 @@ Link{
     justify-content: space-between;
 }
 .icon{
-    padding: 0 2rem 0 2rem ;
+    padding: 0 2rem 0 2rem ; 
 }
 
 
 .iconbar > .logo{
     padding-right: 5rem;
-    font-size: 2rem;
+    font-size: 1.7rem;
 }
 
-.link {
-    color: rgb(29, 65, 29);
+.linking {
+    color: white;
     text-decoration: none;
 }
 
-.link :hover{
+.linking :hover{
     color: rgb(199, 203, 207);
 }
 
 .icon p{
-    margin-top: -.5rem;
-    text-align: center;
+    margin-top: .2rem;
+    text-align: left;
 }
 
 .icon img{
     /* border-radius: 40%; */
-    height: 2rem;
+    height: 1.3rem;
 }
 
 .iconbar  input {
     width: 40rem;
     height: 2rem;
+    /* padding-top: 0; */
 }

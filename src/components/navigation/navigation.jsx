@@ -1,9 +1,9 @@
 import React from "react";
 import './navigation.css'
-import inbox from '../../images/message.jpeg'
-import cart from '../../images/cart.jpeg'
+import inbox from '../../images/message.png'
+import cart from '../../images/cart.png'
 import donation from '../../images/donation.png'
-import tradein from '../../images/trande.png'
+import tradein from '../../images/sell.png'
 import account from '../../images/account.png'
 import { Link } from "react-router-dom";
 import Icon from "../../components/icon";
@@ -19,7 +19,7 @@ const Navigation = (props) =>{
         <div className='navigationBar'>
             <div className="iconbar">
                 <div className="logo">
-                    <Link to = "/" className="link">The Dartmouth Market</Link>
+                    <Link to = "/" className="linking">The Dartmouth Market</Link>
                 </div>
                     <div className="searchinput">
                     <input type="text" className="overflow-y-auto p-4 bg-white rounded-lg shadow-lg backdrop-filter backdrop-blur-lg bg-opacity-30 mt-5 ml-5 mr-5 blur-gradient max-w-[50vw]" />
