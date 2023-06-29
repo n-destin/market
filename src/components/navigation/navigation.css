@@ -2,19 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
-
+/* rgb(29, 65, 29) */
 
 .iconbar{
-    background-color: rgb(29, 65, 29);
+    background-color: white;
     display: flex;
     flex-direction: row;
-    height: 11vh;
+    height: 9vh;
+    color: rgb(29, 65, 29);
     /* justify-content: space-around; */
 }
 
-.nonDisplay{
-    display: none;;
-}
 
 .navigationBar {
     /* position: fixed; */
@@ -50,7 +48,7 @@ Link{
 }
 
 .link {
-    color: white;
+    color: rgb(29, 65, 29);
     text-decoration: none;
 }
 

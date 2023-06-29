@@ -7,6 +7,7 @@ import './page.css'
 import { getRelated } from "../../actions/productActions";
 import Product from "../product";
 import { addtoCart } from "../../actions/productActions";
+import Navigation from "../navigation/navigation";
 
 const ProductPage = (props)=>{
 
@@ -46,6 +47,7 @@ const ProductPage = (props)=>{
     console.log(product);
     return(
         <div>
+            <Navigation />
             <h1 className="heading">{product.Name}</h1>
             <div className="element">
                 <div className="with-actions">

@@ -7,12 +7,18 @@
     justify-content: center;
 }
 
-.loginCard{
+.loginCard, .accountCard{
     height: 90vh;
     width: 30vw;
     background-color: white;
     padding: 1rem;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.accountCard{
+    width: 60%;
+    height: 60%;
+    margin-bottom: 10rem;
 }
 
 
@@ -23,16 +29,62 @@
     align-items: center;
 }
 
+.spanning_element{
+    margin-left: 2.6rem;
+}
+
+.userId{
+    margin-left: 1.5rem;
+}
+
 .inputs > input {
     width: 70%;
     padding: .7rem;
     margin: 1rem;
 }
-.lognavigator{
+.lognavigator {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
 }
+
+.heading{
+    display: flex;
+    flex-direction: row;
+    height: 10rem;
+    margin-left: 5rem;
+}
+
+.changeButton{
+    margin-left: 1rem;
+}
+
+.partTwo{
+    margin-left: 6rem;
+}
+
+.spanning_element_email{
+    margin-left: 6rem;
+}
+
+.heading > * > *, .details > *{
+    margin: none;
+    padding: none;
+    text-align: left;
+}
+
+.details{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    /* background-color: black; */
+}
+
+.heading > h4{
+    font-weight: bolder;
+}
+
+
 hr{
     width: 70%;
 }
@@ -54,7 +106,9 @@ input[type = 'button']:hover{
     margin: 2rem;
 }
 
-
+.horizontal{
+    width: 100%;
+}
 
 .loginLink{
     text-decoration: none;
@@ -89,4 +143,8 @@ input[type = 'button']:hover{
 h2{
     margin: none;
     padding: none;
+}
+
+.profileImage{
+    border-radius: 50%;
 }

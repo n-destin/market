@@ -15,14 +15,8 @@ const Navigation = (props) =>{
     const IconsToRender = Object.keys(iconsNavigations).map(iconKey=>{
         return <Icon name = 'name' icon = {iconsNavigations[iconKey]} action = {iconKey}/>
     })
-
-
-    console.log(props.className);
-
-
-
     return  (
-        <div className={props.className}>
+        <div className='navigationBar'>
             <div className="iconbar">
                 <div className="logo">
                     <Link to = "/" className="link">The Dartmouth Market</Link>

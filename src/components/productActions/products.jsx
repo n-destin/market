@@ -5,6 +5,7 @@ import { getProducts } from "../../actions/productActions";
 // import { getProducts } from "../../actions/productActions";
 import Product from "../product";
 import '../index.css'
+import Navigation from "../navigation/navigation";
 
 function Products (){
 
@@ -20,6 +21,7 @@ function Products (){
 
     return(
         <div className="productContainer">
+            <Navigation />
             {(products)? products.map(product=>{ return <Product id = {product._id}content = {product} />}) : 'No products Yet'}
         </div>
     )

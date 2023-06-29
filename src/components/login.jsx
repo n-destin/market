@@ -17,9 +17,6 @@ const SignUp = (props) =>{
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const [login, setLogin] = useState(true);
-    
-
-    useEffect(()=>{props.hideNav();}, [])
 
     const setMail = (event) =>{
         setEmail(event.target.value);
