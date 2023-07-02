@@ -22,6 +22,7 @@
 .accountCard{
     width: 60%;
     height: 60%;
+    margin-bottom: 10rem;
 }
 
 
@@ -102,6 +103,8 @@ span{
 
 .head_content{
     font-weight: bolder;
+    margin: 1rem 0 0 0;
+    color: green;
 }
 
 
@@ -171,11 +174,12 @@ h2{
 
 .horizontaldetail{
     width: 100%;
-    margin-bottom: 3rem;
+    margin-bottom: 1rem;
 }
 
 .account_nativation{
     background-color: white;
+    position: block;
     padding: 1.2rem;
     display: flex;
     flex-direction: row;

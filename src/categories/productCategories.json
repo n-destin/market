@@ -1,0 +1,12 @@
+{
+    "Orders" : "orders",
+    "Quick Deals" : "deals",
+    "Electronics": "Electronics",
+    "Sports & Leisure" : "sports",
+    "Fashion & Accessories" : "fashion",
+    "Art & Collectibles ": "art" ,
+    "Automotive": "automotive",
+    "Community": "Free & Donations",
+    "Men" : "men",
+    "Women" : "women"
+}

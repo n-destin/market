@@ -1,0 +1,7 @@
+
+{
+    "Inbox" : "messages", 
+    "Donate": "donation", 
+    "Sell" : "tradein", "Account": "account", 
+    "Cart" : "cart"
+}

@@ -35,7 +35,7 @@ export function createProduct(productFields){
     return (navigate)=>{
         console.log('reached in the navigate function');
         try {
-            axios.post(`${ROOT_URL}createProduct`, (productFields), {headers : {'authorizations' : localStorage.getItem('userToken')}}).then(response=>{
+            axios.post(`${ROOT_URL}createProduct`, (productFields), {headers : {'authorization' : localStorage.getItem('userToken')}}).then(response=>{
                 if(response){
                     navigate('/')
                 }

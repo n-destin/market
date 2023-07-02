@@ -8,7 +8,7 @@ const Icon = (props)=>{
         <div className="icon">
             <Link className="linking" to={`/${props.action}`}> 
             <img src={props.icon} alt = {`${props.name}-icon`} />
-            <p>{props.action}</p></Link>
+            <p>{props.title}</p></Link>
         </div>
     )
 }

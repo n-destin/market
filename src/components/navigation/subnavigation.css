@@ -1,6 +1,5 @@
-.subnavigation, .right, .left{
+.subnavigation, .right{
     display: flex;
-    flex-direction: row;
 }
 
 img.menu-image{
@@ -10,7 +9,7 @@ img.menu-image{
 .sub-link{
     text-decoration: none;
     font-size: large;
-    margin: 0 1.5rem 0 1.5rem;
+    margin: 0 2.3rem 0 2.3rem;
     color: green;
 }
 

@@ -11,7 +11,7 @@ import ProductPage from "./productActions/productPart";
 import Cart from "./cart";
 import { useState } from "react";
 import Account from "./personal/account";
-
+import ChatRoom from "./personal/chatRoom";
 function App (props){
 
     const [displayNav, setDisplayNav] = useState(true);
@@ -28,9 +28,9 @@ function App (props){
             <Routes>
                 <Route path="/products/:id" element ={<ProductPage/>}/>
                 <Route  path="/" element = {<Products/>} />
-                <Route path="/Account" element = {<Account />}/>
-                    <Route path="/messages" element = {''}/>
-                <Route path="/Cart" element ={<Cart />}/>
+                <Route path="/account" element = {<Account />}/>
+                <Route path="account/messages" element = {<ChatRoom />}/>
+                <Route path="account/Cart" element ={<Cart />}/>
                 <Route path="/login" element ={<Login />} />
                 <Route path="/signup" element ={<SingUp/>} />
                 <Route path ="/chat" element ={<Chat/>}/>

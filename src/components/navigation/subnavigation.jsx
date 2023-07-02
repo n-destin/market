@@ -3,15 +3,15 @@ import { useState } from "react";
 import menu from '../../images/menu.png'
 import { Link } from "react-router-dom";
 import './subnavigation.css'
+import productCategories from '../../categories/productCategories.json'
 
 const Subnavigation = (props)=>{
 
-    const right = [ 'orders', 'deals', 'Electronics', 'Sports & Leisure', 'Fashion & Accessories', 'Art & Collectibles', 'Automotive', 'Community', 'Free & Donations', 'men', 'women',
-].map(element =>{
-        return (<Link to={`${element}`} className ="sub-link">{(element === 'men')? 'For men' : (element === 'women')? 'For women': (element === 'orders')? 'Your Orders': (element === 'deals')? 'Quick Deals' :  element}</Link>)
+    const right = Object.keys(productCategories).map(element =>{
+        return (<Link to={`${productCategories[element]}`} className ="sub-link">{element}</Link>)
     })
 
-
+    console.log(productCategories);
 
     return(
         <div className='subnavigation'>

@@ -1,0 +1,190 @@
+.chatting_session, .message_heading{
+    display: flex;
+    flex-direction: row;
+}
+
+.chat-room{
+    background-color: white;
+}
+
+.message_heading img{
+    height: 1.5rem;
+    margin-right: 1.2rem;
+}
+.nothingHolderselected{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 60vh;
+    
+}
+.message_heading img:hover{
+    cursor: pointer;
+}
+img.folderImage{
+    height: 14rem;
+    margin-top: 14rem;
+}
+hr{
+    width: 100%;
+    margin: none;
+    padding: none;
+}
+.searching{
+    width: 100%;
+    display: flex;
+    /* justify-content: space-between; */
+}
+.message_heading{
+    width: 20vw;
+    display: flex;
+    flex-direction: column;
+}
+.message_heading input{
+    margin: 1rem;
+    width: 100%;
+    height: 2rem;
+    margin-bottom: 0;
+    border-radius: 10px;
+    border: none;
+    padding: 0 0 0 2rem;
+}
+
+img.drive-icon{
+    margin-top: 1.2rem;
+}
+
+.chat-sessions{
+    width: 80vw;
+    background-color: #EFF5EE;
+}
+.person{
+    display: flex;
+    flex-direction: row;
+}
+
+.person img.person-image{
+    border-radius: 50%;
+    height: 2rem;
+}
+
+.input-area{
+    margin-bottom: 0rem;
+    display: flex;
+    flex-direction: row;
+}
+
+.chatting_session{
+    position: fixed;
+}
+
+.classifiers{
+    margin: 0 0 0 3rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.sectionOne{
+    display: flex;
+    flex-direction: row;
+    
+}
+
+.classifiers h4{
+    margin: 0;
+    padding: none;
+    margin-right: 1rem;
+}
+
+.classifiers > *:hover {
+    cursor: pointer;
+}
+
+.messaging-people{
+    height: 94vh;
+    border-right: 1px solid rgb(181, 180, 180);
+    background-color: #EFF5EE;
+}
+
+
+.chat-window{
+    height: 80vh;
+}
+
+.activeChatPerson{
+    height: 5rem;
+}
+
+
+.input-area{
+    width: 100%;
+}
+
+.input-area input{
+    width: 60%;border-radius: 17px;
+    padding: 0 0 0 4rem;
+    border: none;
+    height: 2.5rem;
+    margin-bottom: 2rem;
+    margin: 0 3rem 0 9rem;
+    border: 1px solid green;
+}
+
+.input-area button{
+    height: 2.5rem;
+    width: 6rem;
+    background-color: white;
+    border: 1px solid green;
+    border-radius: 12px;
+}
+
+.input-area button:hover{
+    cursor: pointer;
+    background-color: rgb(250, 250, 250);
+    transition: 200ms;
+}
+
+.welcomingMessage{
+    font-size: 1.7rem;
+    font-weight: 30rem;
+}
+
+.displayNoneInputClass{
+    display: none;
+}
+
+.SelectionDisplay{
+    color: green;
+    padding-bottom: 1rem;
+    text-decoration: solid;
+}
+
+.peopleContainer img{
+    margin-top: 20rem;
+    height: 3rem;
+}
+
+.peopleContainer{
+    text-align: center;
+    justify-content: center;
+}
+
+.Buyer{
+    background-color: green;
+    color: white;
+    width: 39%;
+    margin-left: 53rem;
+    height: 3rem;
+    padding: 0.2rem 0rem 0.2rem 1.2rem;
+    border-radius: 5px;
+}
+
+.Seller {
+    background-color: white;
+    color: green;
+    height: 3rem;
+    padding: 0.2rem 0rem 0.2rem 1.2rem;
+    border-radius: 10px;
+}

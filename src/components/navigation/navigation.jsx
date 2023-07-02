@@ -11,9 +11,29 @@ import Subnavigation from "./subnavigation";
 import { useState } from "react";
 
 const Navigation = (props) =>{
-    let iconsNavigations = {'Inbox' : inbox, "Donate": donation, "Sell" : tradein, "Account": account, "Cart" : cart}
-    const IconsToRender = Object.keys(iconsNavigations).map(iconKey=>{
-        return <Icon name = 'name' icon = {iconsNavigations[iconKey]} action = {iconKey}/>
+    let iconsNavigations = {' My messages' : inbox, "Donate": donation, "Sell" : tradein, "Account": account, "Cart" : cart}
+
+    const iconsNavigation = {
+        "My messages" : {
+            "account/messages" : inbox
+        },
+        "Donate" : {
+            "donation" : donation,
+        },
+        "Sell" : {
+            "sell" : tradein
+        },
+        "My account" : {
+            "account" : account
+        },
+        "Cart" : {
+            "account/cart" : cart
+        }
+    }
+
+    const IconsToRender = Object.keys(iconsNavigation).map(iconKey=>{
+        console.log(Object.keys(iconsNavigation[iconKey])[0]);
+        return <Icon name = 'name' icon = {iconsNavigation[iconKey][Object.keys(iconsNavigation[iconKey])[0]]} action = {Object.keys(iconsNavigation[iconKey])[0]} title = {iconKey}/>
     })
     return  (
         <div className='navigationBar'>

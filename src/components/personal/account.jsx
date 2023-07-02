@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import profileHolder from '../../images/profileHolder.jpeg'
+import AccountNavigation from "./accountNavigation";
 
 const Account = (props)=>{
 
@@ -14,30 +15,24 @@ const Account = (props)=>{
             "My profile" : function(){},
             "Upload profile picture" : function(){},
             "Email preferences" : function(){},
-            "Privavy settings" : function(){}
+            "Browsing History": function(){},
+            "Request My information" : function(){},
+            "Privavy settings" : function(){},
         },
         "Security information ": {
             'Change email adress' : function(){console.log('something to be called');},
             'Change Password' : function(password){console.log(password)},
             'Set security Questions ' : function(){console.log('setting security questions');},
             'Manage verifications Phones'  :  function(){console.log('managing phones');},
-            'Manage connected accounts' : function(){console.log('managing account');}
+            'Manage connected accounts' : function(){console.log('managing account');},
+            "Close your account" : function(){}
+            
         },
         "Finance information" : {
-            "My transactions" : function(){}
+            "My transactions" : function(){},
+            "Logistics" : function(){},
+            "Payment Methods" : function(){}
         }
-    }
-
-    const AccountNavigation = (props)=>{
-        return(
-            <div className="account_nativation">
-                <Link to={`/`} className = "accountLinks">The Dartmouth market</Link>
-                <div className="rightLinks">
-                    <Link to={`/Account/messages`}  className = "accountLinks">Messasges</Link>
-                    <Link to={`Account/trading_index `}  className = "accountLinks">My trading dashboard</Link>
-                </div>
-            </div>
-        )
     }
     // console.log(personalLinksFunctions);
 
