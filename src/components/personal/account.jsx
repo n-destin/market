@@ -54,7 +54,10 @@ const Account = (props)=>{
 
     return(
         <div>
-            <AccountNavigation />
+            <AccountNavigation navContent = {{
+                "Messages" : 'messages',
+                "My trading dashboard" : "account/trading_index"
+            }}/>
             <div className="accountPage">
                 <div className="accountCard">
                     <div className="heading">

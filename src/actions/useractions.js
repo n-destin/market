@@ -5,7 +5,9 @@ export const ActionsType = {
     DELETE_ACCOUNT : 'DELETE_ACCOUNT',
     AUTHENTICATE_USER : 'AUTHENTICATE_USER',
     DEAUTHENTICATE_USER : 'DEAUTHENTICATE_USER',
-    AUTHENTICATION_ERROR : 'AUTHENTICATION_ERROR'
+    AUTHENTICATION_ERROR : 'AUTHENTICATION_ERROR',
+    GET_CONVERSATIONS : 'GET_CHAT_PERSONS',
+    GET_MESSAGES : 'GET_MESSAGES'
 }
 
 export function createAccount(userInfo){
@@ -48,3 +50,37 @@ export function SignIn(Email, Password){
         }
     }
 }
+
+
+export function getConversations(userId){
+    return(dispatch)=>{
+        axios.get(`${ROOT_URL}getPersons/${userId}`).then(response=>{
+            if(response){
+                dispatch({
+                    type: ActionsType.GET_CONVERSATIONS,
+                    payload : response.data // This is a and object of maps ({{person->{firstName : firstName, LastName : LastName, image}, conversatio ->conversationId}})
+                })
+            }
+        })
+    }
+}
+
+// get messages
+export function getChatMessages(conversationId){
+    return (dispatch)=>{
+        axios.get(`${ROOT_URL}getMessages/${conversationId}`).then(response=>{
+            if(response){
+                dispatch(
+                    {
+                        type: ActionsType.GET_MESSAGES,
+                        payload: response.data
+                    }
+                )
+            }
+        })
+    }
+}
+
+
+
+

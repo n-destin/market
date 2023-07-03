@@ -7,17 +7,53 @@ import filter from '../../images/filter.png'
 import drive from '../../images/drive.png'
 import folder from  '../../images/folder.png'
 import welcome from '../../images/comment.png'
+import { getConversations, ROOT_URL } from '../../actions/useractions';
+import { useDispatch, useSelector } from 'react-redux';
+import { getChatMessages } from '../../actions/useractions';
+import {io} from 'socket.io-client'
 
 const ChatRoom = () => {
-  const [messages, setMessages] = useState([{id: 'djfnsdkfn', text : 'this is a dummy text man', timestamp : '123'}]);
+  const [messages, setMessages] = useState();
   const [input, setInput] = useState('');
-  const [people, setPeople] = useState();
+  const [converstations, setConversations] = useState();
   const [selected, setSelected ] = useState();
   const [inputClass, setinputClass] = useState('input-area')
   const [allClass, setAllClass] = useState('SelectionDisplay');
   const [unreadClass, setUnreadClass] = useState('unSelectDisplay');
   const [selectedDisplay, setSelectedDisplay] = useState('All');
   const [messageClass, setMessageClass] = useState('Buyer')
+  const [currentRoom, setCurrentRoom] = useState();
+
+
+
+  // connecting to socket.io server
+  const socket = io(ROOT_URL)
+  
+  socket.on('connect', async()=>{
+    // update the user about the current messages in the room
+    console.log('socket connected');
+  })
+
+  const dispatch = useDispatch();
+
+  const handleSelection = (conversationId)=>{
+    setSelected(conversationId);
+    setCurrentRoom(conversationId);
+    // set the current room to the clicked channel thing
+    useEffect(()=>{
+        dispatch(getChatMessages(conversationId));
+    }, []);
+  }
+
+  const MessagePerson = (props)=>{
+    return(
+        <div className="person" onClick={()=>{handleSelection(props.conversationId)}}>
+            <img src={props.image} alt={`${props.name}-image`} className = 'person-image'/>
+            <p>{props.firstaName}</p>
+            <p>{props.lastName}</p>
+        </div>
+    )
+  }
 
   const handleInputChange = (e) => {
     setInput(e.target.value);
@@ -33,51 +69,57 @@ const ChatRoom = () => {
 
   const Handler = (props)=>{
     if(props.name === 'persons'){
+        // get the conversations from the redux store
+        const reducerConverstions = useSelector(store=> {return store.conversations});
+        (reducerConverstions) ? setConversations(reducerConverstions): console.log('There are no conversations from the reducer yet');
         return(
             <div>
-            {(!people)? <div className='peopleContainer'>
+            {(!converstations)? <div className='peopleContainer'>
                 <img src={props.image} alt="another-image"  className='personsImage'/>
                 {console.log(props.image)}
                 <p>No messages yet</p>
-            </div> : <div></div>}
+            </div> : converstations.map(conversation=>{
+                // joing socket rooms 
+                socket.emit('join_room', conversation.id)
+                const image = conversation.person.image;
+                const firstName = conversation.person.firstName;
+                const lastName = conversation.person.lastName;
+                const conversationId = conversation.person.conversation;
+                return <MessagePerson firstName = {firstName} lastName = {lastName} conversationId = {conversationId} image = {image}/>
+            })
+            }
         </div> 
         )
     }else{
-        return(
-            <div>
-        {
-            (!selected)? <div className='nothingHolderselected'>
-                {setinputClass('displayNoneInputClass')}
-                <img src={props.image} alt="none-selected-image" className='folderImage'/>
-                <p className='welcomingMessage'>Welcome to the messaging center</p>
-            </div> : (messages.map((message) => (
-                    <div key={message.id} className="message">
-                        {/* making the message sender displayable */}
-                        {/* {console.log(localStorage.getItem('userToken'))} */}
-                        {setinputClass('input-area')} 
-                        { 
-                        // get the uid, it is throwing the error because there is no userToken sent to the person. Echange the buyer and seller classNames ... 
-                            (message.sender === localStorage.getItem('userToken'))? setMessageClass("Buyer"): setMessageClass("Buyer")
-                        }
-                        <Message  className = {messageClass} messageContent = {message.text}/>
-                    </div>
-                    )))
+        if(!selected){
+            return(
+                <div className='nothingHolderselected'>
+                    {setinputClass('displayNoneInputClass')}
+                    <img src={props.image} alt="none-selected-image" className='folderImage'/>
+                    <p className='welcomingMessage'>Welcome to the messaging center</p>
+                </div>
+            )
+        } else{
+            // get the messages from the reducer 
+            const messagesFromReducer = useSelector(store=>{return store.messages})
+            setMessages(messagesFromReducer)
+            return(
+                <div>
+                   { messages.map((message) => {
+                    // some of the unclear code here
+                        setinputClass('input-area')
+                        (message.sender === localStorage.getItem('userToken'))? setMessageClass("Buyer"): setMessageClass("Buyer")
+                    return  <Message  className = {messageClass} messageContent = {message.text}/>
+                   })
+            }
+                </div>
+            )
         }
-    </div>
-        )
-    }
+}
     
   }
   
-  const MessagePerson = (props)=>{
-    return(
-        <div className="person" onClick={setSelected(props.id)}>
-            <img src={props.image} alt={`${props.name}-image`} className = 'person-image'/>
-            <p>{props.name}</p>
-        </div>
-    )
-  }
-
+  // remember fetching the people according to the selected Option
 
   const interChangeonAll = ()=>{
     const temp = allClass;
@@ -94,17 +136,28 @@ const ChatRoom = () => {
 
 
 
+  // getting the conversations
+  useEffect(()=>{
+    const userId  = localStorage.getItem('userToken').uid;
+        dispatch(getConversations(userId));
+  }, [])
+
+  // end of getting the conversatins
+
 
   const handleSendMessage = () => {
     if (input.trim() !== '') {
       const newMessage = {
         id: messages.length + 1,
-        Sender : 'Buyer',
+        Sender : localStorage.getItem('userToken').uid,
         text: input.trim(),
         timestamp: new Date().toDateString()
       };
-      setMessages([...messages, newMessage]);
-      setInput('');
+      // is should be the socket.io thing here though 
+      socket.emit('new_message', newMessage, currentRoom, (message)=>{
+        setMessages([...messages, message]);
+        setInput('');
+      })
     }
   };
 
