@@ -34,7 +34,6 @@ const Account = (props)=>{
             "Payment Methods" : function(){}
         }
     }
-    // console.log(personalLinksFunctions);
 
     const returnComponents = Object.keys(personalLinksFunctions).map(key=>{
         return (

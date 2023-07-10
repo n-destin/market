@@ -97,5 +97,5 @@ export function getRelated(category){
 
 
 export function getCart(){
-
+    
 }

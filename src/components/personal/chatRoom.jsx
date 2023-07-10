@@ -13,7 +13,8 @@ import { getChatMessages } from '../../actions/useractions';
 import {io} from 'socket.io-client'
 
 const ChatRoom = () => {
-  const [messages, setMessages] = useState();
+
+  const [messages, setMessages] = useState([{text :'some dummy text here'}, [{}]]);
   const [input, setInput] = useState('');
   const [converstations, setConversations] = useState();
   const [selected, setSelected ] = useState();
@@ -101,13 +102,14 @@ const ChatRoom = () => {
             )
         } else{
             // get the messages from the reducer 
-            const messagesFromReducer = useSelector(store=>{return store.messages})
-            setMessages(messagesFromReducer)
+            // const messagesFromReducer = useSelector(store=>{return store.messages})
+            // setMessages(messagesFromReducer)
+            setinputClass('input-area')
             return(
                 <div>
+                    
                    { messages.map((message) => {
                     // some of the unclear code here
-                        setinputClass('input-area')
                         (message.sender === localStorage.getItem('userToken'))? setMessageClass("Buyer"): setMessageClass("Buyer")
                     return  <Message  className = {messageClass} messageContent = {message.text}/>
                    })
@@ -138,7 +140,7 @@ const ChatRoom = () => {
 
   // getting the conversations
   useEffect(()=>{
-    const userId  = localStorage.getItem('userToken').uid;
+    const userId  = localStorage.getItem('userToken');
         dispatch(getConversations(userId));
   }, [])
 
@@ -149,7 +151,7 @@ const ChatRoom = () => {
     if (input.trim() !== '') {
       const newMessage = {
         id: messages.length + 1,
-        Sender : localStorage.getItem('userToken').uid,
+        Sender : localStorage.getItem('userToken'),
         text: input.trim(),
         timestamp: new Date().toDateString()
       };
