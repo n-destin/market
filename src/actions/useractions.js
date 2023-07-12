@@ -65,21 +65,21 @@ export function getConversations(userId){
     }
 }
 
-// get messages
-export function getChatMessages(conversationId){
-    return (dispatch)=>{
-        axios.get(`${ROOT_URL}getMessages/${conversationId}`).then(response=>{
-            if(response){
-                dispatch(
-                    {
-                        type: ActionsType.GET_MESSAGES,
-                        payload: response.data
-                    }
-                )
-            }
-        })
-    }
-}
+// get messages I don't need this
+// export function getChatMessages(conversationId){
+//     return (dispatch)=>{
+//         axios.get(`${ROOT_URL}getMessages/${conversationId}`).then(response=>{
+//             if(response){
+//                 dispatch(
+//                     {
+//                         type: ActionsType.GET_MESSAGES,
+//                         payload: response.data
+//                     }
+//                 )
+//             }
+//         })
+//     }
+// }
 
 
 

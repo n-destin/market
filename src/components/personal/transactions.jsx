@@ -6,7 +6,7 @@ function TransactionDashboard() {
   // Function to fetch transactions from an API
   const fetchTransactions = () => {
     // Fetch transaction data from an API
-    fetch('https://api.example.com/transactions')
+    fetch('https://localhost:9000/transactions')
       .then(response => response.json())
       .then(data => {
         setTransactions(data);

@@ -12,6 +12,7 @@ import Cart from "./cart";
 import { useState } from "react";
 import Account from "./personal/account";
 import ChatRoom from "./personal/chatRoom";
+import TransactionDashboard from "./personal/transactions";
 
 function App (props){
 
@@ -36,6 +37,7 @@ function App (props){
                 <Route path="/signup" element ={<SingUp/>} />
                 <Route path ="/chat" element ={<Chat/>}/>
                 <Route path="/Sell" element ={<CreateProduct/>}/>
+                <Route path="/transactions" element ={<TransactionDashboard />}/>
             </Routes>
         </BrowserRouter>
     )

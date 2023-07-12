@@ -16,7 +16,7 @@ const ChatRoom = () => {
 
   const [messages, setMessages] = useState([{text :'some dummy text here'}, [{}]]);
   const [input, setInput] = useState('');
-  const [converstations, setConversations] = useState();
+  const [conversations, setConversations] = useState();
   const [selected, setSelected ] = useState();
   const [inputClass, setinputClass] = useState('input-area')
   const [allClass, setAllClass] = useState('SelectionDisplay');
@@ -29,7 +29,7 @@ const ChatRoom = () => {
 
   // connecting to socket.io server
   const socket = io(ROOT_URL)
-  
+   
   socket.on('connect', async()=>{
     // update the user about the current messages in the room
     console.log('socket connected');
@@ -38,17 +38,15 @@ const ChatRoom = () => {
   const dispatch = useDispatch();
 
   const handleSelection = (conversationId)=>{
+    setMessages(conversations[conversationId][messsageObject]);
     setSelected(conversationId);
     setCurrentRoom(conversationId);
-    // set the current room to the clicked channel thing
-    useEffect(()=>{
-        dispatch(getChatMessages(conversationId));
-    }, []);
   }
 
   const MessagePerson = (props)=>{
     return(
-        <div className="person" onClick={()=>{handleSelection(props.conversationId)}}>
+      // when clicked set the image to the id of the conversation
+        <div className="person" onClick={()=>{handleSelection(props.conversationId)}}> 
             <img src={props.image} alt={`${props.name}-image`} className = 'person-image'/>
             <p>{props.firstaName}</p>
             <p>{props.lastName}</p>
@@ -68,25 +66,20 @@ const ChatRoom = () => {
     )
   }
 
-  const Handler = (props)=>{
+const Handler = (props)=>{
     if(props.name === 'persons'){
         // get the conversations from the redux store
         const reducerConverstions = useSelector(store=> {return store.conversations});
         (reducerConverstions) ? setConversations(reducerConverstions): console.log('There are no conversations from the reducer yet');
         return(
             <div>
-            {(!converstations)? <div className='peopleContainer'>
+            {(!conversations)? <div className='peopleContainer'>
                 <img src={props.image} alt="another-image"  className='personsImage'/>
                 {console.log(props.image)}
                 <p>No messages yet</p>
-            </div> : converstations.map(conversation=>{
-                // joing socket rooms 
+            </div> : conversations.map(conversation=>{
                 socket.emit('join_room', conversation.id)
-                const image = conversation.person.image;
-                const firstName = conversation.person.firstName;
-                const lastName = conversation.person.lastName;
-                const conversationId = conversation.person.conversation;
-                return <MessagePerson firstName = {firstName} lastName = {lastName} conversationId = {conversationId} image = {image}/>
+                return <MessagePerson firstName = {conversation.person.firstName} lastName = {conversation.person.lastName} conversationId = {conversation.person.conversation} image = {conversation.person.image}/>
             })
             }
         </div> 
@@ -107,10 +100,9 @@ const ChatRoom = () => {
             setinputClass('input-area')
             return(
                 <div>
-                    
                    { messages.map((message) => {
                     // some of the unclear code here
-                        (message.sender === localStorage.getItem('userToken'))? setMessageClass("Buyer"): setMessageClass("Buyer")
+                        (message.sender === localStorage.getItem('userToken'))? setMessageClass("mine"): setMessageClass("yours") // reme,mnber inserting uid on the localStorage
                     return  <Message  className = {messageClass} messageContent = {message.text}/>
                    })
             }
@@ -119,7 +111,7 @@ const ChatRoom = () => {
         }
 }
     
-  }
+}
   
   // remember fetching the people according to the selected Option
 
