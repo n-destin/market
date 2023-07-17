@@ -13,6 +13,7 @@ import { useState } from "react";
 import Account from "./personal/account";
 import ChatRoom from "./personal/chatRoom";
 import TransactionDashboard from "./personal/transactions";
+import ContactSupportPage from "./productActions/support";
 
 function App (props){
 
@@ -35,6 +36,7 @@ function App (props){
                 <Route path="account/Cart" element ={<Cart />}/>
                 <Route path="/login" element ={<Login />} />
                 <Route path="/signup" element ={<SingUp/>} />
+                <Route path="/support" element = {<ContactSupportPage />}/>
                 <Route path ="/chat" element ={<Chat/>}/>
                 <Route path="/sell" element ={<CreateProduct/>}/>
                 <Route path="/transactions" element ={<TransactionDashboard />}/>
