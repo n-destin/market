@@ -7,8 +7,8 @@ import Login from "./Login";
 import SingUp from "./craeteAccount";
 import Chat from "./chat/chat";
 import CreateProduct from "./productActions/createProduct";
-import ProductPage from "./productActions/productPart";
-import Cart from "./cart";
+import ProductPage from "./productActions/productPage";
+import Cart from "./productActions/cart";
 import { useState } from "react";
 import Account from "./personal/account";
 import ChatRoom from "./personal/chatRoom";
@@ -36,7 +36,7 @@ function App (props){
                 <Route path="/login" element ={<Login />} />
                 <Route path="/signup" element ={<SingUp/>} />
                 <Route path ="/chat" element ={<Chat/>}/>
-                <Route path="/Sell" element ={<CreateProduct/>}/>
+                <Route path="/sell" element ={<CreateProduct/>}/>
                 <Route path="/transactions" element ={<TransactionDashboard />}/>
             </Routes>
         </BrowserRouter>

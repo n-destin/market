@@ -70,7 +70,7 @@ export function addtoCart(userId, productId){
                 if(response){
                     cartNumber++;
                     dispatch({
-                        type: productActions.GET_CART,
+                        type: productActions.GET_CART, // get the products for the card
                         payload: response.data
                     })
                 }

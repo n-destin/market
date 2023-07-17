@@ -7,8 +7,8 @@ import productCategories from '../../categories/productCategories.json'
 
 const Subnavigation = (props)=>{
 
-    const right = Object.keys(productCategories).map(element =>{
-        return (<Link to={`${productCategories[element]}`} className ="sub-link">{element}</Link>)
+    const links = Object.keys(productCategories).map(element =>{
+        return (<Link to={`${productCategories[element]}`} className ="sub-link"><p className="subLink">{element}</p></Link>)
     })
 
     console.log(productCategories);
@@ -17,7 +17,7 @@ const Subnavigation = (props)=>{
         <div className='subnavigation'>
             <div className="right">
                 <img src={menu} alt="menu-icon" className="menu-image"/>
-                {right}
+                {links}
             </div>
         </div>
     )

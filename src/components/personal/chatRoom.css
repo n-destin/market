@@ -4,7 +4,7 @@
 }
 
 .chat-room{
-    background-color: white;
+    background-color: #EFF5EE;
 }
 
 .message_heading img{
@@ -57,7 +57,7 @@ img.drive-icon{
 
 .chat-sessions{
     width: 80vw;
-    background-color: #EFF5EE;
+    background-color: white;
 }
 .person{
     display: flex;
@@ -104,8 +104,8 @@ img.drive-icon{
 
 .messaging-people{
     height: 94vh;
-    border-right: 1px solid rgb(181, 180, 180);
-    background-color: #EFF5EE;
+    border-right: .21px solid rgb(181, 180, 180);
+    background-color: white;
 }
 
 
@@ -187,4 +187,8 @@ img.drive-icon{
     height: 3rem;
     padding: 0.2rem 0rem 0.2rem 1.2rem;
     border-radius: 10px;
+}
+
+.sectionTwo{
+    
 }

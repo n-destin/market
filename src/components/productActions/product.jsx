@@ -1,9 +1,9 @@
 import React from "react";
 import './product.css'
-import conversation from '../images/conversation.png'
+import conversation from '../../images/conversation.png'
 import { useNavigate, useParams } from "react-router";
 import { useEffect } from "react";
-import { getProduct } from "../actions/productActions";
+import { getProduct } from "../../actions/productActions";
 import { useDispatch } from "react-redux";
 const Product  = (props) =>{
 
@@ -25,6 +25,7 @@ const Product  = (props) =>{
 
     return(
         <div>
+            
             {console.log(props.content)}
             <div className="product" onClick={()=>{navigate(`products/${id}`)}}  >
                 <img src={props.content.Image} alt="product-image" />

@@ -5,16 +5,19 @@ import cart from '../../images/cart.png'
 import donation from '../../images/donation.png'
 import tradein from '../../images/sell.png'
 import account from '../../images/account.png'
-import { Link } from "react-router-dom";
+import support from '../../images/support.png'
+import { Link, useNavigate } from "react-router-dom";
 import Icon from "../../components/icon";
 import Subnavigation from "./subnavigation";
 import { useState } from "react";
 
 const Navigation = (props) =>{
     let iconsNavigations = {' My messages' : inbox, "Donate": donation, "Sell" : tradein, "Account": account, "Cart" : cart}
+    const [person, setPerson ] = useState();
 
+    const navigate  = useNavigate();
     const iconsNavigation = {
-        "My messages" : {
+        "Inbox" : {
             "account/messages" : inbox
         },
         "Donate" : {
@@ -23,11 +26,35 @@ const Navigation = (props) =>{
         "Sell" : {
             "sell" : tradein
         },
-        "My account" : {
-            "account" : account
+        "Support" : {
+            "support" : support
         },
         "Cart" : {
             "account/cart" : cart
+        }
+    }
+
+    const SignInHandler = ()=>{
+        if(localStorage.getItem('userToken')){
+            console.log('hrer');
+            return(
+                <div className="loggedIn" onClick={()=>{navigate('/account')}}>
+                    <p>Hello</p>
+                    <h3>{person.firstName}</h3>
+                </div>
+            )
+        } else{
+            return(
+                <div className="notLoggedIn" onClick={()=>{
+                    navigate('/account');
+                }}>
+                    <img src={account} alt="" className="account-image"/>
+                    <div className="navBeside">
+                        <p>Sign in / Register</p>
+                        <h3>Account & Orders</h3>
+                    </div>
+                </div>
+            )
         }
     }
 
@@ -36,20 +63,19 @@ const Navigation = (props) =>{
         return <Icon name = 'name' icon = {iconsNavigation[iconKey][Object.keys(iconsNavigation[iconKey])[0]]} action = {Object.keys(iconsNavigation[iconKey])[0]} title = {iconKey}/>
     })
     return  (
-        <div className='navigationBar'>
+        <div className='navigationBar bg-lime-800 flex flex-row'>
             <div className="iconbar">
                 <div className="logo">
                     <Link to = "/" className="linking">The Dartmouth Market</Link>
                 </div>
-                    <div className="searchinput">
-                    <input type="text" className="overflow-y-auto p-4 bg-white rounded-lg shadow-lg backdrop-filter backdrop-blur-lg bg-opacity-30 mt-5 ml-5 mr-5 blur-gradient max-w-[50vw]" />
+                <SignInHandler />
+                <div className="searchDiv">
+                    <input type="text" className="searchBar" />
+                    <button className="searchButton"><i className="fa fa-search"></i></button>
                 </div>
                 <div className="icons">
                     {IconsToRender}
                 </div>
-            </div>
-            <div className="classification">
-                
             </div>
             <Subnavigation />
         </div>

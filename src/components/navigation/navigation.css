@@ -14,14 +14,22 @@
     /* justify-content: space-around; */
 }
 
+
+
 ul{
     text-decoration: none;
 }
 
-.iconbar > div{
-    padding: 1.5rem;
+
+.searchDiv{
+    margin: 0;
+    padding: 0;
 }
 
+.searchBar{
+    margin: 1rem 0 1rem 1rem;
+    border-radius: .3rem 0 0 .3rem;
+}
 
 Link{
     text-decoration: none;
@@ -32,38 +40,99 @@ Link{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    padding: 1.5rem;
+    align-self: center;
+    /* margin-bottom: 1rem */
+    ;
 }
 .icon{
-    padding: 0 2rem 0 2rem ; 
+    padding: 0 1rem 0 1rem ; 
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    align-items: center;
 }
 
 
 .iconbar > .logo{
-    padding-right: 5rem;
-    font-size: 1.7rem;
+    margin: none;
+    font-size: 1.2rem;
+    margin-top: -0.7rem;
+    padding: 2.2rem 1.5rem 1.5rem 1.5rem;
+    align-self: center;
 }
 
 .linking {
+    height: 100%;
     color: white;
     text-decoration: none;
 }
-
+i{
+    color: rgb(29, 65, 29);
+}
 .linking :hover{
     color: rgb(199, 203, 207);
 }
 
 .icon p{
-    margin-top: .2rem;
-    text-align: left;
+    font-size: .85rem;
+    justify-self: center;
 }
 
 .icon img{
-    /* border-radius: 40%; */
-    height: 1.3rem;
+    height: 1.1rem;
+    margin-left: 20%;
 }
 
-.iconbar  input {
-    width: 40rem;
+.iconbar  input.searchBar {
+    width: 60vh;
     height: 2rem;
+    align-self: center;
     /* padding-top: 0; */
 }
+
+.searchButton{
+    width: 2.5rem;
+    background-color: #EFF5EE;
+    border-radius: 0 .3rem .3rem 0;
+    margin: 6px;
+}
+
+
+img.account-image{
+    height: 1.5rem;
+    align-self: center;
+    margin-right: 1rem;
+}
+
+.notLoggedIn{
+    display: flex;
+    flex-direction: row;
+    color: white;
+    padding: .4rem;
+    border-radius: .4rem;
+}
+
+.notLoggedIn:hover{
+
+    background-color: #0e5635;
+    cursor: pointer;
+    transition: 300ms;
+    height: 80%;
+    align-self: center;
+}
+
+.notLoggedIn p {
+    font-size: .7rem;
+}
+
+.notLoggedIn h3{
+    margin-top: -.4rem;
+}
+
+.navBeside{
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+}
+

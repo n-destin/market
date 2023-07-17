@@ -9,7 +9,7 @@ import folder from  '../../images/folder.png'
 import welcome from '../../images/comment.png'
 import { getConversations, ROOT_URL } from '../../actions/useractions';
 import { useDispatch, useSelector } from 'react-redux';
-import { getChatMessages } from '../../actions/useractions';
+// import { getChatMessages } from '../../actions/useractions';
 import {io} from 'socket.io-client'
 
 const ChatRoom = () => {

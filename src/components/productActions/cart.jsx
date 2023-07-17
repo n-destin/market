@@ -1,8 +1,8 @@
 import React from "react";
 import { useState } from "react";
 import { useSelector } from "react-redux";
-import { cartNumber } from "../actions/productActions";
-import cart from '../images/cart.jpeg'
+import { cartNumber } from "../../actions/productActions";
+import cart from '../../images/cart.jpeg'
 const Cart = (props)=>{
 
     const noContentYet =()=>{
@@ -17,11 +17,11 @@ const Cart = (props)=>{
 
     const cartElements  = useSelector((store)=> {store.cartElements});
 
-    const cartElementContainer = (props)=>{
+    const CartElementContainer = (props)=>{
         return(
             <div>
                 <hr />
-                <div className="iamge">
+                <div className="image">
                     <img src={props.content.Image} alt="cart-image-cantainer" />
                 </div>
                 <div className="description">
@@ -40,7 +40,7 @@ const Cart = (props)=>{
         return(
             <div>
                 <h3>Your Shopping Cart</h3>
-                {(cartElements)? cartElements.map(cartElement=>{return <cartElementContainer contents = {cartElement} />})  : 'an Error hapened' }
+                {(cartElements)? cartElements.map(cartElement=>{return <CartElementContainer content = {cartElement} />})  : 'an Error hapened' }
             </div>
         )
     }

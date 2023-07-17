@@ -9,7 +9,7 @@ img.menu-image{
 .sub-link{
     text-decoration: none;
     font-size: large;
-    margin: 0 2.3rem 0 2.3rem;
+    margin: 0 1.8em 0 1.8rem;
     color: green;
 }
 
@@ -20,5 +20,9 @@ img.menu-image{
 
 .subnavigation > * {
     padding: .4rem;
+}
+
+.subLink{
+    font-size: .9rem;
 }
 

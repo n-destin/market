@@ -1,5 +1,6 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Anuphan:wght@100&family=Barlow:wght@600&family=Crimson+Text&family=Montserrat&family=Quicksand:wght@300&family=Ysabeau+Office:wght@100&family=Ysabeau:wght@100&display=swap'); */
-
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 body{
     margin: 0;

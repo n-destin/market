@@ -68,7 +68,6 @@
 }
 
 .detail{
-    /* background-color: black; */
     display: flex;
     flex-direction: column;
 }
@@ -92,7 +91,6 @@ span{
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    /* background-color: black; */
 }
 
 .link{
@@ -111,9 +109,7 @@ span{
 hr{
     width: 70%;
 }
-.heading{
-    /* text-align: center; */
-}
+
 
 input[type = 'button']{
     background-color: transparent;
@@ -125,7 +121,6 @@ input[type = 'button']:hover{
 }
 .buttonLogin  {
     height: 2rem;
-    /* width: 5rem; */
     margin: 2rem;
 }
 

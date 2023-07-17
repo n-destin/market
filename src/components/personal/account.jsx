@@ -1,14 +1,14 @@
 import React from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import profileHolder from '../../images/profileHolder.jpeg'
 import AccountNavigation from "./accountNavigation";
 
 const Account = (props)=>{
 
-    const Email = 'destin.niyomufasha.26@dartmouth.edu'
-    const Profile = null;
-    const PhoneNumber = 'phone number here';
-    const userId = 'Here is a user Id mayeb'
+    // getting
+    const [Profile, setProfile] = useState();
+    const [userId, setUSerid] = useState();
 
     const personalLinksFunctions = {
         "Personal information" : {
