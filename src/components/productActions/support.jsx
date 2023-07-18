@@ -3,14 +3,19 @@ import './support.css'; // Import the CSS file for styling
 import Navigation from '../navigation/navigation';
 
 const ContactSupportPage = () => {
-  const [name, setName] = useState('');
+  const [firstName, setFirstName] = useState('');
+  const[lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
   const [id, setId] = useState('');
   const [message, setMessage] = useState('');
 
-  const handleNameChange = (event) => {
-    setName(event.target.value);
+  const handleFirstNameChange = (event) => {
+    setFirstName(event.target.value);
   };
+
+  const handleLastNameChange  = (event)=>{
+    setLastName(event.target.value)
+  }
 
   const handleEmailChange = (event) => {
     setEmail(event.target.value);
@@ -24,18 +29,32 @@ const ContactSupportPage = () => {
     setMessage(event.target.value);
   };
 
+  const inputObject = {
+    'First name' : handleFirstNameChange,
+    'Last name' : handleLastNameChange,
+    'Email' : handleEmailChange,
+    'Customer id' : handleIdChange,
+    // 'Your message' : handleMessageChange,
+  }
+
+
   const handleSubmit = (event) => {
     event.preventDefault();
     // Here you can implement the logic to send the message to your support system
-    console.log('Name:', name);
-    console.log('Email:', email);
-    console.log('ID:', id);
-    console.log('Message:', message);
-    setName('');
+    setFirstName('');
     setEmail('');
+    setLastName('');
     setId('');
     setMessage('');
   };
+
+//   const IconsToRender = Object.keys(inputObject).map(iconKey=>{
+//     // console.log(Object.keys(iconsNavigation[iconKey])[0]);
+//     return <Icon name = 'name' icon = {iconsNavigation[iconKey][Object.keys(iconsNavigation[iconKey])[0]]} action = {Object.keys(iconsNavigation[iconKey])[0]} title = {iconKey}/>
+// })
+
+  
+  // console.log(inputToReturn);
 
   return (
     <div className="contact-support">
@@ -44,51 +63,21 @@ const ContactSupportPage = () => {
       <div className="contactBody">
       <div className='text'>
         <p>
-          <h2>Have a question or need assistance? </h2>We're here to help! Please provide the following details along with your message
+          Have a question or need assistance? We're here to help! Please provide the following details along with your message
         </p>
       </div>
       <form onSubmit={handleSubmit}>
-        <label htmlFor="name">Name:</label>
-        <input
-          id="name"
-          name="name"
-          type="text"
-          value={name}
-          onChange={handleNameChange}
-          required
-        />
+        <div>
+        {Object.keys(inputObject).map(inputKey=>{
+          console.log('here');
+            return(
+              <input type="text" placeHolder = {inputKey} onChange = {inputObject[inputKey]}/>
+            )
+          })}
+        </div>
 
-        <label htmlFor="email">Email:</label>
-        <input
-          id="email"
-          name="email"
-          type="email"
-          value={email}
-          onChange={handleEmailChange}
-          required
-        />
-
-        <label htmlFor="id">ID:</label>
-        <input
-          id="id"
-          name="id"
-          type="text"
-          value={id}
-          onChange={handleIdChange}
-          required
-        />
-
-        <label htmlFor="message">Message:</label>
-        <textarea
-          id="message"
-          name="message"
-          value={message}
-          onChange={handleMessageChange}
-          rows={5}
-          cols={50}
-          required
-        />
-        <button type="submit">Send Message</button>
+        <textarea name="Message" id="" cols="30" rows="10" placeholder='message'></textarea>
+        <button type="submit" className='contactButton'>Send Message</button>
       </form>
       </div>
     </div>

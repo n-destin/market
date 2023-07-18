@@ -55,16 +55,22 @@
 .heading{
     display: flex;
     flex-direction: row;
-    height: 10rem;
-    margin-left: 5rem;
+    /* margin-left: 5rem; */
+    /* height: 5rem; */
 }
 
 .changeButton{
     margin-left: 1rem;
+    color: rgb(16, 114, 219);
+    text-decoration: underline;
 }
 
 .partTwo{
-    margin-left: 6rem;
+    align-self: center;
+}
+
+.spanning_element_email, .userId, .spanning_element{
+    font-weight: lighter;
 }
 
 .detail{
@@ -97,12 +103,14 @@ span{
     text-decoration: none;
     padding: 0 0 .9rem 0;
     color: black;
+    font-size: .9rem;
 }
 
 .head_content{
     font-weight: bolder;
-    margin: 1rem 0 0 0;
     color: green;
+    font-size: .95rem;
+    margin-top: .6rem;
 }
 
 
@@ -133,9 +141,8 @@ input[type = 'button']:hover{
     color: rgb(81, 81, 195);
 }
 
-
 .third-party-login{
-    margin-top: 2rem; 
+    /* margin-top: 2rem;  */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -152,7 +159,7 @@ input[type = 'button']:hover{
 
 
 .links{
-    margin-top: 5rem;
+    /* margin-top: 5rem; */
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -165,6 +172,8 @@ h2{
 
 .profileImage{
     border-radius: 50%;
+    height: 10rem;
+    margin-left: 4rem;
 }
 
 .horizontaldetail{
@@ -189,5 +198,8 @@ h2{
 .accountLinks{
     text-decoration: none;
     padding: 0 0 0 2rem;
-    color: green;
+}
+
+h4{
+    color: black;
 }
