@@ -14,6 +14,7 @@ import Account from "./personal/account";
 import ChatRoom from "./personal/chatRoom";
 import TransactionDashboard from "./personal/transactions";
 import ContactSupportPage from "./productActions/support";
+import Checkout from "./productActions/checkout";
 
 function App (props){
 
@@ -40,6 +41,7 @@ function App (props){
                 <Route path ="/chat" element ={<Chat/>}/>
                 <Route path="/sell" element ={<CreateProduct/>}/>
                 <Route path="/transactions" element ={<TransactionDashboard />}/>
+                <Route path="/checkout" element ={<Checkout/>}/>
             </Routes>
         </BrowserRouter>
     )

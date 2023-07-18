@@ -75,8 +75,7 @@ const Handler = (props)=>{
             <div>
             {(!conversations)? <div className='peopleContainer'>
                 <img src={props.image} alt="another-image"  className='personsImage'/>
-                {console.log(props.image)}
-                <p>No messages yet</p>
+                <p className='conversationsText'>No messages yet</p>
             </div> : conversations.map(conversation=>{
                 socket.emit('join_room', conversation.id)
                 return <MessagePerson firstName = {conversation.person.firstName} lastName = {conversation.person.lastName} conversationId = {conversation.person.conversation} image = {conversation.person.image}/>
@@ -94,14 +93,10 @@ const Handler = (props)=>{
                 </div>
             )
         } else{
-            // get the messages from the reducer 
-            // const messagesFromReducer = useSelector(store=>{return store.messages})
-            // setMessages(messagesFromReducer)
             setinputClass('input-area')
             return(
                 <div>
                    { messages.map((message) => {
-                    // some of the unclear code here
                         (message.sender === localStorage.getItem('userToken'))? setMessageClass("mine"): setMessageClass("yours") // reme,mnber inserting uid on the localStorage
                     return  <Message  className = {messageClass} messageContent = {message.text}/>
                    })
@@ -173,7 +168,10 @@ const Handler = (props)=>{
                     </div>
                     <hr />
                     <div className="classifiers">
-                        <div className="sectionOne">
+                        <div className="sectionOne" style={{
+                          // display : 'flex',
+                          // flexDirection :'row'
+                        }}>
                             <h4 className={allClass} onClick ={interChangeonAll}>All</h4>
                             <h4 className={unreadClass} onClick ={interChangeOnUnread}>Unread</h4>
                         </div>

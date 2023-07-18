@@ -21,7 +21,7 @@ const Navigation = (props) =>{
             "account/messages" : inbox
         },
         "Donate" : {
-            "donation" : donation,
+            "sell" : donation,
         },
         "Sell" : {
             "sell" : tradein

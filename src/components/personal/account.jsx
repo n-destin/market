@@ -30,6 +30,7 @@ const Account = (props)=>{
         },
         "Finance information" : {
             "My transactions" : function(){},
+            'My orders' : function (){},
             "Logistics" : function(){},
             "Payment Methods" : function(){}
         }
