@@ -15,6 +15,7 @@ import ChatRoom from "./personal/chatRoom";
 import TransactionDashboard from "./personal/transactions";
 import ContactSupportPage from "./productActions/support";
 import Checkout from "./productActions/checkout";
+import Category from '../components/productActions/categoryPage'
 
 function App (props){
 
@@ -32,6 +33,7 @@ function App (props){
             <Routes>
                 <Route path="/products/:id" element ={<ProductPage/>}/>
                 <Route  path="/" element = {<Products/>} />
+                <Route path={`/category/:category_name`} element = {<Category />}/>
                 <Route path="/account" element = {<Account />}/>
                 <Route path="account/messages" element = {<ChatRoom />}/>
                 <Route path="account/Cart" element ={<Cart />}/>

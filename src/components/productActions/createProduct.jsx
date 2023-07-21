@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { createProduct } from "../../actions/productActions";
 import { useNavigate } from "react-router";
 import { uploadToAmazon } from "../../services/amazon-front";
+import person from '../../images/account.png'
 const CreateProduct = ()=>{
     const [productName, setProductName] = useState('');
     const [productDescription, setProductDescription] = useState('');
@@ -13,20 +14,17 @@ const CreateProduct = ()=>{
     function setName(event){
         setProductName(event.target.value)
     }
-
     function setImage(event){
         setProductImage(event.target.value);
     }
-
     function setDescription(event){
         setProductDescription(event.target.value)
     }
-
     const onuploadImage = (event)=>{
-        event.preventDefault();
         const file = event.target.files[0];
+        console.log(file);
         if(!file) alert('please select an image');
-        setImage({preview: window.URL.createObjectURL(file), file})
+        setPreview({preview: window.URL.createObjectURL(file), file})
     }
 
     function setPrice(event){
@@ -59,8 +57,12 @@ const CreateProduct = ()=>{
                 </label>
                 <input type="file" name="Image-upload" id="images" multiple onChange={onuploadImage} accept = 'image/*'/>
             </div>
+            
+
+            <img src={(preview) ? preview.preview : person} alt="" />
             <input type="button" name="" id="" value='Create' onClick={()=>{
                 uploadToAmazon(preview.file).then(url=>{
+                    console.log('reached here after pressing');
                     setProductImage(url);
                     createProductHolder(navigate);
                 })
