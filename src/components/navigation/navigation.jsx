@@ -12,7 +12,7 @@ import Subnavigation from "./subnavigation";
 import { useState } from "react";
 
 const Navigation = (props) =>{
-    let iconsNavigations = {' My messages' : inbox, "Donate": donation, "Sell" : tradein, "Account": account, "Cart" : cart}
+    // let iconsNavigations = {' My messages' : inbox, "Donate": donation, "Sell" : tradein, "Account": account, "Cart" : cart}
     const [person, setPerson ] = useState();
 
     const navigate  = useNavigate();
