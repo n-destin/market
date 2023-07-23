@@ -7,11 +7,8 @@ import Navigation from '../navigation/navigation'
 import Product from '../productActions/product'
 
 const Category = ()=>{
-    
     const [products, setProducts] = useState([]);
-
     const {category_name} = useParams();
-
     // make the request to the server
     const getProducts = ()=>{
         try {
@@ -24,9 +21,9 @@ const Category = ()=>{
             console.log(error.message);
         }
     }
-
-    
-    getProducts();
+    useEffect(()=>{
+        getProducts();
+    }, []);
 
     const renderProducts = ()=>{
         if(products === null  || products == []){

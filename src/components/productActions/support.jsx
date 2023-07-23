@@ -1,6 +1,11 @@
 import React, { useState } from 'react';
 import './support.css'; // Import the CSS file for styling
 import Navigation from '../navigation/navigation';
+// import mail from '../../images/mail.png'
+import facebook from '../../images/facebook.png'
+import twitter from '../../images/twitter.png'
+import instagram from '../../images/instagram.png'
+import { Link } from 'react-router-dom';
 
 const ContactSupportPage = () => {
   const [firstName, setFirstName] = useState('');
@@ -34,19 +39,26 @@ const ContactSupportPage = () => {
     'Last name' : handleLastNameChange,
     'Email' : handleEmailChange,
     'Customer id' : handleIdChange,
-    // 'Your message' : handleMessageChange,
   }
 
+  const icons = [twitter, facebook, instagram];
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // Here you can implement the logic to send the message to your support system
+  
+    
+
     setFirstName('');
     setEmail('');
     setLastName('');
     setId('');
     setMessage('');
   };
+
+  const IconsRendered = icons.map(icon=>{
+    console.log(icon);
+    return <Link to='nowhere' className='icon-link'><img src={icon} alt="icon-image" className='icon-image'/> The_college_market</Link>
+  })
 
 //   const IconsToRender = Object.keys(inputObject).map(iconKey=>{
 //     // console.log(Object.keys(iconsNavigation[iconKey])[0]);
@@ -59,24 +71,25 @@ const ContactSupportPage = () => {
   return (
     <div className="contact-support">
       <Navigation />
-      <h1 className='headingText'>Contact us</h1>
       <div className="contactBody">
       <div className='text'>
-        <p>
-          Have a question or need assistance? We're here to help! Please provide the following details along with your message
-        </p>
+      <h1 className='headingText'>Talk with our Team</h1>
+        <h2>Find us online: </h2>
+        {IconsRendered}
       </div>
       <form onSubmit={handleSubmit}>
         <div>
         {Object.keys(inputObject).map(inputKey=>{
           console.log('here');
             return(
-              <input type="text" placeHolder = {inputKey} onChange = {inputObject[inputKey]}/>
+              <input type="text" placeHolder = {inputKey} onChange = {inputObject[inputKey]} required = {true}/>
             )
           })}
-        </div>
+        </div> 
 
-        <textarea name="Message" id="" cols="30" rows="10" placeholder='message'></textarea>
+        <textarea name="Message" id="" cols="44" rows="10" placeholder='message' style={{
+          padding : '1rem'
+        }}></textarea>
         <button type="submit" className='contactButton'>Send Message</button>
       </form>
       </div>

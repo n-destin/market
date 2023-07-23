@@ -11,7 +11,7 @@ const SingUp = (props) =>{
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
-
+    const[showPassword, setShowPassword] = useState(false);
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName ] = useState('');
     const [Email, setEmail ] = useState('');
@@ -25,9 +25,9 @@ const SingUp = (props) =>{
         {
             firstName: firstName,
             lastName: lastName,
-            Password: Password,
             Email: Email,
             phoneNumber: PhoneNumber,
+            Password: Password,
         }
     )
 
@@ -35,18 +35,17 @@ const SingUp = (props) =>{
     const namestoFunctions = {
         'Fistname': setFirstName,
         'Lastname' : setLastName,
+        'Email' : setEmail,
         'Phone Number' : setPhoneNumber,
         'Password' : setPassword,
-        'Email' : setEmail,
     }
 
 
     return(
         <div >
             <div className="inputs">
-                <h2>Create account</h2>
                 {Object.keys(namestoFunctions).map(key =>{
-            return <input type = 'text' name = {key} id  = {key} placeholder = {key} onChange = {(event)=>{namestoFunctions[key](event.target.value)}}/>
+            return <input type = {(key == 'Password' && !showPassword)? 'password' : 'text'} name = {key} id  = {key} placeholder = {key} onChange = {(event)=>{namestoFunctions[key](event.target.value)}}/>
         })}
         <input type="button"className="buttonSignup" name="" id="" value= 'Sign up' onClick = {()=>{
                 Signup(dispatch, navigate);

@@ -62,8 +62,10 @@ const Navigation = (props) =>{
         console.log(Object.keys(iconsNavigation[iconKey])[0]);
         return <Icon name = 'name' icon = {iconsNavigation[iconKey][Object.keys(iconsNavigation[iconKey])[0]]} action = {Object.keys(iconsNavigation[iconKey])[0]} title = {iconKey}/>
     })
+
+    
     return  (
-        <div className='navigationBar bg-lime-800 flex flex-row'>
+        <div className='navigationBar'>
             <div className="iconbar">
                 <div className="logo">
                     <Link to = "/" className="linking">The Dartmouth Market</Link>

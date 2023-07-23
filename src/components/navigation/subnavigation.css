@@ -16,6 +16,8 @@ img.menu-image{
 .subnavigation{
     justify-content: space-between;
     background-color: #EFF5EE;
+    width: 100%;
+    top: 8vh;
 }
 
 .subnavigation > * {

@@ -53,16 +53,15 @@ const Account = (props)=>{
     console.log(returnComponents);
 
     return(
-        <div>
+        <div className="account_main_div">
             <AccountNavigation navContent = {{
                 "Messages" : 'messages',
-                "My trading dashboard" : "account/trading_index"
             }}/>
             <div className="accountPage">
                 <div className="accountCard">
                     <div className="heading">
                         <div className="partOne">
-                            <img src={(Profile)? Profile : profileHolder} alt="personalImage" height='20%' className="profileImage"/>
+                            <img src={(Profile)? Profile : profileHolder} alt="personalImage" className="profileImage"/>
                         </div>
                         <div className="partTwo">
                             <h4 className="head_content">Your member id:  <span className="userId">some user id here; to be handled</span></h4>

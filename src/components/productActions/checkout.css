@@ -1,0 +1,15 @@
+.CheckoutNavigation{
+    background-color: rgb(29, 65, 29);
+    color: white;
+    display: flex;
+    height: 6vh;
+}
+
+.CheckoutNavigation > *{
+    align-self: center;
+    margin-left: 5rem;
+}
+
+.checkoutNumber{
+    margin-left: 5rem;
+}

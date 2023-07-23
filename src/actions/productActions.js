@@ -15,7 +15,6 @@ export function getProducts(){
     return(dispatch)=>{
         try {
             axios.get(`${ROOT_URL}products`).then(response =>{
-                console.log(response);
                 if(response){
                     dispatch({
                         type: productActions.GET_PRODUCTS,
@@ -31,9 +30,7 @@ export function getProducts(){
 
 
 export function createProduct(productFields){
-    console.log('reached here before time');
     return (navigate)=>{
-        console.log('reached in the navigate function');
         try {
             axios.post(`${ROOT_URL}createProduct`, (productFields), {headers : {'authorization' : localStorage.getItem('userToken')}}).then(response=>{
                 if(response){
@@ -63,10 +60,10 @@ export function getProduct(){
     }
 }
 
-export function addtoCart(userId, productId){
+export function cartAction(cartAction, userId, productId){
     return(dispatch)=>{
         try {
-            axios.post(`${ROOT_URL}addtocart/${userId}?product-id: ${productId}`).then(response=>{
+            axios.post(`${ROOT_URL}addtocart?userId=${userId}&product-id = ${productId}`).then(response=>{
                 if(response){
                     cartNumber++;
                     dispatch({
@@ -82,6 +79,7 @@ export function addtoCart(userId, productId){
 }
 
 
+
 export function getRelated(category){
     return (dispatch)=>{
         axios.get(`${ROOT_URL}related/${category}`).then(response=>{
@@ -95,7 +93,3 @@ export function getRelated(category){
     }
 }
 
-
-export function getCart(){
-    
-}

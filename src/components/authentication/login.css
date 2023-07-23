@@ -1,4 +1,4 @@
-.loginPage, .accountPage{
+.loginPage{
     height: 100vh;
     width: 100vw;
     background-color: #EFF5EE;
@@ -11,23 +11,29 @@
     height: 94vh;
 }
 
-.loginCard, .accountCard{
+.loginCard{
     background-color: white;
     padding: 1rem;
-    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    height: 90%;
+    width: 30%;
+    /* box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px; */
 }
 
-.accountCard{
-    width: 60%;
-    height: 70%;
-    margin-bottom: 10rem;
+input[type = 'password']{
+    width: 100%;
+  padding: 12px;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-size: 16px;
+  color: #333;
 }
-
 
 .inputs{
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    /* justify-content: center; */
     align-items: center;
 }
 
@@ -39,22 +45,19 @@
     margin-left: 1.5rem;
 }
 
-.inputs > input {
-    width: 70%;
-    padding: .7rem;
-    margin: 1rem;
-}
 .lognavigator {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    margin-bottom: 2rem;
 }
-
+.personalImage{
+    height: 1rem;
+}
 .heading{
     display: flex;
     flex-direction: row;
-    /* margin-left: 5rem; */
-    /* height: 5rem; */
+    justify-self: center;
 }
 
 .changeButton{
@@ -63,9 +66,6 @@
     text-decoration: underline;
 }
 
-.partTwo{
-    align-self: center;
-}
 
 .spanning_element_email, .userId, .spanning_element{
     font-weight: lighter;
@@ -110,57 +110,74 @@ span{
     font-size: .95rem;
     margin-top: .6rem;
 }
-
+ƒ
 
 hr{
     width: 70%;
 }
 
+hr.loginLine{
+    margin:2rem 0 2rem 0rem;
+}
+
 
 input[type = 'button']{
-    background-color: transparent;
+    background-color: #00693e;
     border: 1px solid black;
+    color: white;
+    height: 2rem;
+    width: 8rem;
+    border-radius: .3rem;
+    border: none;
 }
 input[type = 'button']:hover{
     cursor: pointer;
-    background-color: #EFF5EE;
+    background-color: white;
+    color: #00693e;
+    border: 1px solid #00693e;
 }
-.buttonLogin  {
-    height: 2rem;
-    margin: 2rem;
+
+input.buttonLogin{
+    align-self: center;
+    margin-top: 1rem;
 }
 
 .horizontal{
     width: 100%;
 }
 
-.loginLink{
+.active{
     text-decoration: none;
-    color: rgb(81, 81, 195);
+    color:#00693e;
 }
 
-.third-party-login{
-    /* margin-top: 2rem;  */
+.third-party-login, .third-party-login-account{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.third-party-login > input{
+.third-party-login > input, .third-party-login-accoun > input{
     height: 2.5rem;
     width: 70%;
 }
-.links > *{
-    color: black;
-}
 
 
-.links{
+
+.loginLinks, .accountLinks{
     /* margin-top: 5rem; */
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+}
+
+.loginLinks{
+    margin-top: 5rem;
+}
+
+.accountLinks{
+    margin-top: 1.5rem;
 }
 
 h2{
@@ -168,10 +185,15 @@ h2{
     padding: none;
 }
 
+.partTwo{
+    align-self: center;
+}
+
 .profileImage{
     border-radius: 50%;
-    height: 10rem;
-    margin-left: 4rem;
+    height: 5rem;
+    margin: 1rem 5rem 1rem 14rem;
+    align-self: center;
 }
 
 .horizontaldetail{
@@ -179,15 +201,15 @@ h2{
     margin-bottom: 1rem;
 }
 
-.account_nativation{
-    background-color: white;
+.account_navigation{
+    background-color: rgb(29, 65, 29);
     position: block;
-    padding: 1.2rem;
     display: flex;
     flex-direction: row;
     text-decoration: none;
+    height: 8vh;
 }
-.account_nativation .rightLinks{
+.account_navigation .rightLinks{
     display: flex;
     flex-direction: row;
     margin-left: 60%;
@@ -200,4 +222,16 @@ h2{
 
 h4{
     color: black;
+}
+
+.accountLine{
+    margin-bottom: 1rem 0 1rem 0;
+}
+
+.buttonSignup{
+    margin:1rem 0 2rem 0;
+}
+
+.account_main_div{
+    height: 94vh;
 }

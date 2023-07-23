@@ -1,19 +1,27 @@
 import React from "react";
 import { useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { cartNumber } from "../../actions/productActions";
 import cart from '../../images/cart.jpeg'
 import './cart.css'
 import Navigation from "../navigation/navigation";
 import { useNavigate } from "react-router";
+import { useEffect } from "react";
+import axios from "axios";
 
 const Cart = (props)=>{
 
     const navigate = useNavigate();
+    const dispatch = useDispatch();
     
     const [relatedProducts, setRelatedProducts] = useState();
     const [total, setTotal] = useState(0);
     const [totalPrice, setTotalPrice] = useState(0);
+
+
+    useEffect(()=>{
+        axios.get('/')
+    }, [])
 
     const NoContentYet =()=>{
         return(

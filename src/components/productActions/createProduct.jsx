@@ -3,26 +3,72 @@ import { createProduct } from "../../actions/productActions";
 import { useNavigate } from "react-router";
 import { uploadToAmazon } from "../../services/amazon-front";
 import person from '../../images/account.png'
+import './createProduct.css'
+import { Link } from "react-router-dom";
+import productCategories from '../../categories/productCategories.json'
+
 const CreateProduct = ()=>{
     const [productName, setProductName] = useState('');
     const [productDescription, setProductDescription] = useState('');
     const [productImage, setProductImage] = useState('')
     const [productPrice, setProductPrice] = useState();
     const [preview, setPreview] = useState();
+    const [productCondition, setCondition] = useState('');
+    const [Productpurpose, setPurpose] = useState('');
+    const [productCategory, setCateogory] = useState('')
+
+    function changeCondition(conditionText){
+        setCondition(conditionText);
+    }
+    
+    const conditions = {
+        NEW : ['NEW', 'New with tags (NWT). Unopened packaging. Unused.'],
+        LIKE_NEW : ['LIKE_NEW', 'New without tags (NWOT). No signs of wear. Unused.'],
+        GOOD : ['GOOD', 'Gently used. One / few minor flaws. Functional.'],
+        FAIR : ['FAIR', 'Used, functional, multiple flaws / defects.'],
+        POOR : ['POOR', 'Major flaws, may be damaged, for parts.']
+    }
 
 
-    function setName(event){
-        setProductName(event.target.value)
+    function handleSelection(){
+        const labels = document.getElementsByClassName('conditionOption');
+        const inputs = document.querySelectorAll('input[type="radio"]')
+        for(let i = 0; i<inputs.length; i++){
+            if(inputs[i].checked){
+                labels[i].style.cssText = 'background-image : #EFF5EE; border  : 1px solid green; color : green; font-size : smaller;';
+                changeCondition(labels[i].querySelector('h3').textContent);
+            } else{
+                labels[i].style.cssText = 'font-size : smaller'
+            }
+        }
     }
-    function setImage(event){
-        setProductImage(event.target.value);
+
+    const RenderConditions = (props) => {
+        return(
+            <div className="conditions">
+                {Object.keys(props.conditions).map(condition=>{
+                    return(
+                        <label name = {condition}  className="conditionOption" style={{
+                            fontSize : 'small',
+                        }}>
+                            <h3 className="h3_heading">{conditions[condition][0]}</h3>
+                            <p className="heading_p">{conditions[condition][1]}</p>
+                            <input type="radio"  name = 'conditionOption' onClick={handleSelection}/>
+                        </label>
+                    )
+                })}
+            </div>
+        )
     }
-    function setDescription(event){
-        setProductDescription(event.target.value)
+
+    const purposes  = {
+        SELL : "SELL",
+        RENT : "RENT",
+        DONATE : "DONATE"
     }
+
     const onuploadImage = (event)=>{
         const file = event.target.files[0];
-        console.log(file);
         if(!file) alert('please select an image');
         setPreview({preview: window.URL.createObjectURL(file), file})
     }
@@ -31,42 +77,75 @@ const CreateProduct = ()=>{
         setProductPrice(event.target.value)
     }
 
-    const createProductHolder = createProduct({Name: productName, Image: productImage, Description: productDescription, Price: productPrice});
+    const createProductHolder = createProduct({Name: productName, Image: productImage, Description: productDescription, productCategory: productCategory, Price: productPrice, productCondition: productCondition, Productpurpose: Productpurpose});
 
     const navigate = useNavigate();
 
-    return(
-        <div>
-            <h3>Sell something</h3>
-            <div className="labels">
-                <label htmlFor="">
-                    Product Name:
-                    <input type="text" name="Firstname" id="" onChange={setName}/>
-                </label>
-                <label htmlFor="">
-                    Link to the image:
-                    <input type="text" name="" id="" onChange={setImage}/>
-                </label>
-                <label htmlFor="">
-                    Description:
-                    <input type="text" name="" id="" onChange={setDescription}/>
-                </label>
-                <label htmlFor="">
-                    Price:
-                    <input type="text" name="" id="" onChange={setPrice}/>
-                </label>
-                <input type="file" name="Image-upload" id="images" multiple onChange={onuploadImage} accept = 'image/*'/>
-            </div>
-            
 
-            <img src={(preview) ? preview.preview : person} alt="" />
-            <input type="button" name="" id="" value='Create' onClick={()=>{
+
+    // so much repetition
+    return(
+        <div className="sell">
+            <div className="sellnavigation">
+                <Link to = {`/`} className ='makemoneylink'><h2>Dartmouth market</h2></Link>
+                <h2 className="makemoney">Sell / Donate / Rent with us</h2>
+            </div>
+            <h1 className="heading_content"></h1>
+            <div className="labels">
+            <label htmlFor="">Select the item photo</label>
+                <div className="chooseImage">
+                    <div className="chooseInput">
+                        <input type="file" name="Image-upload" id="images" multiple onChange={onuploadImage} accept = 'image/*' className="chooseImageInput"/>
+                    </div>
+                    <img src={(preview) ? preview.preview : ''} alt="" height='2rem'/>
+                </div>
+                <label htmlFor="productName">
+                    <p>Title</p>
+                </label>
+                <input type="text" name="productName" id="" onChange={(event)=>{setName(event.target.value)}} placeholder = "What are you selling"/>
+                <label htmlFor="">
+                    Description
+                </label>
+                <textarea name="description" className="description" id="description" cols="94" rows="10" placeholder="Describe your item"/>
+                <h2 style={{
+                    marginTop : '1rem'
+                }}>Product Category</h2>
+                <select name="categories" id="categories" onChange={(event)=>{setCateogory(event.target.value)}}>
+                    <option value="" disabled>select product category</option>
+                    {Object.keys(productCategories).map(category=>{
+                        if(category != 'Men' && category != "Women" && category != "Quick Deals"){
+                            return <option value={category}>{category}</option>
+                        }
+                    })}
+                </select>
+                <label htmlFor="">
+                   <h2 className="condition_head">Condition</h2>
+                </label>
+                <RenderConditions conditions = {conditions} />
+                <h2 style={{
+                    marginTop : '1rem'
+                }}>Are you selling, renting, or Donating?</h2>
+                <select name="purpose" id="purpose" placeholder="select the purpose" onChange={(event)=>{setPurpose(event.target.value)}}>
+                    <option value="none">Select purpose</option>
+                    {Object.keys(purposes).map(purposeOption=>{
+                        return <option value={purposeOption}>{purposeOption}</option>
+                    })}
+                </select>
+                <label htmlFor="">
+                    <h2 className="condition_head" style={{
+                        marginBottom : '1rem'
+                    }}>Set the Price</h2>
+                    <input type="text" name="" id="" onChange={(event)=>{setPrice(event.target.value)}}/>
+                </label>
+                {/* <Dropdown options={productCategories} onSelect ={handleDropDownSelection}/> */}
+                <input type="button"  className="createProductButton"  name="" id="" value='Create' onClick={()=>{
                 uploadToAmazon(preview.file).then(url=>{
-                    console.log('reached here after pressing');
                     setProductImage(url);
                     createProductHolder(navigate);
                 })
             }}/>
+            </div>
+            
         </div>
     )
 }

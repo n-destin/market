@@ -157,8 +157,7 @@ const Handler = (props)=>{
 
   return (
     <div className="chat-room">
-    <AccountNavigation navContent = {{"My transactions"  : 'transactions',
-    "My trading dashborad" : "trading_index"}}/>
+    <AccountNavigation navContent = {{"My transactions"  : 'transactions'}}/>
         <div className="chatting_session">
             <div className="messaging-people">
                 <div className="message_heading" >

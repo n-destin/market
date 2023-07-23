@@ -10,10 +10,8 @@
     flex-direction: row;
     height: 8vh;
     font-size: 1rem;
-    /* color: rgb(29, 65, 29); */
-    /* justify-content: space-around; */
+    width: 100%;
 }
-
 
 
 ul{

@@ -1,9 +1,9 @@
-// import React from 'react'
 import React, {useState} from 'react'
 import { Link } from 'react-router-dom';
+import './checkout.css'
 
 const Checkout = ()=>{
-    const [checkoutProducts, setCheckoutProducts] = useState();
+    const [checkoutProducts, setCheckoutProducts] = useState([]);
     const [PaymentInformation, SetPaymentInformation] = useState();
     const [numberOfItems, setNumberOfItems] = useState(0);
     
@@ -43,7 +43,7 @@ const Checkout = ()=>{
         })
     }
 // make it fixed position
-    const checkoutCard = ()=>{
+    const CheckoutCard = ()=>{
         return(
             <div className="bodyRight">
                 {orderButton}
@@ -56,9 +56,9 @@ const Checkout = ()=>{
         )
     }
 // This is the sideCard
-    const checkoutBody = (products)=>{
+    const CheckoutBody = ()=>{
         return(
-            <div className=''>
+            <div className='checkoutBody'>
                 <div className="body">
                     <div className="bodyLeft">
                         <div className="BillingInformations">
@@ -71,7 +71,7 @@ const Checkout = ()=>{
                             {renderCheckoutProduct};
                         </div>
                     </div>
-                    {checkoutCard}
+                    {<CheckoutCard />}
                 </div>
                 {orderButton} 
             </div>
@@ -83,11 +83,11 @@ const Checkout = ()=>{
     return(
         <div>
             <div className='CheckoutNavigation'>
-                <Link to='/'>Dartmouth market</Link>
-                <h2>Checkout (${numberOfItems})</h2>
+                <Link to='/'><h2>Dartmouth market</h2></Link>
+                <h2 className='checkoutNumber'>Checkout: {numberOfItems} Items</h2>
             </div>
             <div className='bodyContent'>
-                {checkoutBody}
+                {<CheckoutBody/>}
             </div>
         </div>
     )
