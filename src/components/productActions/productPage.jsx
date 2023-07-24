@@ -40,13 +40,10 @@ const ProductPage = (props)=>{
             return <Product /> // pass the information here
         })
     }
-    const userTokenContainer = localStorage.getItem('userToken')
+    const userToken = localStorage.getItem('userToken')
+    console.log(userToken);
 
-    const addingToCart = cartAction('add', id, (userTokenContainer)? userTokenContainer : 'nothing');
-
-    console.log(product);
-
-
+    const addingToCart = cartAction(id, userToken);
 
     const KeepShoppingHandler = (products)=>{
         return(

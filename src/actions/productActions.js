@@ -60,7 +60,7 @@ export function getProduct(){
     }
 }
 
-export function cartAction(cartAction, userId, productId){
+export function cartAction(userId, productId){
     return(dispatch)=>{
         try {
             axios.post(`${ROOT_URL}addtocart?userId=${userId}&product-id = ${productId}`).then(response=>{
