@@ -13,3 +13,13 @@
 .checkoutNumber{
     margin-left: 5rem;
 }
+
+.createCheckoutSession{
+    background-color: green;
+    font-size: .8rem;
+    padding: .3rem;
+    height: 2.2rem;
+    width: 10rem;
+    margin-left: 6rem;
+    margin-top: 1rem;
+}

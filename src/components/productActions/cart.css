@@ -15,7 +15,7 @@ img.cartImage{
     margin: .8rem .8rem .8rem 2rem;
 }
 
-.emptyCartButton{
+.emptyCartButton, .checkoutButton{
     background-color: green;
     font-size: .8rem;
     padding: .3rem;

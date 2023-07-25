@@ -8,20 +8,19 @@ import Navigation from "../navigation/navigation";
 import { useNavigate } from "react-router";
 import { useEffect } from "react";
 import axios from "axios";
+import Stripe from "stripe";
+import { ROOT_URL } from "../../actions/useractions";
 
 const Cart = (props)=>{
-
     const navigate = useNavigate();
     const dispatch = useDispatch();
-    
     const [relatedProducts, setRelatedProducts] = useState();
     const [total, setTotal] = useState(0);
     const [totalPrice, setTotalPrice] = useState(0);
 
-
-    useEffect(()=>{
-        axios.get('/')
-    }, [])
+    // useEffect(()=>{
+    //     axios.get('/')
+    // }, [])
 
     const NoContentYet =()=>{
         return(
@@ -68,6 +67,8 @@ const Cart = (props)=>{
     }
 
     
+
+    //remember to display it when the  CLASS:checkoutButton when there are products in cart
     return(
         <div className="cartContent">
             <Navigation />
@@ -84,7 +85,7 @@ const Cart = (props)=>{
                         <h2>Estimated total ({total} items)</h2>
                         <h2 className="totalPrice">${totalPrice}</h2>
                     </div>
-                    <button className="checkoutButton" onClick={()=>{navigate('/checkout')}}></button>
+                    <button className="checkoutButton" onClick={()=>{navigate('/checkout')}}>Proceed to checkout</button> 
                 </div>
             </div>
             <div className="relatedProducts">

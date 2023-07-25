@@ -29,7 +29,7 @@ const ChatRoom = () => {
   const [activePerson, setActivePerson] = useState('no One is Active')
 
   let unreadMessages = 0;
-  const dispatch = useDispatch();
+
 
 
   // connecting to socket.io server

@@ -1,26 +1,21 @@
 import React, {useState} from 'react'
 import { Link } from 'react-router-dom';
 import './checkout.css'
+import Stripe from 'stripe';
 
 const Checkout = ()=>{
+
+    // get the cart
+
+    const STRIPE_PUBLISHABLE_KEY = 'pk_test_51NVqGgHceDFN1DB6KDTkT8cGuzHy4IBn4cq2Y01VoxvLh8xb7jKfuFPoQQGFu53owH3hliXUgsKjmBwvbfBL9aPT00KwfrcTTT'
     const [checkoutProducts, setCheckoutProducts] = useState([]);
     const [PaymentInformation, SetPaymentInformation] = useState();
     const [numberOfItems, setNumberOfItems] = useState(0);
-    
-    // how do we get the info for her 
-    function renderPaymentMethods(methods){
-        methods.map(method=>{
-            return(
-                <div>
-                    {method.address}
-                </div>
-            )
-        })
-    }
-
-    const placeOrder = ()=>{
-        // handle payment here
-    }
+    const [total, setTotal] = useState(0);
+    const [totalPrice, setTotalPrice] = useState(0);
+    const stripe = Stripe(STRIPE_PUBLISHABLE_KEY);
+    // how do we get the info for here
+   
     // style according to the container
     const orderButton =()=>{
         return <input type="button" value='Place your order' className='orderButton' onClick={placeOrder}/>
@@ -28,6 +23,13 @@ const Checkout = ()=>{
 
     const getTotalCost= ()=>{
         return 0 + checkoutProducts.map(product=>{return product.prouctPrice})
+    }
+
+
+    const handleCheckout = ()=>{
+        axios.post(`${ROOT_URL}create-payment-session`, {totalPrice, total}).then(response=>{
+            stripe.redirectToCheckout({session : response.session_id})
+        })
     }
 
     const renderCheckoutProduct = (products)=>{
@@ -55,18 +57,12 @@ const Checkout = ()=>{
             </div>
         )
     }
-// This is the sideCard
+
     const CheckoutBody = ()=>{
         return(
             <div className='checkoutBody'>
                 <div className="body">
                     <div className="bodyLeft">
-                        <div className="BillingInformations">
-                            <h2>Payment Method</h2>
-                            <div className="adress">
-                                {renderPaymentMethods}
-                            </div>
-                        </div>
                         <div className="reviewItems">
                             {renderCheckoutProduct};
                         </div>
@@ -89,6 +85,7 @@ const Checkout = ()=>{
             <div className='bodyContent'>
                 {<CheckoutBody/>}
             </div>
+            <button className='createCheckoutSession' onClick={handleCheckout}>Checkout</button>
         </div>
     )
 }
