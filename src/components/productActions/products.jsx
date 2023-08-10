@@ -6,6 +6,7 @@ import { getProducts } from "../../actions/productActions";
 import Product from "./product";
 import '../index.css'
 import Navigation from "../navigation/navigation";
+import axios from "axios";
 
 function Products (){
 
@@ -13,6 +14,9 @@ function Products (){
     // const [userInformation, setUserInformation ] = useState();
     // change the displayed products accordingly
     useEffect(()=>{
+        axios.get('/chekLogin').then(response=>{
+            console.log(response);
+        });
         dispatch(getProducts());
     }, [])
 

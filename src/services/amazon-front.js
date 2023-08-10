@@ -14,7 +14,6 @@ const uploadToAws = (signedUrl, file, url)=>{
                 resolve(url);
             }
         }).catch(error=>{
-            console.log('caught in the catch section of the upload');
             reject(error);
         })
     })
@@ -22,7 +21,6 @@ const uploadToAws = (signedUrl, file, url)=>{
 
 
 export async function uploadToAmazon(file){
-    console.log(file);
     const signedUrl = await getSignedUrl(file);
     let response;
     try {

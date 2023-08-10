@@ -46,7 +46,7 @@ const ContactSupportPage = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
   
-    
+
 
     setFirstName('');
     setEmail('');
@@ -80,7 +80,6 @@ const ContactSupportPage = () => {
       <form onSubmit={handleSubmit}>
         <div>
         {Object.keys(inputObject).map(inputKey=>{
-          console.log('here');
             return(
               <input type="text" placeHolder = {inputKey} onChange = {inputObject[inputKey]} required = {true}/>
             )

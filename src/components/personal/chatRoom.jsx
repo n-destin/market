@@ -9,9 +9,9 @@ import folder from  '../../images/folder.png'
 import welcome from '../../images/comment.png'
 import sendIcon from '../../images/send-message.png'
 import {ROOT_URL } from '../../actions/useractions';
-import { useDispatch, useSelector } from 'react-redux';
 // import { getChatMessages } from '../../actions/useractions';
 import {io} from 'socket.io-client'
+import axios from 'axios';
 // import { set } from 'lodash';
 
 const ChatRoom = () => {
@@ -131,13 +131,14 @@ const Handler = (props)=>{
 
   const handleSendMessage = () => {
     if (input.trim() !== '') {
+      const processedMessage = await axios.post(`${ROOT_URL}generate`);
       const newMessage = {
         id: messages.length + 1,
-        Sender : 'Me',
-        text: input.trim(),
+        Sender : 'Me', // change the user's Id 
+        text: (processedMessage) ? processedMessage :  input,
         timestamp: new Date().toDateString()
       };
-      // setMessages([...messages, newMessage]);
+      
       setInput('');
       socket.emit('new_message', newMessage, currentRoom);
       setInput('');

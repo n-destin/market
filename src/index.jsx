@@ -5,6 +5,7 @@ import { Provider } from "react-redux";
 import rootReducer from "./reducers/rootReducer";
 import { configureStore } from "@reduxjs/toolkit";
 import {ActionsType} from './actions/useractions'
+import 'bootstrap/dist/css/bootstrap.css';
 
 
 const store = configureStore({

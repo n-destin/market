@@ -12,11 +12,8 @@ import Navigation from "../navigation/navigation";
 const ProductPage = (props)=>{
 
     const navigate = useNavigate();
-
     let relatedContent;
-
     const {id} = useParams();
-    console.log(id);
     const dispatch = useDispatch();
 
     useEffect(()=>{

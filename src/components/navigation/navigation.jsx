@@ -9,8 +9,8 @@ import support from '../../images/support.png'
 import { Link, useNavigate } from "react-router-dom";
 import Icon from "../../components/icon";
 import Subnavigation from "./subnavigation";
-import { useState } from "react";
 import { useSelector } from "react-redux";
+
 
 const Navigation = (props) =>{
     let iconsNavigations = {' My messages' : inbox, "Donate": donation, "Sell" : tradein, "Account": account, "Cart" : cart}
@@ -41,16 +41,16 @@ const Navigation = (props) =>{
     const SignInHandler = ()=>{
         if(authenticated){
             return(
-                <div className="loggedIn" onClick={()=>{navigate('/account')}}>
-                    <p>Hello, {props.firstName}</p>
-                    <h3>Account & Orders</h3>
+                <div className="p-0" onClick={()=>{navigate('/account')}} style = {{height : '80%', alignSelf : 'center'}}>
+                    <p style={{fontSize : 'small'}}>Hello, {props.firstName}</p>
+                    <h3 style={{fontSize : 'medium', marginTop : '-.6rem'}}>Account & Orders</h3>
                 </div>
             )
         } else{
             return(
-                <div className="notLoggedIn" onClick={()=>{
+                <div className="p-0" onClick={()=>{
                     navigate('/login');
-                }}>
+                }} style = {{height : '80%'}}>
                     <img src={account} alt="" className="account-image"/>
                     <div className="navBeside">
                         <p>Sign in / Register</p>
@@ -68,17 +68,17 @@ const Navigation = (props) =>{
 
 
     return  (
-        <div className='navigationBar'>
-            <div className="iconbar">
-                <div className="logo">
-                    <Link to = "/" className="linking">The Dartmouth Market</Link>
+        <div className='wholenavigation'>
+            <div className="navbar d-flex flex-row justify-start" style={{backgroundColor : 'rgb(29, 65, 29)', color : 'white', height : '7vh'}}>
+                <div className="navbar-brand">
+                    <Link to = "/" className="text-decoration-none" style={{color : 'white', alignSelf : 'center', paddingLeft : '1rem'}}>The Dartmouth Market</Link>
                 </div>
                 <SignInHandler />
-                <div className="searchDiv">
-                    <input type="text" className="searchBar" />
+                <div className="d-flex flex-row">
+                    <input type="form-control form-control-md" className="input-class" style={{width:'40vw'}}/>
                     <button className="searchButton"><i className="fa fa-search"></i></button>
                 </div>
-                <div className="icons">
+                <div className="d-flex flex-row">
                     {IconsToRender}
                 </div>
             </div>

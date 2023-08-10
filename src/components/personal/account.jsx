@@ -48,8 +48,6 @@ const Account = (props)=>{
         )
         
     });
-    // console.log();
-    
     console.log(returnComponents);
 
     return(

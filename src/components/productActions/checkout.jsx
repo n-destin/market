@@ -1,21 +1,25 @@
 import React, {useState} from 'react'
 import { Link } from 'react-router-dom';
 import './checkout.css'
-import Stripe from 'stripe';
+import { loadStripe } from '@stripe/stripe-js';
+import axios from 'axios';
+import { ROOT_URL } from '../../actions/useractions';
 
 const Checkout = ()=>{
 
     // get the cart
 
     const STRIPE_PUBLISHABLE_KEY = 'pk_test_51NVqGgHceDFN1DB6KDTkT8cGuzHy4IBn4cq2Y01VoxvLh8xb7jKfuFPoQQGFu53owH3hliXUgsKjmBwvbfBL9aPT00KwfrcTTT'
-    const [checkoutProducts, setCheckoutProducts] = useState([]);
-    const [PaymentInformation, SetPaymentInformation] = useState();
+    const stripeLoaderPromise = loadStripe(STRIPE_PUBLISHABLE_KEY);
+
     const [numberOfItems, setNumberOfItems] = useState(0);
     const [total, setTotal] = useState(0);
     const [totalPrice, setTotalPrice] = useState(0);
-    const stripe = Stripe(STRIPE_PUBLISHABLE_KEY);
+    const [productIdsAndQuantity, setProducts] = useState([{productId : '6493cbce4b1d7a64dee88a1d', proceId : 'aprice_id_here'}]);
+    const [checkoutProducts, setCheckoutProducts] = useState([]);
+    
+    
     // how do we get the info for here
-   
     // style according to the container
     const orderButton =()=>{
         return <input type="button" value='Place your order' className='orderButton' onClick={placeOrder}/>
@@ -25,10 +29,12 @@ const Checkout = ()=>{
         return 0 + checkoutProducts.map(product=>{return product.prouctPrice})
     }
 
-
-    const handleCheckout = ()=>{
-        axios.post(`${ROOT_URL}create-payment-session`, {totalPrice, total}).then(response=>{
-            stripe.redirectToCheckout({session : response.session_id})
+// we need to send an array of objects of product Ids and quantity
+    const handleCheckout = async ()=>{
+        const stripe = await stripeLoaderPromise;
+        axios.post(`${ROOT_URL}create-payment-session`, {productIdsAndQuantity}).then(response=>{
+            console.log(`Stipe Session Key: ${response.data.session_id}`);
+            stripe.redirectToCheckout({sessionId : response.data.session_id});
         })
     }
 

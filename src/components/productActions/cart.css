@@ -1,4 +1,4 @@
-img.cartImage{
+/* img.cartImage{
     height: 6rem;
 }
 
@@ -37,7 +37,6 @@ img.cartImage{
 }
 
 .cartLeft{
-    /* margin-left: 5rem; */
     width: 60vw;
 }
 
@@ -51,10 +50,8 @@ h2{
 }
 
 .notYetContent{
-    /* background-color: black; */
     margin-top: 2rem;
     margin-left: 15rem;
-    /* align-self: center; */
     justify-self: center;
 }
 
@@ -66,4 +63,4 @@ h2{
 
 .totalPrice{
     margin-right: 6rem;
-}
+} */

@@ -1,8 +1,6 @@
-@tailwind base;
+/* @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-/* rgb(29, 65, 29) */
 
 .iconbar{
     background-color: rgb(29, 65, 29);
@@ -40,11 +38,9 @@ Link{
     justify-content: space-around;
     padding: 1.5rem;
     align-self: center;
-    /* margin-bottom: 1rem */
-    ;
 }
 .icon{
-    padding: 0 1rem 0 1rem ; 
+    padding: 0 1.6vw 0 1.6vw ; 
     display: flex;
     flex-direction: column;
     justify-self: center;
@@ -70,7 +66,7 @@ i{
 }
 .linking :hover{
     color: rgb(199, 203, 207);
-}
+}ƒ
 
 .icon p{
     font-size: .85rem;
@@ -86,7 +82,6 @@ i{
     width: 35vw;
     height: 2rem;
     align-self: center;
-    /* padding-top: 0; */
 }
 
 .searchButton{
@@ -146,4 +141,4 @@ img.account-image{
     flex-direction: column;
     align-self: center;
 }
-
+ */

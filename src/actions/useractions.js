@@ -32,7 +32,6 @@ export function createAccount(userInfo){
 }
 
 export function SignIn(Email, Password){
-    // you can write some other functionalities here
     return (dispatch, navigate)=>{
         try {
             axios.post(`${ROOT_URL}signin`, {Email, Password}).then(response=>{
@@ -49,7 +48,6 @@ export function SignIn(Email, Password){
         }
     }
 }
-
 
 
 export async function getPersonalInformation(){

@@ -15,12 +15,6 @@ const Cart = (props)=>{
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const [relatedProducts, setRelatedProducts] = useState();
-    const [total, setTotal] = useState(0);
-    const [totalPrice, setTotalPrice] = useState(0);
-
-    // useEffect(()=>{
-    //     axios.get('/')
-    // }, [])
 
     const NoContentYet =()=>{
         return(

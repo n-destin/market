@@ -25,9 +25,7 @@ const Product  = (props) =>{
 
     return(
         <div>
-            
-            {console.log(props.content)}
-            <div className="product" onClick={()=>{navigate(`products/${id}`)}}  >
+            <div className="card" onClick={()=>{navigate(`products/${id}`)}} style ={{width : '12rem'}} >
                 <img src={props.content.Image} alt="product-image" />
                <div className="product-content">
                     <h3> $ {props.content.Price.$numberDecimal
