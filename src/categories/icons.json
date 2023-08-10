@@ -1,7 +1,8 @@
 
 {
-    "Inbox" : "messages", 
-    "Donate": "donation", 
-    "Sell" : "tradein", "Account": "account", 
+    "Inbox" : "messages",
+    "anouncement": "anouncement",
+    "Sell" : "tradein", 
+    "Account": "account", 
     "Cart" : "cart"
 }

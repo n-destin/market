@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import './support.css'; // Import the CSS file for styling
-import Navigation from '../navigation/navigation';
+import './support.css';
+import { Link } from 'react-router-dom';
+import AccountNavigation from '../personal/accountNavigation';
 
 const ContactSupportPage = () => {
   const [firstName, setFirstName] = useState('');
-  const[lastName, setLastName] = useState('');
+  const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
   const [id, setId] = useState('');
   const [message, setMessage] = useState('');
@@ -34,13 +35,10 @@ const ContactSupportPage = () => {
     'Last name' : handleLastNameChange,
     'Email' : handleEmailChange,
     'Customer id' : handleIdChange,
-    // 'Your message' : handleMessageChange,
   }
-
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // Here you can implement the logic to send the message to your support system
     setFirstName('');
     setEmail('');
     setLastName('');
@@ -48,39 +46,45 @@ const ContactSupportPage = () => {
     setMessage('');
   };
 
-//   const IconsToRender = Object.keys(inputObject).map(iconKey=>{
-//     // console.log(Object.keys(iconsNavigation[iconKey])[0]);
-//     return <Icon name = 'name' icon = {iconsNavigation[iconKey][Object.keys(iconsNavigation[iconKey])[0]]} action = {Object.keys(iconsNavigation[iconKey])[0]} title = {iconKey}/>
-// })
-
-  
-  // console.log(inputToReturn);
-
   return (
-    <div className="contact-support">
-      <Navigation />
-      <h1 className='headingText'>Contact us</h1>
-      <div className="contactBody">
-      <div className='text'>
-        <p>
-          Have a question or need assistance? We're here to help! Please provide the following details along with your message
-        </p>
-      </div>
-      <form onSubmit={handleSubmit}>
-        <div>
-        {Object.keys(inputObject).map(inputKey=>{
-          console.log('here');
-            return(
-              <input type="text" placeHolder = {inputKey} onChange = {inputObject[inputKey]}/>
-            )
-          })}
-        </div>
+    <>
+      
+  
+      <AccountNavigation navContent={{
+                "Messages": 'messages',
+                "My trading dashboard": "account/trading_index"
+            }}/>
+     
+         <div className='contatc-margin'>
+         <div className="contact-support-page">
+              <h3 className='heading-contact'>Contact Us</h3>
+                    <p className='paragraph-contact'>
+                     "Need help or have a query? Share your details and message below!"
+                    </p>
+                    <form onSubmit={handleSubmit}>
+                      {Object.keys(inputObject).map(inputKey => (
+                        <input 
+                          key={inputKey}
+                          type="text" 
+                          placeholder={inputKey} 
+                          onChange={inputObject[inputKey]}
+                          required
+                        />
+                      ))}
+                      <textarea 
+                        name="Message" 
+                        placeholder='Message'
+                        onChange={handleMessageChange}
+                        value={message}
+                        required
+                      ></textarea>
+                      <button type="submit" className='contactButton'>Send Message</button>
+                    </form>
+            </div>
+         </div>
 
-        <textarea name="Message" id="" cols="30" rows="10" placeholder='message'></textarea>
-        <button type="submit" className='contactButton'>Send Message</button>
-      </form>
-      </div>
-    </div>
+      
+    </>
   );
 };
 

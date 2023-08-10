@@ -7,52 +7,57 @@ import filter from '../../images/filter.png'
 import drive from '../../images/drive.png'
 import folder from  '../../images/folder.png'
 import welcome from '../../images/comment.png'
-import { getConversations, ROOT_URL } from '../../actions/useractions';
+import sendIcon from '../../images/send-message.png'
+import {ROOT_URL } from '../../actions/useractions';
 import { useDispatch, useSelector } from 'react-redux';
 // import { getChatMessages } from '../../actions/useractions';
 import {io} from 'socket.io-client'
+// import { set } from 'lodash';
 
 const ChatRoom = () => {
 
-  const [messages, setMessages] = useState([{text :'some dummy text here'}, [{}]]);
+  const [messages, setMessages] = useState([]); // these are the messages of the current conversations, 
   const [input, setInput] = useState('');
   const [conversations, setConversations] = useState();
   const [selected, setSelected ] = useState();
-  const [inputClass, setinputClass] = useState('input-area')
+  const [inputClass, setinputClass] = useState('input-area') 
   const [allClass, setAllClass] = useState('SelectionDisplay');
   const [unreadClass, setUnreadClass] = useState('unSelectDisplay');
   const [selectedDisplay, setSelectedDisplay] = useState('All');
-  const [messageClass, setMessageClass] = useState('Buyer')
   const [currentRoom, setCurrentRoom] = useState();
+  const [activePerson, setActivePerson] = useState('No Active User')
+
+  let unreadMessages = 0;
 
 
 
-  // connecting to socket.io server
   const socket = io(ROOT_URL)
-   
   socket.on('connect', async()=>{
-    // update the user about the current messages in the room
-    console.log('socket connected');
+    const userId = localStorage.getItem('userToken') 
+    socket.emit('get_conversations', userId, (conversations)=>{
+      setConversations(conversations);
+    })
   })
 
-  const dispatch = useDispatch();
-
   const handleSelection = (conversationId)=>{
-    setMessages(conversations[conversationId][messsageObject]);
     setSelected(conversationId);
     setCurrentRoom(conversationId);
+    socket.emit('get_messages', conversationId, (messages)=>{ 
+      setMessages(messages);
+    })
   }
 
-  const MessagePerson = (props)=>{
+  const ConversationHandler = (props)=>{
     return(
-      // when clicked set the image to the id of the conversation
         <div className="person" onClick={()=>{handleSelection(props.conversationId)}}> 
-            <img src={props.image} alt={`${props.name}-image`} className = 'person-image'/>
-            <p>{props.firstaName}</p>
-            <p>{props.lastName}</p>
+            <h3>{props.conversationName}</h3>
         </div>
     )
   }
+
+  socket.on('recieve_message', (message)=>{ 
+    setMessages([...messages, message]);
+  })
 
   const handleInputChange = (e) => {
     setInput(e.target.value);
@@ -61,31 +66,27 @@ const ChatRoom = () => {
   const Message = (props)=>{
     return(
         <div className={props.className}>
-            <p>{props.messageContent}</p>
+            <p className='message-content'>{props.messageContent}</p>
         </div>
     )
   }
 
 const Handler = (props)=>{
     if(props.name === 'persons'){
-        // get the conversations from the redux store
-        const reducerConverstions = useSelector(store=> {return store.conversations});
-        (reducerConverstions) ? setConversations(reducerConverstions): console.log('There are no conversations from the reducer yet');
         return(
             <div>
             {(!conversations)? <div className='peopleContainer'>
                 <img src={props.image} alt="another-image"  className='personsImage'/>
-                {console.log(props.image)}
-                <p>No messages yet</p>
+                <p className='conversationsText'>No messages yet</p>
             </div> : conversations.map(conversation=>{
-                socket.emit('join_room', conversation.id)
-                return <MessagePerson firstName = {conversation.person.firstName} lastName = {conversation.person.lastName} conversationId = {conversation.person.conversation} image = {conversation.person.image}/>
+                socket.emit('join_room', conversation) 
+                return <ConversationHandler conversationName = {conversations[conversation].conversationName} conversationId ={conversation}/>
             })
             }
         </div> 
         )
     }else{
-        if(!selected){
+        if(selected){ 
             return(
                 <div className='nothingHolderselected'>
                     {setinputClass('displayNoneInputClass')}
@@ -94,16 +95,12 @@ const Handler = (props)=>{
                 </div>
             )
         } else{
-            // get the messages from the reducer 
-            // const messagesFromReducer = useSelector(store=>{return store.messages})
-            // setMessages(messagesFromReducer)
             setinputClass('input-area')
             return(
                 <div>
-                   { messages.map((message) => {
-                    // some of the unclear code here
-                        (message.sender === localStorage.getItem('userToken'))? setMessageClass("mine"): setMessageClass("yours") // reme,mnber inserting uid on the localStorage
-                    return  <Message  className = {messageClass} messageContent = {message.text}/>
+                   {messages.map((message) => {
+                    console.log(message);
+                    return  <Message  className = {(message.Sender === 'Me')? 'fromMe' : 'fromAnotherPerson'} messageContent = {message.text}/>
                    })
             }
                 </div>
@@ -112,8 +109,6 @@ const Handler = (props)=>{
 }
     
 }
-  
-  // remember fetching the people according to the selected Option
 
   const interChangeonAll = ()=>{
     const temp = allClass;
@@ -129,29 +124,17 @@ const Handler = (props)=>{
   }
 
 
-
-  // getting the conversations
-  useEffect(()=>{
-    const userId  = localStorage.getItem('userToken');
-        dispatch(getConversations(userId));
-  }, [])
-
-  // end of getting the conversatins
-
-
   const handleSendMessage = () => {
     if (input.trim() !== '') {
       const newMessage = {
         id: messages.length + 1,
-        Sender : localStorage.getItem('userToken'),
+        Sender : 'Me',
         text: input.trim(),
         timestamp: new Date().toDateString()
       };
-      // is should be the socket.io thing here though 
-      socket.emit('new_message', newMessage, currentRoom, (message)=>{
-        setMessages([...messages, message]);
-        setInput('');
-      })
+      setInput('');
+      socket.emit('new_message', newMessage, currentRoom);
+      setInput('');
     }
   };
 
@@ -162,21 +145,23 @@ const Handler = (props)=>{
 
   return (
     <div className="chat-room">
-    <AccountNavigation navContent = {{"My transactions"  : 'transactions',
-    "My trading dashborad" : "trading_index"}}/>
+    <AccountNavigation navContent = {{"My transactions"  : 'transactions'}}/>
         <div className="chatting_session">
             <div className="messaging-people">
                 <div className="message_heading" >
                     <div className="searching">
-                         <input type="text" placeholder={'Search chats'}/> 
+                         <input type="text" placeholder={'Search chat'}/> 
                          <img src={drive} alt="drive-icon" className='drive-icon'/>
                     </div>
                     <hr />
+
                     <div className="classifiers">
-                        <div className="sectionOne">
+                        <div className="sectionOne" style={{
+                        }}>
                             <h4 className={allClass} onClick ={interChangeonAll}>All</h4>
                             <h4 className={unreadClass} onClick ={interChangeOnUnread}>Unread</h4>
                         </div>
+                        
                         <div className="sectionTwo">
                             <img src={filter} alt="filter-image" />
                             <img src={archive} alt="archived-messages" />
@@ -188,11 +173,15 @@ const Handler = (props)=>{
                     {<Handler name = 'persons' image = {folder}/>}
                 </div>
             </div>
+
+
             <div className="chat-sessions">
-                <div id='activeChatPerson' className='activeChatPerson'></div>
+                <div id='activeChatPerson' className='activeChatPerson'>{activePerson}</div>
+                
                 <div id="chat-window" className="chat-window">
                     {<Handler name = 'selected' image = {welcome}/>}
                 </div>
+
                 <div className={inputClass}>
                     <input
                     type="text"
@@ -201,7 +190,7 @@ const Handler = (props)=>{
                     placeholder="Type your message..."
                     className='input_text_area'
                     />
-                    <button onClick={handleSendMessage}>Send</button>
+                    <img src={sendIcon} alt="send-icon" className='sendImage' onClick={handleSendMessage}/>
                 </div>
         </div>
         </div>
