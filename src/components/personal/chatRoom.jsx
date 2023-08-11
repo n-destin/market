@@ -131,7 +131,7 @@ const Handler = (props)=>{
 
   const handleSendMessage = () => {
     if (input.trim() !== '') {
-      const processedMessage = await axios.post(`${ROOT_URL}generate`);
+      const processedMessage = axios.post(`${ROOT_URL}generate`);
       const newMessage = {
         id: messages.length + 1,
         Sender : 'Me', // change the user's Id 
