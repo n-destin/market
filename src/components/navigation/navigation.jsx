@@ -90,9 +90,11 @@ const IconsToRender = Object.keys(iconsNavigation).map(iconKey => {
                         </div>
                         </div>
                         <div className="iconContainer">
+
                         <div className="icons">
                             {IconsToRender}
                         </div>
+
                         </div>
                         <SignInHandler />
                         </div>

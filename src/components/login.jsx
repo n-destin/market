@@ -1,6 +1,4 @@
-import React from "react";
-import { useState } from "react";
-import * as userActions from '../actions/useractions'
+import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router";
 import { SignIn } from "../actions/useractions";
@@ -8,7 +6,7 @@ import './authentication/login.css'
 import googleIcon from '../images/googleIcon.png'
 import { Link } from "react-router-dom";
 import SingUp from '../components/craeteAccount'
-import { useEffect } from "react";
+
 
 const SignUp = (props) =>{
 
@@ -42,33 +40,32 @@ const SignUp = (props) =>{
                 </div>
             </div>
         )
-    }
+        }
 
 
-    return(
-        <div className="loginPage">
-            <div className="loginCard">
-                <h1 className="heading">The Dartmouth market</h1>
-                <div className="lognavigator">
-                    <Link className="loginLink" onClick={()=>{setLogin(true)}}>Login</Link>
-                    <Link className="loginLink" onClick={()=>{setLogin(false)}}>Create account</Link>
-                </div>
-                {(login)? loginRender(): <SingUp />}
-                <hr />
-                <div className="bottoms">
-                    <div className="third-party-login">
-                        <img src={googleIcon} alt="" height='70rem' width='70rem'/>
-                        <input type="button" name="" id=""  value = {`${(login)? 'Login ' : 'Sign up'} with Google`}/>
-                    </div>
-                    <div className="links">
-                        <Link >Privacy</Link>
-                        <Link>Legal</Link>
-                        <Link>Need help?</Link>
+        return(
+            <div className="loginPage">
+                
+                <div className="loginCard">
+                <Link to={`/`} style={{color: "green"}} className = "accountLinks">The College Market</Link>
+                    {(login)? loginRender(): <SingUp />}
+                    <p className="centerLink">Don't have an account? <Link className="loginLink" onClick={()=>{setLogin(false)}}>Create account</Link></p>
+                    <hr />
+                    <div className="bottoms">
+                        <div className="third-party-login">
+                            <img src={googleIcon} alt="" height='50rem' width='50rem'/>
+                            <input type="button" className="third-party-button" name="" id="" value={`${(login)? 'Login ' : 'Sign up'} with Google`} />
+                        </div>
+                        <div className="links">
+                            <Link >Privacy</Link>
+                            <Link>Legal</Link>
+                            <Link>Need help?</Link>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    )
+        )
+        
 }
 
 export default SignUp;

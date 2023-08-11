@@ -126,7 +126,7 @@ input.createProductButton {
 }
 
 input.createProductButton:hover {
-    background-color: #2e250d;
+    background-color: rgb(199, 181, 16);
     color: white;
     transform: translateY(10%);
 }

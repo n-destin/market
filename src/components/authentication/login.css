@@ -1,205 +1,137 @@
-.loginPage, .accountPage{
+.loginPage {
     height: 100vh;
     width: 100vw;
     background-color: #EFF5EE;
-    align-items: center;
     display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
 }
 
-.accountPage{
-    height: 94vh;
-}
-
-.loginCard, .accountCard{
-    height: 90vh;
-    width: 30vw;
-    background-color: white;
+.loginCard {
+    width: 80%;
+    max-width: 500px; /* Adjust based on your preference */
+    background-color: rgba(255, 255, 255, 0.7); 
     padding: 1rem;
-    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-}
-
-.accountCard{
-    width: 60%;
-    height: 60%;
-    margin-bottom: 10rem;
-}
-
-
-.inputs{
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2); 
+    border: 2px solid #135333;
+    border-radius: 15px;
+    position: relative;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
 }
 
-.spanning_element{
-    margin-left: 2.6rem;
+.accountLinks {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 1rem;
 }
 
-.userId{
-    margin-left: 1.5rem;
-}
-
-.inputs > input {
-    width: 70%;
-    padding: .7rem;
-    margin: 1rem;
-}
-.lognavigator {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-}
-
-.heading{
-    display: flex;
-    flex-direction: row;
-    /* margin-left: 5rem; */
-    /* height: 5rem; */
-}
-
-.changeButton{
-    margin-left: 1rem;
-    color: rgb(16, 114, 219);
-    text-decoration: underline;
-}
-
-.partTwo{
-    align-self: center;
-}
-
-.spanning_element_email, .userId, .spanning_element{
-    font-weight: lighter;
-}
-
-.detail{
+.inputs {
+    width: 100%;
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
-
-.spanning_element_email{
-    margin-left: 6rem;
+.inputs {
+    padding: .7rem;
+    margin: 1rem 0;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 10px 10px 10px 10px rgba(2, 18, 7, 0.1);
 }
 
-.heading > * > *, .details > *{
-    margin: none;
-    padding: none;
-    text-align: left;
-}
-
-span{
-    color: black;
-}
-
-.details{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-}
-
-.link{
-    text-decoration: none;
-    padding: 0 0 .9rem 0;
-    color: black;
-    font-size: .9rem;
-}
-
-.head_content{
-    font-weight: bolder;
-    color: green;
-    font-size: .95rem;
-    margin-top: .6rem;
-}
-
-
-hr{
-    width: 70%;
-}
-
-
-input[type = 'button']{
-    background-color: transparent;
-    border: 1px solid black;
-}
-input[type = 'button']:hover{
+.buttonLogin {
+    width: 20rem;
+    height: 1.5rem;
+    background-color: #005128;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
     cursor: pointer;
-    background-color: #EFF5EE;
-}
-.buttonLogin  {
-    height: 2rem;
-    margin: 2rem;
+    transition: background-color 0.3s ease;
 }
 
-.horizontal{
-    width: 100%;
+.buttonLogin:hover {
+    background-color: #a5d5bd;
+    color: #005128;
 }
 
-.loginLink{
+.loginLink, .centerLink a {
     text-decoration: none;
     color: rgb(81, 81, 195);
 }
 
-.third-party-login{
-    /* margin-top: 2rem;  */
+.centerLink {
+    text-align: center;
+    width: 100%;
+}
+
+.links {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 10px;
+}
+
+.links > a {
+    text-decoration: none;
+    color: #005128;
+    margin-top: 10rem;
+}
+
+h2 {
+    margin: 0;
+    padding: 0;
+    font-size: 24px;
+    color: #00693e;
+}
+
+.third-party-login {
+    margin-top: 5rem;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
 }
 
-.third-party-login > input{
-    height: 2.5rem;
-    width: 70%;
-}
-.links > *{
-    color: black;
+.third-party-login > img {
+    margin-bottom: 10px;
 }
 
-
-.links{
-    /* margin-top: 5rem; */
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
+.third-party-button {
+    width: 20rem;
+    height: 1.5rem;
+    background-color: #005128;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-h2{
-    margin: none;
-    padding: none;
+.third-party-button:hover {
+    background-color: #a5d5bd;
+    color: #005128;
 }
 
-.profileImage{
-    border-radius: 50%;
-    height: 10rem;
-    margin-left: 4rem;
+@media (max-width: 768px) {
+    .loginCard {
+        width: 90%;
+    }
+
+    .inputs > input, .buttonLogin, .third-party-button {
+        width: 90%;
+    }
 }
 
-.horizontaldetail{
-    width: 100%;
-    margin-bottom: 1rem;
-}
+@media (max-width: 500px) {
+    .inputs > input, .buttonLogin, .third-party-button {
+        font-size: 14px;
+    }
 
-.account_nativation{
-    background-color: white;
-    position: block;
-    padding: 1.2rem;
-    display: flex;
-    flex-direction: row;
-    text-decoration: none;
-}
-.account_nativation .rightLinks{
-    display: flex;
-    flex-direction: row;
-    margin-left: 60%;
-}
-
-.accountLinks{
-    text-decoration: none;
-    padding: 0 0 0 2rem;
-}
-
-h4{
-    color: black;
+    .accountLinks {
+        font-size: 20px;
+    }
 }
