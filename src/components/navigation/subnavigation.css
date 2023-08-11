@@ -37,9 +37,6 @@ body, html {
     font-size: .9rem;
 }
 
-.sub-link:hover {
-    transform: translateY(10px);
-}
 
 .subnavigation > * {
     padding: .4rem;

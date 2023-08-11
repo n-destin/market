@@ -13,7 +13,7 @@ import { useState } from "react";
 import Effect from "./effect";
 
 const Navigation = (props) => {
-    const [person, setPerson] = useState();
+    const [person, setPerson] = useState({fistName : "destin"});
 
     const navigate = useNavigate();
     const iconsNavigation = {
@@ -43,6 +43,10 @@ const Navigation = (props) => {
                 <div className="loggedIn" onClick={() => { navigate('/account') }}>
                     <p>Hello</p>
                     <h3>{person.firstName}</h3>
+                    <img src={account} alt="" className="account-image" />
+                    <div className="navBeside">
+                        <p className="sign-in-text">Sign in / Register</p>
+                    </div>
                 </div>
             )
         } else {
@@ -76,34 +80,29 @@ const IconsToRender = Object.keys(iconsNavigation).map(iconKey => {
 })
 
     return (
-        <>
-                    <div className='navigationBar bg-lime-800 flex flex-row'>
+        <div className='navigationBar bg-lime-800 flex flex-row'>
+            <div className="iconbar">
+            <div className="logo">
+            <Link to="/" className="linking">The College Market</Link>
+            </div>
+            <SignInHandler />
+            <div className="searchContainer">
+            <div className="searchWrap">
+                <input type="text" className="searchBar" placeholder="Search..." />
+                <button className="searchButton"><i className="fa fa-search"></i></button>
+            </div>
+            </div>
+            <div className="iconContainer">
 
-                        <div className="iconbar">
-                        <div className="logo">
-                        <Link to="/" className="linking">The College Market</Link>
-                        </div>
-                        <div className="searchContainer">
-                        <div className="searchWrap">
-                            <input type="text" className="searchBar" placeholder="Search..." />
-                            <button className="searchButton"><i className="fa fa-search"></i></button>
-                        </div>
-                        </div>
-                        <div className="iconContainer">
+            <div className="icons">
+                {IconsToRender}
+            </div>
 
-                        <div className="icons">
-                            {IconsToRender}
-                        </div>
-
-                        </div>
-                        <SignInHandler />
-                        </div>
-                        <Subnavigation />
-                        <Effect  />
-
-                    </div>
-        </>
-       
+            </div>
+            </div>
+            <Subnavigation />
+            <Effect  />
+        </div> 
     )
 
 }
