@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 body, html {
     margin: 0;
     padding: 0;
@@ -7,8 +7,6 @@ body, html {
     overflow-x: auto; 
 }
 
-/* ... your other global styles ... */
-
 .subnavigation {
     background-color: #EFF5EE;
     white-space: nowrap;
@@ -16,55 +14,9 @@ body, html {
 }
 
 .centerWrapper {
-=======
-/* .subnavigation, .right{
->>>>>>> safe
-    display: flex;
-    width: 100%;
-    justify-content: center;
-}
-
-.category-container {
-    display: flex;
-    gap: 16px;
-    align-items: center;
-    justify-content: start;
-}
-
-.sub-link {
-    text-decoration: none;
-    font-size: large;
-<<<<<<< HEAD
-    color: green;
-}
-
-.subLink {
-    font-size: .9rem;
-=======
-    padding: 0 2.5vw 0 2.5vw;
-    color: green;
-}
-
-.subnavigation{
-    justify-content: space-between;
-    background-color: #EFF5EE;
-    width: 100%;
-    top: 8vh;
->>>>>>> safe
-}
-
-
-.subnavigation > * {
-    padding: .4rem;
-}
-
-/* Media Query for Smaller Screens */
 @media (max-width: 768px) { /* Adjust this value based on when you notice the issue */
     .centerWrapper {
         justify-content: start;
     }
 }
-<<<<<<< HEAD
-=======
- */
->>>>>>> safe
+}

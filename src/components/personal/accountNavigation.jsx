@@ -4,16 +4,11 @@ import "./accountNavigationCss.css";
 
 const AccountNavigation = (props)=>{
     return(
-<<<<<<< HEAD
-        <div className="account_navigation">
-            <Link to={`/`} className = "accountLinks">The College Market</Link>
-=======
         <div className="account_navigation" style={{
             backgroundColor : 'rgb(29, 65, 29)',
             color: 'white',
         }}>
-            <Link to={`/`} className = "accountLinks">The Dartmouth market</Link>
->>>>>>> safe
+            <Link to={`/`} className = "accountLinks">The College market</Link>
             <div className="rightLinks">
                 {Object.keys(props.navContent).map(content=>{
                     return(

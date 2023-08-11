@@ -1,8 +1,5 @@
-<<<<<<< HEAD
-.loginPage {
-=======
+
 .loginPage{
->>>>>>> safe
     height: 100vh;
     width: 100vw;
     background-color: #EFF5EE;
@@ -12,7 +9,6 @@
     justify-content: center;
 }
 
-<<<<<<< HEAD
 .loginCard {
     width: 80%;
     max-width: 500px; /* Adjust based on your preference */
@@ -22,7 +18,7 @@
     border: 2px solid #135333;
     border-radius: 15px;
     position: relative;
-=======
+}
 .accountPage{
     height: 94vh;
 }
@@ -46,7 +42,6 @@ input[type = 'password']{
 }
 
 .inputs{
->>>>>>> safe
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -58,10 +53,10 @@ input[type = 'password']{
     margin-bottom: 1rem;
 }
 
-<<<<<<< HEAD
+
 .inputs {
     width: 100%;
-=======
+}
 .userId{
     margin-left: 1.5rem;
 }
@@ -93,7 +88,6 @@ input[type = 'password']{
 }
 
 .detail{
->>>>>>> safe
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -107,7 +101,7 @@ input[type = 'password']{
     box-shadow: 10px 10px 10px 10px rgba(2, 18, 7, 0.1);
 }
 
-<<<<<<< HEAD
+
 .buttonLogin {
     width: 20rem;
     height: 1.5rem;
@@ -117,7 +111,7 @@ input[type = 'password']{
     border-radius: 10px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-=======
+}
 .heading > * > *, .details > *{
     margin: none;
     padding: none;
@@ -177,7 +171,6 @@ input[type = 'button']:hover{
 input.buttonLogin{
     align-self: center;
     margin-top: 1rem;
->>>>>>> safe
 }
 
 .buttonLogin:hover {
@@ -185,16 +178,11 @@ input.buttonLogin{
     color: #005128;
 }
 
-<<<<<<< HEAD
 .loginLink, .centerLink a {
-=======
-.active{
->>>>>>> safe
     text-decoration: none;
     color:#00693e;
 }
 
-<<<<<<< HEAD
 .centerLink {
     text-align: center;
     width: 100%;
@@ -222,15 +210,11 @@ h2 {
 
 .third-party-login {
     margin-top: 5rem;
-=======
-.third-party-login, .third-party-login-account{
->>>>>>> safe
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-<<<<<<< HEAD
 .third-party-login > img {
     margin-bottom: 10px;
 }
@@ -259,7 +243,6 @@ h2 {
     .inputs > input, .buttonLogin, .third-party-button {
         width: 90%;
     }
-=======
 .third-party-login > input, .third-party-login-accoun > input{
     height: 2.5rem;
     width: 70%;
@@ -295,7 +278,6 @@ h2{
     height: 5rem;
     margin: 1rem 5rem 1rem 14rem;
     align-self: center;
->>>>>>> safe
 }
 
 @media (max-width: 500px) {
@@ -303,12 +285,11 @@ h2{
         font-size: 14px;
     }
 
-<<<<<<< HEAD
     .accountLinks {
         font-size: 20px;
     }
 }
-=======
+
 .account_navigation{
     background-color: rgb(29, 65, 29);
     position: block;
@@ -343,4 +324,4 @@ h4{
 .account_main_div{
     height: 94vh;
 }
->>>>>>> safe
+}
