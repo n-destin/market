@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 .loginPage {
+=======
+.loginPage{
+>>>>>>> safe
     height: 100vh;
     width: 100vw;
     background-color: #EFF5EE;
@@ -8,6 +12,7 @@
     justify-content: center;
 }
 
+<<<<<<< HEAD
 .loginCard {
     width: 80%;
     max-width: 500px; /* Adjust based on your preference */
@@ -17,6 +22,31 @@
     border: 2px solid #135333;
     border-radius: 15px;
     position: relative;
+=======
+.accountPage{
+    height: 94vh;
+}
+
+.loginCard{
+    background-color: white;
+    padding: 1rem;
+    height: 90%;
+    width: 30%;
+}
+
+input[type = 'password']{
+    width: 100%;
+  padding: 12px;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-size: 16px;
+  color: #333;
+}
+
+.inputs{
+>>>>>>> safe
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -28,8 +58,42 @@
     margin-bottom: 1rem;
 }
 
+<<<<<<< HEAD
 .inputs {
     width: 100%;
+=======
+.userId{
+    margin-left: 1.5rem;
+}
+
+.lognavigator {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-bottom: 2rem;
+}
+.personalImage{
+    height: 1rem;
+}
+.heading{
+    display: flex;
+    flex-direction: row;
+    justify-self: center;
+}
+
+.changeButton{
+    margin-left: 1rem;
+    color: rgb(16, 114, 219);
+    text-decoration: underline;
+}
+
+
+.spanning_element_email, .userId, .spanning_element{
+    font-weight: lighter;
+}
+
+.detail{
+>>>>>>> safe
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -43,6 +107,7 @@
     box-shadow: 10px 10px 10px 10px rgba(2, 18, 7, 0.1);
 }
 
+<<<<<<< HEAD
 .buttonLogin {
     width: 20rem;
     height: 1.5rem;
@@ -52,6 +117,67 @@
     border-radius: 10px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+=======
+.heading > * > *, .details > *{
+    margin: none;
+    padding: none;
+    text-align: left;
+}
+
+span{
+    color: black;
+}
+
+.details{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.link{
+    text-decoration: none;
+    padding: 0 0 .9rem 0;
+    color: black;
+    font-size: .9rem;
+}
+
+.head_content{
+    font-weight: bolder;
+    color: green;
+    font-size: .95rem;
+    margin-top: .6rem;
+}
+ƒ
+
+hr{
+    width: 70%;
+}
+
+hr.loginLine{
+    margin:2rem 0 2rem 0rem;
+}
+
+
+input[type = 'button']{
+    background-color: #00693e;
+    border: 1px solid black;
+    color: white;
+    height: 2rem;
+    width: 8rem;
+    border-radius: .3rem;
+    border: none;
+}
+input[type = 'button']:hover{
+    cursor: pointer;
+    background-color: white;
+    color: #00693e;
+    border: 1px solid #00693e;
+}
+
+input.buttonLogin{
+    align-self: center;
+    margin-top: 1rem;
+>>>>>>> safe
 }
 
 .buttonLogin:hover {
@@ -59,11 +185,16 @@
     color: #005128;
 }
 
+<<<<<<< HEAD
 .loginLink, .centerLink a {
+=======
+.active{
+>>>>>>> safe
     text-decoration: none;
-    color: rgb(81, 81, 195);
+    color:#00693e;
 }
 
+<<<<<<< HEAD
 .centerLink {
     text-align: center;
     width: 100%;
@@ -91,11 +222,15 @@ h2 {
 
 .third-party-login {
     margin-top: 5rem;
+=======
+.third-party-login, .third-party-login-account{
+>>>>>>> safe
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
+<<<<<<< HEAD
 .third-party-login > img {
     margin-bottom: 10px;
 }
@@ -124,6 +259,43 @@ h2 {
     .inputs > input, .buttonLogin, .third-party-button {
         width: 90%;
     }
+=======
+.third-party-login > input, .third-party-login-accoun > input{
+    height: 2.5rem;
+    width: 70%;
+}
+
+
+
+.loginLinks, .accountLinks{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.loginLinks{
+    margin-top: 5rem;
+}
+
+.accountLinks{
+    margin-top: 1.5rem;
+}
+
+h2{
+    margin: none;
+    padding: none;
+}
+
+.partTwo{
+    align-self: center;
+}
+
+.profileImage{
+    border-radius: 50%;
+    height: 5rem;
+    margin: 1rem 5rem 1rem 14rem;
+    align-self: center;
+>>>>>>> safe
 }
 
 @media (max-width: 500px) {
@@ -131,7 +303,44 @@ h2 {
         font-size: 14px;
     }
 
+<<<<<<< HEAD
     .accountLinks {
         font-size: 20px;
     }
 }
+=======
+.account_navigation{
+    background-color: rgb(29, 65, 29);
+    position: block;
+    display: flex;
+    flex-direction: row;
+    text-decoration: none;
+    height: 8vh;
+}
+.account_navigation .rightLinks{
+    display: flex;
+    flex-direction: row;
+    margin-left: 60%;
+}
+
+.accountLinks{
+    text-decoration: none;
+    padding: 0 0 0 2rem;
+}
+
+h4{
+    color: black;
+}
+
+.accountLine{
+    margin-bottom: 1rem 0 1rem 0;
+}
+
+.buttonSignup{
+    margin:1rem 0 2rem 0;
+}
+
+.account_main_div{
+    height: 94vh;
+}
+>>>>>>> safe

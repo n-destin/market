@@ -28,10 +28,18 @@ const Account = (props) => {
             "Close your account": function () { }
 
         },
+<<<<<<< HEAD
         "Finance information": {
             "My transactions": function () { },
             "Logistics": function () { },
             "Payment Methods": function () { }
+=======
+        "Finance information" : {
+            "My transactions" : function(){},
+            'My orders' : function (){},
+            "Logistics" : function(){},
+            "Payment Methods" : function(){}
+>>>>>>> safe
         }
     }
 
@@ -47,6 +55,7 @@ const Account = (props) => {
         )
 
     });
+<<<<<<< HEAD
    
 
     console.log(returnComponents);
@@ -57,11 +66,24 @@ const Account = (props) => {
                 "Messages": 'messages',
                 "My trading dashboard": "account/trading_index"
             }} />
+=======
+    console.log(returnComponents);
+
+    return(
+        <div className="account_main_div">
+            <AccountNavigation navContent = {{
+                "Messages" : 'messages',
+            }}/>
+>>>>>>> safe
             <div className="accountPage">
                 <div className="accountCard">
                     <div className="heading">
                         <div className="partOne">
+<<<<<<< HEAD
                             <img src={(Profile) ? Profile : profileHolder} alt="personalImage" height='20%' className="profileImage" />
+=======
+                            <img src={(Profile)? Profile : profileHolder} alt="personalImage" className="profileImage"/>
+>>>>>>> safe
                         </div>
                         <div className="partTwo">
                             <h4 className="head_content">Your member id:  <span className="userId">some user id here; to be handled</span></h4>

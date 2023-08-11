@@ -10,6 +10,10 @@ const SingUp = (props) => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
+<<<<<<< HEAD
+=======
+    const[showPassword, setShowPassword] = useState(false);
+>>>>>>> safe
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [Email, setEmail] = useState('');
@@ -19,7 +23,21 @@ const SingUp = (props) => {
     const [classYear, setclassYear] = useState("")
     const [isLogin, setLogin] = useState(true);
 
+<<<<<<< HEAD
     const toRender = ['Firstname', 'Lastname', 'Email', 'Phone Number', 'Password', 'University', "classYear"];
+=======
+    const toRender = ['Firstname', 'Lastname', 'Email', 'Phone Number', 'Password'];
+
+    const Signup = createAccount(
+        {
+            firstName: firstName,
+            lastName: lastName,
+            Email: Email,
+            phoneNumber: PhoneNumber,
+            Password: Password,
+        }
+    )
+>>>>>>> safe
 
     const Signup = createAccount({
         firstName: firstName,
@@ -32,6 +50,7 @@ const SingUp = (props) => {
     });
 
     const namestoFunctions = {
+<<<<<<< HEAD
         'Firstname': setFirstName,
         'Lastname': setLastName,
         'Phone Number': setPhoneNumber,
@@ -53,6 +72,25 @@ const SingUp = (props) => {
                         Signup(dispatch, navigate);
                     }} />
                 </div>
+=======
+        'Fistname': setFirstName,
+        'Lastname' : setLastName,
+        'Email' : setEmail,
+        'Phone Number' : setPhoneNumber,
+        'Password' : setPassword,
+    }
+
+
+    return(
+        <div >
+            <div className="inputs">
+                {Object.keys(namestoFunctions).map(key =>{
+            return <input type = {(key == 'Password' && !showPassword)? 'password' : 'text'} name = {key} id  = {key} placeholder = {key} onChange = {(event)=>{namestoFunctions[key](event.target.value)}}/>
+        })}
+        <input type="button"className="buttonSignup" name="" id="" value= 'Sign up' onClick = {()=>{
+                Signup(dispatch, navigate);
+            }}/>
+>>>>>>> safe
             </div>
         </div>
     )

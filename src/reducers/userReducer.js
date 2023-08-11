@@ -7,11 +7,12 @@ const initialvalue = {
 
 const userReducer = produce((pastState, action ={})=>{
     switch(action.type){
-        case ActionsType.AUTHENTICATE_USER || ActionsType.AUTHENTICATION_ERROR:
-            console.log('reached here in sigin in reducer');
-             pastState.authenticated = true
+        case ActionsType.AUTHENTICATE_USER:
+             pastState.authenticated = true,
+             pastState.userInformation = action.payload;
              break;
-        case ActionsType.DEAUTHENTICATE_USER:
+        case ActionsType.DEAUTHENTICATE_USER || ActionsType.AUTHENTICATION_ERROR:
+            console.log('going to deauthenticate user');
             pastState.authenticated = false;
             break;
     }

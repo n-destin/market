@@ -6,17 +6,14 @@ import { getProduct } from "../../actions/productActions";
 import './page.css'
 import { getRelated } from "../../actions/productActions";
 import Product from "./product";
-import { addtoCart } from "../../actions/productActions";
+import { cartAction } from "../../actions/productActions";
 import Navigation from "../navigation/navigation";
 
 const ProductPage = (props)=>{
 
     const navigate = useNavigate();
-
     let relatedContent;
-
     const {id} = useParams();
-    console.log(id);
     const dispatch = useDispatch();
 
     useEffect(()=>{
@@ -40,13 +37,10 @@ const ProductPage = (props)=>{
             return <Product /> // pass the information here
         })
     }
-    const userTokenContainer = localStorage.getItem('userToken')
+    const userToken = localStorage.getItem('userToken')
+    console.log(userToken);
 
-    const addingToCart = addtoCart(id, (userTokenContainer)? userTokenContainer : 'nothing');
-
-    console.log(product);
-
-
+    const addingToCart = cartAction(id, userToken);
 
     const KeepShoppingHandler = (products)=>{
         return(
@@ -79,7 +73,7 @@ const ProductPage = (props)=>{
                         <p>{product.Description}</p>
                         <div className="some-buttons">
                             <button className="buynow" onClick={()=>{
-                                if(localStorage.getItem('userToken')){
+                                if(localStorage.getItem('userToken')){ // remember uid
                                     addingToCart();
                                 } else{
                                     navigate('/login')

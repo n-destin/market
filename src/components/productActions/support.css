@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .contact-support-page {
   display: flex;
   flex-direction: column;
@@ -38,6 +39,8 @@
   margin-top: 1rem;
   color: #005128;
 }
+=======
+>>>>>>> safe
 h1 {
   font-size: 24px;
   margin-bottom: 20px;
@@ -60,13 +63,13 @@ label {
 
 input[type="text"],
 input[type="email"],
+input[type='password']
 textarea {
   width: 100%;
   padding: 12px;
   margin-bottom: 20px;
   border: none;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   font-size: 16px;
   color: #333;
 }
@@ -126,4 +129,23 @@ textarea {
 
 .contactButton{
   background-color: #005128;
+  width: 80%;
+  height: 2rem;
+  font-size: small;
+  margin-top: 2rem;
+}
+
+
+.icon-image{
+  height: 2rem;
+  padding-right: .3rem;
+}
+
+.icon-link{
+  display: flex;
+  flex-direction: row;
+  padding: .5rem;
+  align-items: center;
+  width: fit-content;
+  height: fit-content;
 }

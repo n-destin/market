@@ -2,9 +2,16 @@ import React, { useState } from "react";
 import { createProduct } from "../../actions/productActions";
 import { useNavigate } from "react-router";
 import { uploadToAmazon } from "../../services/amazon-front";
+<<<<<<< HEAD
 import './createProduct.css'
 import productCategories from '../../categories/productCategories.json'
 import AccountNavigation from "../personal/accountNavigation";
+=======
+import person from '../../images/account.png'
+import './createProduct.css'
+import { Link } from "react-router-dom";
+import productCategories from '../../categories/productCategories.json'
+>>>>>>> safe
 
 const CreateProduct = ()=>{
     const [productName, setProductName] = useState('');
@@ -16,7 +23,10 @@ const CreateProduct = ()=>{
     const [Productpurpose, setPurpose] = useState('');
     const [productCategory, setCateogory] = useState('')
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> safe
     function changeCondition(conditionText){
         setCondition(conditionText);
     }
@@ -49,7 +59,11 @@ const CreateProduct = ()=>{
                 {Object.keys(props.conditions).map(condition=>{
                     return(
                         <label name = {condition}  className="conditionOption" style={{
+<<<<<<< HEAD
                             fontSize : '10px',
+=======
+                            fontSize : 'small',
+>>>>>>> safe
                         }}>
                             <h3 className="h3_heading">{conditions[condition][0]}</h3>
                             <p className="heading_p">{conditions[condition][1]}</p>
@@ -83,12 +97,22 @@ const CreateProduct = ()=>{
 
 
 
+<<<<<<< HEAD
     return(
         <div className="sell">
             <AccountNavigation navContent={{
                 "Messages": 'messages',
                 "My trading dashboard": "account/trading_index"
             }}/>
+=======
+    // so much repetition
+    return(
+        <div className="sell">
+            <div className="sellnavigation">
+                <Link to = {`/`} className ='makemoneylink'><h2>Dartmouth market</h2></Link>
+                <h2 className="makemoney">Sell / Donate / Rent with us</h2>
+            </div>
+>>>>>>> safe
             <h1 className="heading_content"></h1>
             <div className="labels">
             <label htmlFor="">Select the item photo</label>
@@ -101,15 +125,25 @@ const CreateProduct = ()=>{
                 <label htmlFor="productName">
                     <p>Title</p>
                 </label>
+<<<<<<< HEAD
                 <input type="text" name="productName" id="title" onChange={(event)=>{setName(event.target.value)}} placeholder = "What are you selling"/>
 
+=======
+                <input type="text" name="productName" id="" onChange={(event)=>{setName(event.target.value)}} placeholder = "What are you selling"/>
+>>>>>>> safe
                 <label htmlFor="">
                     Description
                 </label>
                 <textarea name="description" className="description" id="description" cols="94" rows="10" placeholder="Describe your item"/>
+<<<<<<< HEAD
                 <label style={{
                     marginTop : '1rem'
                 }}>Product Category</label>
+=======
+                <h2 style={{
+                    marginTop : '1rem'
+                }}>Product Category</h2>
+>>>>>>> safe
                 <select name="categories" id="categories" onChange={(event)=>{setCateogory(event.target.value)}}>
                     <option value="" disabled>select product category</option>
                     {Object.keys(productCategories).map(category=>{
@@ -119,6 +153,7 @@ const CreateProduct = ()=>{
                     })}
                 </select>
                 <label htmlFor="">
+<<<<<<< HEAD
                    <p className="condition_head">Condition</p>
                 </label>
                 <RenderConditions conditions = {conditions}  />
@@ -127,6 +162,14 @@ const CreateProduct = ()=>{
                     fontSize: "1rem",
                     fontWeight: "600"
                 }}>Please proceed with selling, renting, or donating</p>
+=======
+                   <h2 className="condition_head">Condition</h2>
+                </label>
+                <RenderConditions conditions = {conditions} />
+                <h2 style={{
+                    marginTop : '1rem'
+                }}>Are you selling, renting, or Donating?</h2>
+>>>>>>> safe
                 <select name="purpose" id="purpose" placeholder="select the purpose" onChange={(event)=>{setPurpose(event.target.value)}}>
                     <option value="none">Select purpose</option>
                     {Object.keys(purposes).map(purposeOption=>{
@@ -134,17 +177,28 @@ const CreateProduct = ()=>{
                     })}
                 </select>
                 <label htmlFor="">
+<<<<<<< HEAD
                     <p className="condition_head" style={{
                         marginBottom : '1rem'
                     }}>Set the Price</p>
                     <input type="text" name="" id="price" onChange={(event)=>{setPrice(event.target.value)}} placeholder="Set your price"/>
                 </label>
+=======
+                    <h2 className="condition_head" style={{
+                        marginBottom : '1rem'
+                    }}>Set the Price</h2>
+                    <input type="text" name="" id="" onChange={(event)=>{setPrice(event.target.value)}}/>
+                </label>
+                {/* <Dropdown options={productCategories} onSelect ={handleDropDownSelection}/> */}
+>>>>>>> safe
                 <input type="button"  className="createProductButton"  name="" id="" value='Create' onClick={()=>{
                 uploadToAmazon(preview.file).then(url=>{
                     setProductImage(url);
                     createProductHolder(navigate);
                 })
             }}/>
+            </div>
+            
         </div>
             
         </div>

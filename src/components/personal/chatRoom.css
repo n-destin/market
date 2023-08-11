@@ -23,15 +23,26 @@
 .message_heading img:hover {
     cursor: pointer;
 }
+<<<<<<< HEAD
 
 img.folderImage {
     height: 10rem;
     margin-top: 10rem;
+=======
+img.folderImage{
+    height: 10rem;
+    margin-top: 10rem;
+    
+>>>>>>> safe
 }
 
 hr {
     width: 100%;
     margin: 0;
+<<<<<<< HEAD
+=======
+    padding: none;
+>>>>>>> safe
 }
 
 .searching {
@@ -74,7 +85,11 @@ img.drive-icon {
     height: 2rem;
 }
 
+<<<<<<< HEAD
 .input-area {
+=======
+.input-area{
+>>>>>>> safe
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -84,8 +99,13 @@ img.drive-icon {
     position: fixed;
 }
 
+<<<<<<< HEAD
 .classifiers {
     margin: 1rem 3rem 1rem 1rem;
+=======
+.classifiers{
+    margin: .4rem 0 0 3rem;
+>>>>>>> safe
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -112,6 +132,7 @@ img.drive-icon {
     background-color: white;
 }
 
+<<<<<<< HEAD
 .chat-window {
     height: 77vh;
 }
@@ -120,11 +141,28 @@ img.drive-icon {
     height: 3rem;
     text-align: center;
     background-color: #b7d1c0;
+=======
+
+.chat-window{
+    height: 77vh;
+}
+
+.activeChatPerson{
+    height: 3rem;
+    text-align: center;
+    background-color: #EFF5EE;
+>>>>>>> safe
     justify-self: center;
     padding: 1rem;
 }
 
+<<<<<<< HEAD
 .input-area input.input_text_area {
+=======
+
+
+.input-area input.input_text_area{
+>>>>>>> safe
     border-radius: 17px;
     height: 2.5rem;
     border: 1px solid black;
@@ -134,6 +172,10 @@ img.drive-icon {
 .input-area button {
     height: 2.5rem;
     width: 6rem;
+<<<<<<< HEAD
+=======
+    /* background-color: black; */
+>>>>>>> safe
 }
 
 .input-area button:hover {
@@ -142,8 +184,14 @@ img.drive-icon {
     transition: 200ms;
 }
 
+<<<<<<< HEAD
 .welcomingMessage {
     font-size: 1rem;
+=======
+.welcomingMessage{
+    font-size: 1rem;
+    font-weight: 30rem;
+>>>>>>> safe
     margin-bottom: 14rem;
 }
 
@@ -156,16 +204,31 @@ img.drive-icon {
     padding-bottom: 1rem;
 }
 
+<<<<<<< HEAD
 .peopleContainer img {
+=======
+.peopleContainer img{
+>>>>>>> safe
     height: 3rem;
     align-self: center;
 }
 
+<<<<<<< HEAD
 .peopleContainer {
+=======
+.peopleContainer{
+>>>>>>> safe
     display: flex;
     flex-direction: row;
     justify-content: center;
     margin-top: 11.5rem;
+<<<<<<< HEAD
+=======
+}
+
+.peopleContainer p{
+    align-self: center;
+>>>>>>> safe
 }
 
 .peopleContainer p {
@@ -190,21 +253,39 @@ img.drive-icon {
     border-radius: 10px;
 }
 
+<<<<<<< HEAD
 .sectionTwo {
+=======
+.sectionTwo{
+>>>>>>> safe
     display: flex;
     flex-direction: row;
 }
 
+<<<<<<< HEAD
 .sendImage {
+=======
+
+.sendImage{
+>>>>>>> safe
     height: 2rem;
     margin: .2rem 0 0 1rem;
 }
 
+<<<<<<< HEAD
 .sendImage:hover {
     cursor: pointer;
 }
 
 .fromMe {
+=======
+.sendImage:hover{
+    cursor: pointer;
+}
+
+
+.fromMe{
+>>>>>>> safe
     width: 48%;
     background-color: green;
     padding: 10px 15px;
@@ -222,9 +303,15 @@ img.drive-icon {
     border-width: 10px 0 0 10px;
     border-style: solid;
     border-color: transparent transparent transparent #007AFF;
+<<<<<<< HEAD
 }
 
 .fromAnotherPerson {
+=======
+  }
+
+.fromAnotherPerson{
+>>>>>>> safe
     width: 50%;
     background-color: #EFF5EE;
     padding: 10px 15px;
@@ -234,6 +321,7 @@ img.drive-icon {
     margin: 10px;
 }
 
+<<<<<<< HEAD
 .message-content {
     display: inline-block;
     word-break: break-word;
@@ -271,3 +359,9 @@ img.drive-icon {
     }
 }
 
+=======
+.message-content{
+    display: inline-block;
+    word-break: break-word;
+}
+>>>>>>> safe

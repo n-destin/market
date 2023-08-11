@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 body, html {
     margin: 0;
     padding: 0;
@@ -36,6 +37,24 @@ body, html {
     width: 100%;
     max-width: 600px;
     margin-right: 2rem;
+=======
+/* @tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.iconbar{
+    background-color: rgb(29, 65, 29);
+    display: flex;
+    flex-direction: row;
+    height: 8vh;
+    font-size: 1rem;
+    width: 100%;
+}
+
+
+ul{
+    text-decoration: none;
+>>>>>>> safe
 }
 
 .searchWrap {
@@ -69,11 +88,18 @@ body, html {
     flex-direction: row;
     justify-content: space-around;
     padding: 1.5rem;
+<<<<<<< HEAD
     margin-top: 1.2rem;
 }
 
 .icon {
     padding: 0 1rem 0 1rem;
+=======
+    align-self: center;
+}
+.icon{
+    padding: 0 1.6vw 0 1.6vw ; 
+>>>>>>> safe
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -101,6 +127,15 @@ body, html {
     color: white;
     text-decoration: none;
 }
+<<<<<<< HEAD
+=======
+i{
+    color: rgb(29, 65, 29);
+}
+.linking :hover{
+    color: rgb(199, 203, 207);
+}ƒ
+>>>>>>> safe
 
 .icon p {
     font-size: .85rem;
@@ -115,8 +150,12 @@ body, html {
 }
 
 .iconbar  input.searchBar {
-    width: 60vh;
+    width: 35vw;
     height: 2rem;
+<<<<<<< HEAD
+=======
+    align-self: center;
+>>>>>>> safe
 }
 
 img.account-image {
@@ -140,10 +179,33 @@ img.account-image {
     
 }
 
+<<<<<<< HEAD
 .notLoggedIn:hover, .loggedIn:hover {
     cursor: pointer;
     transition: 300ms;
     color: aqua;
+=======
+.loggedIn{
+    display: flex;
+    flex-direction: column;
+    color: white;
+    padding: .4rem;
+    border-radius: .4rem;
+    align-self: center;
+    height: 80%;
+}
+
+
+.loggedIn > p{
+    font-size: small;
+}
+
+.notLoggedIn:hover, .loggedIn:hover{
+    background-color: #0e5635;
+    cursor: pointer;
+    transition: 300ms;
+    align-self: center;
+>>>>>>> safe
 }
 
 .notLoggedIn p, .loggedIn p {
@@ -162,6 +224,7 @@ img.account-image {
     flex-direction: column;
     align-self: center;
 }
+<<<<<<< HEAD
 
 
 .dropdown-content {
@@ -189,3 +252,6 @@ img.account-image {
 }
 
 
+=======
+ */
+>>>>>>> safe

@@ -6,20 +6,14 @@ import { useState } from "react";
 
 const [messages, setMessages] = useState({});
 
-
-
-
-
 export async function sendMessage(){
     socket.emit('message', messageComponents);
 }
-
 
 const socket = io(ROOT_URL);
 socket.on('connect', ()=>{
     console.log('connected to the server');
 })
-
 
 
 export const chatActions = {
