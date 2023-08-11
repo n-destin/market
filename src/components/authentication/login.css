@@ -198,7 +198,7 @@ input.buttonLogin{
 .links > a {
     text-decoration: none;
     color: #005128;
-    margin-top: 10rem;
+    margin-top: 6rem;
 }
 
 h2 {
@@ -209,7 +209,7 @@ h2 {
 }
 
 .third-party-login {
-    margin-top: 5rem;
+    margin-top: 3rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -219,21 +219,6 @@ h2 {
     margin-bottom: 10px;
 }
 
-.third-party-button {
-    width: 20rem;
-    height: 1.5rem;
-    background-color: #005128;
-    color: #fff;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.third-party-button:hover {
-    background-color: #a5d5bd;
-    color: #005128;
-}
 
 @media (max-width: 768px) {
     .loginCard {

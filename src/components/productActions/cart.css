@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 .cartContent {
     min-height: 100vh;
     width: 100%;
@@ -150,74 +150,3 @@ h2 {
     font-weight: 800;
     font-size: 1.2rem;
 }
-
-
-
-=======
-/* img.cartImage{
-    height: 6rem;
-}
-
-.leftSide{
-    display: flex;
-    flex-direction: row;
-}
-
-.cartText{
-    align-self: center;
-}
-
-.shoppingCartHeading{
-    margin: .8rem .8rem .8rem 2rem;
-}
-
-.emptyCartButton, .checkoutButton{
-    background-color: green;
-    font-size: .8rem;
-    padding: .3rem;
-    height: 2.2rem;
-    width: 10rem;
-    margin-left: 6rem;
-    margin-top: 1rem;
-}
-
-.cartBody{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-
-.cartRight{
-    width: 30vw;
-    align-items: center;
-}
-
-.cartLeft{
-    width: 60vw;
-}
-
-h2{
-    font-weight: bolder;
-}
-
-.itemsText{
-    font-size: .8rem;
-    align-self: center;
-}
-
-.notYetContent{
-    margin-top: 2rem;
-    margin-left: 15rem;
-    justify-self: center;
-}
-
-.orderSummary{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-
-.totalPrice{
-    margin-right: 6rem;
-} */
->>>>>>> safe

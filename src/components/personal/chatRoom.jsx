@@ -126,7 +126,7 @@ const Handler = (props)=>{
   }
 
 
-  const handleSendMessage = () => {
+  const handleSendMessage = async () => {
     if (input.trim() !== '') {
       const processedMessage = await axios.post(`${ROOT_URL}generate`);
       const newMessage = {

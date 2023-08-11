@@ -6,12 +6,8 @@ import './authentication/login.css'
 import googleIcon from '../images/googleIcon.png'
 import { Link } from "react-router-dom";
 import SingUp from '../components/craeteAccount'
-<<<<<<< HEAD
-
-=======
 import { useEffect } from "react";
 import '../components/authentication/login.css'
->>>>>>> safe
 
 const SignUp = (props) =>{
 
@@ -38,6 +34,7 @@ const SignUp = (props) =>{
         return(
             <div>
                 <div className="inputs">
+                    <h3>Login</h3>
                     <input type="text" name="" id="" onChange={setMail} placeholder = 'Email ' className="inputSpace"/>
                     <input type="password" name="password" id="password" onChange={setpassWord} placeholder = 'Password' className="inputSpace"/>
                     <div className="buttons">
@@ -48,51 +45,24 @@ const SignUp = (props) =>{
         )
         }
 
-
-<<<<<<< HEAD
         return(
             <div className="loginPage">
                 
                 <div className="loginCard">
                 <Link to={`/`} style={{color: "green"}} className = "accountLinks">The College Market</Link>
                     {(login)? loginRender(): <SingUp />}
-                    <p className="centerLink">Don't have an account? <Link className="loginLink" onClick={()=>{setLogin(false)}}>Create account</Link></p>
+                    <p className="centerLink">{(login) ? "Don't have an account yet?" : `Have an account Already'` } <Link className="loginLink" onClick={()=>{setLogin(!login)}}>{(login) ? 'Create account': 'Login'}</Link></p>
                     <hr />
                     <div className="bottoms">
                         <div className="third-party-login">
                             <img src={googleIcon} alt="" height='50rem' width='50rem'/>
-                            <input type="button" className="third-party-button" name="" id="" value={`${(login)? 'Login ' : 'Sign up'} with Google`} />
+                            <input type="button" className='w-10' name="" id="" value={`${(login)? 'Login ' : 'Sign up'} with Google`} />
                         </div>
                         <div className="links">
                             <Link >Privacy</Link>
                             <Link>Legal</Link>
                             <Link>Need help?</Link>
                         </div>
-=======
-    return(
-        <div className="loginPage">
-            <div className="loginCard">
-                <h1 className="heading">The Dartmouth market</h1>
-                <div className="lognavigator">
-                    <Link className={loginClass} onClick={()=>{setLogin(true);
-                    setLoginClass('active');
-                    setCreateAccountClass('unactive')}}><h2>Login</h2></Link>
-                    <Link className={createaccountClass} onClick={()=>{setLogin(false);
-                    setLoginClass('unactive');
-                    setCreateAccountClass('active')}}><h2>Create account</h2></Link>
-                </div>
-                {(login)? loginRender(): <SingUp />}
-                <hr  className={(login)? 'loginLine' : 'accountLine' }/>
-                <div className="bottoms">
-                    <div className="third-party-login">
-                        <img src={googleIcon} alt="" height='70rem' width='70rem'/>
-                        <input type="button" name="" id=""  value = {`${(login)? 'Login ' : 'Sign up'} with Google`} className = {(login)? 'withGoogleLogin' : 'withGoogleAccount'}/>
-                    </div>
-                    <div className={(login)? 'loginLinks' : 'accountLinks'}>
-                        <Link >Privacy</Link>
-                        <Link>Legal</Link>
-                        <Link>Need help?</Link>
->>>>>>> safe
                     </div>
                 </div>
             </div>

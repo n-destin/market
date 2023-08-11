@@ -1,31 +1,12 @@
-<<<<<<< HEAD
+
 .sell {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin: 20px; 
-    border: 1px solid #888888; 
 }
 
 .sellnavigation {
     background-color: rgb(29, 65, 29);
-=======
-.sell{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-.chooseImage{
-    display: flex;
-    flex-direction: row;
-    border: .5px solid black;
-    justify-content: space-evenly;
-    margin: 1rem 0 3rem 0;
-}
-
-.sellnavigation{
-    background-color:  rgb(29, 65, 29);
->>>>>>> safe
     display: flex;
     flex-direction: row;
     color: white;
@@ -36,29 +17,18 @@
     top: 0;
 }
 
-<<<<<<< HEAD
 .sellnavigation > * {
     margin-left: 5rem;
 }
 
 
 .heading_content {
-=======
-.sellnavigation > *{
-    margin-left: 5rem;
-}
-
-.heading_content{
->>>>>>> safe
     padding: 2rem;
     margin-top: 4rem;
 }
 
-<<<<<<< HEAD
+
 .labels {
-=======
-.labels{
->>>>>>> safe
     width: 60%;
     display: flex;
     flex-direction: column;
@@ -66,7 +36,6 @@
     align-self: center;
 }
 
-<<<<<<< HEAD
 .h3_heading {
     padding: .5rem;
     font-size: 20px;
@@ -181,77 +150,3 @@ input.createProductButton:hover {
         flex-wrap: wrap;
     }
 }
-=======
-.h3_heading{
-    padding: .5rem;
-}
-
-.conditionOption{
-    border: 1px solid black;
-    width: 9rem;
-    height: 6rem;
-    border-radius: 5px;
-    text-align: center;
-    font-size: smaller;
-}
-
-.conditionOption :hover{
-    cursor: pointer;
-}
-
-.conditionOption > p{
-    font-weight: lighter;
-}
-
-.conditions{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-
-
-.chooseImage > img{
-    height: 12rem;
-}
-
-.condition_head{
-    margin-top: 1rem;
-}
-
-.chooseInput input{
-    margin-top: 5rem;
-}
-
-
-input[type="radio"]{
-    display: none;
-}
-
-.description{
-    padding: 1rem;
-}
-
-#categories, #purpose{
-    margin: 1rem 0 1rem 0;
-    width: 100%;
-    padding: 1rem;
-    border-radius: 2px;
-}
-
-input[type="text"]{
-    box-shadow: 0;
-    border-radius: 2px;
-}
-
-input.createProductButton{
-    width: 60%;
-    height: 3rem;
-    margin-bottom: 5rem;
-   align-self: center;
-}
-
-input.createProductButton:hover{
-    background-color: #00693e;
-    color: white;
-}
->>>>>>> safe
