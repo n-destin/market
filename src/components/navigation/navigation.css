@@ -132,7 +132,7 @@ img.account-image {
     margin-top: 1rem;
 }
 
-.notLoggedIn, .loggedIn {
+/* .notLoggedIn, .loggedIn {
     display: flex;
     flex-direction: column;
     color: white;
@@ -144,7 +144,27 @@ img.account-image {
     font-size: 0.85rem;
     margin-bottom: 12px; 
     
+} */
+
+.notLoggedIn{
+    display: flex;
+    flex-direction: row;
+    color: white;
+    padding: .4rem;
+    border-radius: .4rem;
 }
+
+.loggedIn{
+    display: flex;
+    flex-direction: column;
+    color: white;
+    padding: .4rem;
+    border-radius: .4rem;
+    align-self: center;
+    height: 80%;
+}
+
+
 
 .notLoggedIn:hover, .loggedIn:hover {
     transform: translateY(10%);
