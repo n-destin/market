@@ -13,7 +13,7 @@ import { useState } from "react";
 import Effect from "./effect";
 
 const Navigation = (props) => {
-    const [person, setPerson] = useState();
+    const [person, setPerson] = useState({firstName : 'Destin'});
 
     const navigate = useNavigate();
     const iconsNavigation = {
@@ -41,8 +41,14 @@ const Navigation = (props) => {
         if (localStorage.getItem('userToken')) {
             return (
                 <div className="loggedIn" onClick={() => { navigate('/account') }}>
-                    <p>Hello</p>
-                    <h3>{person.firstName}</h3>
+                    <div>
+                        <p>Hello</p>
+                        <h3>{person.firstName}</h3>
+                    </div>
+                    <img src={account} alt="" className="account-image" />
+                    <div className="navBeside">
+                        <p className="sign-in-text">Sign in / Register</p>
+                    </div>
                 </div>
             )
         } else {
@@ -78,11 +84,11 @@ const IconsToRender = Object.keys(iconsNavigation).map(iconKey => {
     return (
         <>
                     <div className='navigationBar bg-lime-800 flex flex-row'>
-
                         <div className="iconbar">
                         <div className="logo">
                         <Link to="/" className="linking">The College Market</Link>
                         </div>
+                        <SignInHandler />
                         <div className="searchContainer">
                         <div className="searchWrap">
                             <input type="text" className="searchBar" placeholder="Search..." />
@@ -96,7 +102,6 @@ const IconsToRender = Object.keys(iconsNavigation).map(iconKey => {
                         </div>
 
                         </div>
-                        <SignInHandler />
                         </div>
                         <Subnavigation />
                         <Effect  />
