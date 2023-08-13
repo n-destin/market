@@ -22,7 +22,12 @@ export function createAccount(userInfo){
                         payload : response.data.userInfo
                     })
                     navigate('/');
+                    console.log(response);
                     localStorage.setItem('userToken', response.data.UserToken);
+                    localStorage.setItem('useName', response.data.userInfo.firstName);
+                    localStorage.setItem('lastName', response.data.userInfo.lastName);
+                    localStorage.setItem('userEmail', response.data.userInfo.userEmail);
+                    localStorage.setItem('phoneNumber', response.data.userInfo.phoneNumber);
                 }
             })
         } catch (error) {

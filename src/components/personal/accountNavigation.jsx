@@ -12,7 +12,7 @@ const AccountNavigation = (props)=>{
             <div className="rightLinks">
                 {Object.keys(props.navContent).map(content=>{
                     return(
-                        <Link to = {(props.navContent[content])} className = "accountLinks">{content}</Link>
+                        <Link to = {`/${(props.navContent[content])}`} className = "accountLinks">{content}</Link>
                     )
                 })}
             </div>

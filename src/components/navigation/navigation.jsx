@@ -16,6 +16,8 @@ import { useSelector } from "react-redux";
 const Navigation = (props) => {
     const [person, setPerson] = useState();
     const authenticated = useSelector(store=>{return store.user.authenticated})
+
+ 
     const navigate = useNavigate();
     const iconsNavigation = {
         "Inbox": {
@@ -39,7 +41,7 @@ const Navigation = (props) => {
         if (authenticated) {
             return (
                 <div className="loggedIn" onClick={() => { navigate('/account') }}>
-                    <p style={{fontSize : 'small'}}>Welcome, {props.firstName}</p>
+                    <p style={{fontSize : 'small'}}>Welcome, {localStorage.getItem('useName')}</p>
                     <h3 style={{fontSize : 'medium', marginTop : '-.6rem'}}>Account & Orders</h3>
                 </div>
             )
@@ -68,38 +70,36 @@ const IconsToRender = Object.keys(iconsNavigation).map(iconKey => {
                     <Link to="/view-announcements">View Announcements</Link>
                 </div>
             </div>
-        );
-    }
-    return <Icon name='name' icon={iconsNavigation[iconKey][Object.keys(iconsNavigation[iconKey])[0]]} action={Object.keys(iconsNavigation[iconKey])[0]} title={iconKey} />;
+);
+}
+return <Icon name='name' icon={iconsNavigation[iconKey][Object.keys(iconsNavigation[iconKey])[0]]} action={Object.keys(iconsNavigation[iconKey])[0]} title={iconKey} />;
 })
 
-    return (
-        <>
-                    <div className='navigationBar bg-lime-800 flex flex-row'>
-                        <div className="iconbar">
-                        <div className="logo">
-                        <Link to="/" className="linking">The College Market</Link>
-                        </div>
-                        <SignInHandler />
-                        <div className="searchContainer">
-                        <div className="searchWrap">
-                            <input type="text" className="searchBar" placeholder="Search..." />
-                            <button className="searchButton"><i className="fa fa-search"></i></button>
-                        </div>
-                        </div>
-                        <div className="iconContainer">
+return (
+    <div className='navigationBar bg-lime-800 flex flex-row'>
+        <div className="iconbar">
+        <div className="logo">
+        <Link to="/" className="linking">The College Market</Link>
+        </div>
+        <SignInHandler />
+        <div className="searchContainer">
+        <div className="searchWrap">
+            <input type="text" className="searchBar" placeholder="Search..." />
+            <button className="searchButton"><i className="fa fa-search"></i></button>
+        </div>
+        </div>
+        <div className="iconContainer">
 
-                        <div className="icons">
-                            {IconsToRender}
-                        </div>
+        <div className="icons">
+            {IconsToRender}
+        </div>
 
-                        </div>
-                        </div>
-                        <Subnavigation />
-                        <Effect  />
+        </div>
+        </div>
+        <Subnavigation />
+        <Effect  />
 
-                    </div>
-        </>
+    </div>
        
     )
 

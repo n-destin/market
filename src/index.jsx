@@ -12,12 +12,12 @@ const store = configureStore({
     reducer: rootReducer,
 })
 
-
 const userToken = localStorage.getItem('userToken');
+
 if(userToken){
     store.dispatch({
         type: ActionsType.AUTHENTICATE_USER,
-        // here is where the problem is, I cannot see how to send the information to the user
+        // sending some information here is a problem
     })
 }
 

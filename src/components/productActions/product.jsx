@@ -1,5 +1,5 @@
 import React from "react";
-import './product.css'
+// import './product.css'
 import conversation from '../../images/conversation.png'
 import { useNavigate, useParams } from "react-router";
 import { useEffect } from "react";
@@ -25,12 +25,12 @@ const Product  = (props) =>{
 
     return(
         <div>
-            <div className="card" onClick={()=>{navigate(`products/${id}`)}} style ={{width : '12rem'}} >
-                <img src={props.content.Image} alt="product-image" />
-               <div className="product-content">
-                    <h3> $ {props.content.Price.$numberDecimal
-}</h3>
-                    <p>{props.content.Description}</p>
+            <div className="card" onClick={()=>{navigate(`products/${id}`)}} style ={{width : '14rem'}} >
+               <img src={props.content.Image} alt="img-thumbnail" className="card-img-top" />
+               <div className="card-body">
+                    <h5 className="cart-title"> $ {props.content.Price.$numberDecimal}</h5>
+                    <p className="card-text">{props.content.Description}</p>
+                    <button className="btn btn-primary">Add to Cart</button>
                </div>
             </div>
         </div>

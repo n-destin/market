@@ -101,18 +101,14 @@ body, html {
     padding: 2.2rem 1.5rem 1.5rem 1.5rem;
     margin-bottom: 1rem;
 }
-.iconbar > .logo > .linking:hover{
-    color: aqua;
-}
+
 
 .linking {
     height: 100%;
     color: white;
     text-decoration: none;
 }
-.linking :hover {
-    color: aqua;
-}
+
 
 .icon p {
     font-size: .85rem;
@@ -121,13 +117,11 @@ body, html {
 }
 
 
-
 .icon img {
     height: 1.1rem;
 }
 
 .iconbar  input.searchBar {
-    width: 60vh;
     height: 2rem;
 }
 
@@ -146,6 +140,7 @@ img.account-image {
     height: 80%;
     font-size: 0.85rem;
     padding:0 .7rem 0 .7rem;
+    width: 30vw;
 }
 
 .notLoggedIn:hover, .loggedIn:hover {
