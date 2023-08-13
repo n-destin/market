@@ -10,38 +10,41 @@ const Account = (props) => {
     const [Profile, setProfile] = useState();
     const [userId, setUSerid] = useState();
 
-    const personalLinksFunctions = {
-        "Personal information": {
-            "My profile": function () { },
-            "Upload profile picture": function () { },
-            "Email preferences": function () { },
-            "Browsing History": function () { },
-            "Request My information": function () { },
-            "Privavy settings": function () { },
+    const accountInformation = {
+        "Personal Information": {
+          "My Profile": "Manage and update your profile details.",
+          "Your Lists": "View, modify, or share your lists, or create new ones.",
+          "Browsing History": "Review your historical browsing activity.",
+          "Request My Information": "Easily retrieve your personal data.",
+          "Privacy Settings": "Customize your privacy preferences."
         },
-        "Security information ": {
-            'Change email adress': function () { console.log('something to be called'); },
-            'Change Password': function (password) { console.log(password) },
-            'Set security Questions ': function () { console.log('setting security questions'); },
-            'Manage verifications Phones': function () { console.log('managing phones'); },
-            'Manage connected accounts': function () { console.log('managing account'); },
-            "Close your account": function () { }
-
+        "Security Information": {
+          "Change Email Address": "Update your email address for account communication.",
+          "Change Password": "Enhance account security by updating your password.",
+          "Close Your Account": "Securely close your account if needed."
         },
-        "Finance information": {
-            "My transactions": function () { },
-            "Logistics": function () { },
-            "Payment Methods": function () { }
+        "Financial Information": {
+          "My Transactions": "Access a record of your past financial transactions."
         }
+      }
+      
+
+    const LinkContainer = (props)=>{
+        return(
+            <div className="card p-2 pb-0 m-2" style={{width : '15rem'}}>
+                <h5 className="fs-6 fw-bold">{props.title}</h5>
+                <p className="fs-9" style={{fontSize : '.8rem'}}>{props.description}</p>
+            </div>
+        )
     }
 
-    const returnComponents = Object.keys(personalLinksFunctions).map(key => {
+    const returnComponents = Object.keys(accountInformation).map(key => {
         return (
             <div className="detail">
                 <h4 className="head_content">{key}</h4>
                 <hr className="horizontaldetail" />
-                {Object.keys(personalLinksFunctions[key]).map(component => {
-                    return <Link className="link">{component}</Link>
+                {Object.keys(accountInformation[key]).map(component => {
+                    return <LinkContainer title = {component} description = {accountInformation[key][component]}/>
                 })}
             </div>
         )
@@ -54,14 +57,14 @@ const Account = (props) => {
     return (
         <div>
             <AccountNavigation navContent={{
-                "Messages": 'messages',
+                "Messages": 'account/messages',
                 "My trading dashboard": "transactions"
             }} />
             <div className="accountPage">
-                <div className="accountCard">
+                <div className="card accountCard">
                     <div className="heading">
                         <div className="partOne">
-                            <img src={(Profile) ? Profile : profileHolder} alt="personalImage" height='20%' className="profileImage" />
+                            <img src={(Profile) ? Profile : profileHolder} alt="personalImage" className="profileImage" />
                         </div>
                         <div className="partTwo">
                             <h4 className="head_content">Your member id:  <span className="userId">some user id here; to be handled</span></h4>

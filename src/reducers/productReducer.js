@@ -19,7 +19,6 @@ const productReducer = produce((previousState, action = {})=>{
             previousState.cartElements = action.payload;
         default:
             return previousState;
-            
     }
 }, initialvalue)
 

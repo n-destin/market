@@ -7,15 +7,14 @@
 }
 
 .accountCard {
-    width: 80%;
+    width: 50%;
     margin: 1em;
     border-radius: 20px;
-    border: 2px solid rgb(35, 149, 96); 
+    height: 100%;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
     background-color: rgb(159, 211, 174);
     overflow-x: auto; 
     overflow-y: auto; 
-    max-height: calc(100vh - 100px); 
 }
 
 .heading {
@@ -37,8 +36,7 @@
 }
 
 .profileImage {
-    max-width: 100%;
-    display: block;
+    height: 10rem;
 }
 
 .account-navigation {

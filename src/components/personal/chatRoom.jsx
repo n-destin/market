@@ -128,7 +128,7 @@ const Handler = (props)=>{
 
   const handleSendMessage = async () => {
     if (input.trim() !== '') {
-      const processedMessage = await axios.post(`${ROOT_URL}generate`);
+      const processedMessage = axios.post(`${ROOT_URL}generate`);
       const newMessage = {
         id: messages.length + 1,
         Sender : 'Me', // change the user's Id 
@@ -153,11 +153,10 @@ const Handler = (props)=>{
             <div className="messaging-people">
                 <div className="message_heading" >
                     <div className="searching">
-                         <input type="text" placeholder={'Search chat'}/> 
+                         <input type="text" placeholder={'Search chat'} className ="border pb-2"/> 
                          <img src={drive} alt="drive-icon" className='drive-icon'/>
                     </div>
                     <hr />
-
                     <div className="classifiers">
                         <div className="sectionOne" style={{
                         }}>

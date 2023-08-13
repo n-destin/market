@@ -39,7 +39,6 @@ hr {
     position: relative;
     flex: 2;
     white-space: nowrap;
-    border: 5px solid #093412;
     background: #EFF5EE;
     box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
     padding: 0.5rem;
@@ -51,7 +50,6 @@ hr {
     flex: 1;
     display: flex;
     flex-direction: column;
-    border: 5px solid #093412;
     background: #EFF5EE;
     padding: 1rem;
     margin: 1rem;
@@ -110,8 +108,10 @@ hr {
 
 .emptyCartButton:hover,
 .checkoutButton:hover {
-    background-color: rgb(199, 181, 16);
-    transform: translateY(10%);
+    background-color: white;
+    color: green;
+    border: 1px solid green;
+    transition: 200ms;
 }
 
 .orderSummary {

@@ -46,7 +46,7 @@ const ProductPage = (props)=>{
         return(
             <div className="keepShoppingHeader">
                 <div className="noHr">
-                    <h1 className="shoppingheadtag">Keep shopping for <br /> <h1 className="productName">{product.Name}</h1></h1>
+                    <h5 className="shoppingheadtag">Keep shopping for {product.Name}</h5>
                     {/* {(products)? products.map(product=>{
                         return(
                             <div className="shoppingProduct">

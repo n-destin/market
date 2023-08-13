@@ -87,8 +87,8 @@ const CreateProduct = ()=>{
     return(
         <div className="sell">
             <AccountNavigation navContent={{
-                "Messages": 'messages',
-                "My trading dashboard": "account/trading_index"
+                "Messages": 'account/messages',
+                "My trading dashboard": "transactions"
             }}/>
             <h1 className="heading_content"></h1>
             <div className="labels">

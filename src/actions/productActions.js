@@ -63,9 +63,9 @@ export function getProduct(){
 export function cartAction(userId, productId){
     return(dispatch)=>{
         try {
-            axios.post(`${ROOT_URL}addtocart?userId=${userId}&product-id = ${productId}`).then(response=>{
+            axios.post(`${ROOT_URL}addtocart`, {headers : {'authorization' : localStorage.getItem('userToken')}}).then(response=>{
                 if(response){
-                    cartNumber++;
+                    // cartNumber++;
                     dispatch({
                         type: productActions.GET_CART, // get the products for the card
                         payload: response.data

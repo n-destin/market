@@ -40,14 +40,14 @@ const Navigation = (props) => {
     const SignInHandler = () => {
         if (authenticated) {
             return (
-                <div className="loggedIn" onClick={() => { navigate('/account') }}>
+                <div className="p-0 bg-transparent text-white border-start-0 m-0" onClick={() => { navigate('/account') }}>
                     <p style={{fontSize : 'small'}}>Welcome, {localStorage.getItem('useName')}</p>
                     <h3 style={{fontSize : 'medium', marginTop : '-.6rem'}}>Account & Orders</h3>
                 </div>
             )
         } else {
             return (
-                <div className="notLoggedIn" onClick={() => {
+                <div className="card p-0" onClick={() => {
                     navigate('/account');
                 }}>
                     <img src={account} alt="" className="account-image" />
@@ -65,7 +65,7 @@ const IconsToRender = Object.keys(iconsNavigation).map(iconKey => {
         return (
             <div className="dropdown">
                 <Icon name='name' icon={iconsNavigation[iconKey][Object.keys(iconsNavigation[iconKey])[0]]} action={Object.keys(iconsNavigation[iconKey])[0]} title={iconKey} />
-                <div className="dropdown-content">
+                <div className="nav-item dropdown-content">
                     <Link to="/post-announcement">Post Announcement</Link>
                     <Link to="/view-announcements">View Announcements</Link>
                 </div>
@@ -76,31 +76,30 @@ return <Icon name='name' icon={iconsNavigation[iconKey][Object.keys(iconsNavigat
 })
 
 return (
-    <div className='navigationBar bg-lime-800 flex flex-row'>
-        <div className="iconbar">
-        <div className="logo">
-        <Link to="/" className="linking">The College Market</Link>
-        </div>
-        <SignInHandler />
-        <div className="searchContainer">
-        <div className="searchWrap">
-            <input type="text" className="searchBar" placeholder="Search..." />
-            <button className="searchButton"><i className="fa fa-search"></i></button>
-        </div>
-        </div>
-        <div className="iconContainer">
-
-        <div className="icons">
-            {IconsToRender}
-        </div>
-
-        </div>
+    <div className='navbar p-0 bg-lime-800 flex flex-row'>
+        <div className="container-fluid iconbar">
+                {/* <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#Wrapper" aria-controls="Wrapper" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>     */}
+                <Link to="/" className="navbar-brand text-white ml-5 p-0">The College Market</Link>
+                <SignInHandler />
+                <div className="searchContainer">
+                    <div className="searchWrap">
+                        <input type="text" className="searchBar" placeholder="Search..." />
+                        <button className="searchButton"><i className="fa fa-search"></i></button>
+                    </div>
+                </div>
+                <div className="iconContainer">                
+                <div className="collapse navbar-collapse d-flex flex-row mt-3" id="Wrapper">
+                    <div className="navbar-nav me-0 d-flex flex-row">
+                        {IconsToRender}
+                    </div>
+                </div>
+            </div>
         </div>
         <Subnavigation />
         <Effect  />
-
     </div>
-       
     )
 
 }

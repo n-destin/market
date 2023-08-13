@@ -41,6 +41,7 @@ const ContactSupportPage = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    // send a message to me ... 
     setFirstName('');
     setEmail('');
     setLastName('');
@@ -54,8 +55,8 @@ const ContactSupportPage = () => {
       
   
       <AccountNavigation navContent={{
-                "Messages": 'messages',
-                "My trading dashboard": "account/trading_index"
+                "Messages": 'account/messages',
+                "My Transaction dashboard": "transactions"
             }}/>
      
          <div className='contatc-margin'>
@@ -72,6 +73,7 @@ const ContactSupportPage = () => {
                           placeholder={inputKey} 
                           onChange={inputObject[inputKey]}
                           required
+                          className='border'
                         />
                       ))}
                       <textarea 
@@ -83,8 +85,9 @@ const ContactSupportPage = () => {
                         onChange={handleMessageChange}
                         value={message}
                         required
+                        className='border p-2 bounded-1'
                       ></textarea>
-                      <button type="submit" className='contactButton'>Send Message</button>
+                      <button type="submit" className='contactButton' >Send Message</button>
                     </form>
             </div>
          </div>

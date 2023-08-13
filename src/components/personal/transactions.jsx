@@ -33,7 +33,7 @@ function TransactionDashboard() {
         <Link  to  = {'/'} className='navbar-brand text-white ml-5'>The College Market</Link>
       <h4 className='mx-auto'><span style={{fontSize : "1rem", color: "white"}}>Transactions Dashboard </span></h4></div>
       <div className='navbar m-0 p-3'> 
-        <h5 className='m-0' style={{margin : '0'}}>{localStorage.getItem('useName')}'s Orders</h5>
+        <h5 className='m-0' style={{margin : '0'}}>{localStorage.getItem('useName')}'s Transactions</h5>
         <div className='d-flex flex-row'>
           <input type="text"  style={{border : '1px solid black', height : '2rem'}} className ="mt-2 mr-5 mb-0 ml-0" placeholder='Search all orders'/>
           <input type="button" value='Search Orders' className='mt-2 p-1'/>
