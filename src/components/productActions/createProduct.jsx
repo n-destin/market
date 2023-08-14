@@ -78,11 +78,11 @@ const CreateProduct = ()=>{
         setProductPrice(event.target.value)
     }
 
-    const createProductHolder = createProduct({Name: productName, Image: productImage, Description: productDescription, productCategory: productCategory, Price: productPrice, productCondition: productCondition, Productpurpose: Productpurpose});
+    const toSend = {Name: productName, Image: productImage, Description: productDescription, productCategory: productCategory, Price: productPrice, productCondition: productCondition, Productpurpose: Productpurpose}
+
+    const createProductHolder = createProduct(toSend);
 
     const navigate = useNavigate();
-
-
 
     return(
         <div className="sell">
@@ -102,12 +102,12 @@ const CreateProduct = ()=>{
                 <label htmlFor="productName">
                     <p>Title</p>
                 </label>
-                <input type="text" name="productName" id="title" onChange={(event)=>{setName(event.target.value)}} placeholder = "What are you selling"/>
+                <input type="text" name="productName" id="title" onChange={(event)=>{setProductName(event.target.value)}} placeholder = "What are you selling"/>
 
                 <label htmlFor="">
                     Description
                 </label>
-                <textarea name="description" className="description" id="description" cols="94" rows="10" placeholder="Describe your item"/>
+                <textarea name="description" className="description" id="description" cols="94" rows="10" placeholder="Describe your item" onChange={(event)=>{setProductDescription(event.target.value)}}/>
                 <label style={{
                     marginTop : '1rem'
                 }}>Product Category</label>

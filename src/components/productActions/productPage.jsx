@@ -8,6 +8,7 @@ import { getRelated } from "../../actions/productActions";
 import Product from "./product";
 import { cartAction } from "../../actions/productActions";
 import Navigation from "../navigation/navigation";
+import { createConversation } from "../../actions/useractions";
 
 const ProductPage = (props)=>{
 
@@ -21,8 +22,8 @@ const ProductPage = (props)=>{
        getProductHolder(id, dispatch);
     }, [])
 
-    const product = useSelector((store)=>{return store.products.single})
 
+    const product = useSelector((store)=>{return store.products.single})
     const category = product.Category;
 
     useEffect(()=>{
@@ -40,7 +41,8 @@ const ProductPage = (props)=>{
     const userToken = localStorage.getItem('userToken')
     console.log(userToken);
 
-    const addingToCart = cartAction(id, userToken);
+    const addingToCart = cartAction(id);
+    const conversationCreator = createConversation(id)
 
     const KeepShoppingHandler = (products)=>{
         return(
@@ -72,28 +74,11 @@ const ProductPage = (props)=>{
                     <div className="actions">
                         <p>{product.Description}</p>
                         <div className="some-buttons">
-                            <button className="buynow" onClick={()=>{
-                                if(localStorage.getItem('userToken')){ // remember uid
-                                    addingToCart();
-                                } else{
-                                    navigate('/login')
-                                }
-                            }}>Add to Cart</button>
-                            <button className="add-to-cart" onClick={()=>{
-                                if(localStorage.getItem('userToken')){
-                                    // make an offer here, navigate to the prduct
-                                } else{
-                                    navigate('/login');
-                                }
-                            }}>Make an Offer</button>
+                            <button className="buynow" onClick={()=>{addingToCart(dispatch)}}>Add to Cart</button>
+                            <button className="chat-with-a-seller" onClick={()=>{conversationCreator(navigate)}}>Chat with the seller</button>
                         </div>
                         <button className="buy Now"onClick={()=>{
-                            if(localStorage.getItem('userToken')){
-                                navigate('/checkout'); 
-                                // make sure he goes with one 
-                            } else{
-                                navigate('/login')
-                            }
+                            navigate('/checkout'); 
                         }}>Buy Now</button>
                     </div>
                 </div>

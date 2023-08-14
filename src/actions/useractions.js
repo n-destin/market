@@ -24,7 +24,7 @@ export function createAccount(userInfo){
                     navigate('/');
                     console.log(response);
                     localStorage.setItem('userToken', response.data.UserToken);
-                    localStorage.setItem('useName', response.data.userInfo.firstName);
+                    localStorage.setItem('firstName', response.data.userInfo.firstName);
                     localStorage.setItem('lastName', response.data.userInfo.lastName);
                     localStorage.setItem('userEmail', response.data.userInfo.userEmail);
                     localStorage.setItem('phoneNumber', response.data.userInfo.phoneNumber);
@@ -44,7 +44,9 @@ export function SignIn(Email, Password){
                     dispatch({
                         type: ActionsType.AUTHENTICATE_USER
                     })
-                    localStorage.setItem('userToken', response.userToken.userToken)
+                    console.log(response);
+                    localStorage.setItem('userToken', response.data.UserToken)
+                    localStorage.setItem('firstName', response.data.userInfo.firstName);
                     navigate('/')
                 }
             })
@@ -65,5 +67,20 @@ export async function getPersonalInformation(){
         })
     } catch (error) {
         console.log(error.message);
+    }
+}
+
+
+export function createConversation(productId){
+    return(dispatch)=>{
+        try {
+            axios.post(`${ROOT_URL}createconversation?productId=${productId}`, {}, {headers : {'authorization' : localStorage.getItem('userToken')}}).then(response=>{
+                if(response){
+                    dispatch('/account/messages');
+                }
+            })
+        } catch (error) {
+            console.log(error.messsage);
+        }
     }
 }

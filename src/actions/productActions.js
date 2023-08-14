@@ -7,7 +7,6 @@ export const productActions = {
     GET_CART : 'GET_CART'
 }
 
-export let cartNumber = 0;
 
 
 export function getProducts(){
@@ -60,16 +59,22 @@ export function getProduct(){
     }
 }
 
-export function cartAction(userId, productId){
+export function getCartElements(dispatch) {
+    console.log('getting elements ');
+    axios.get(`${ROOT_URL}getCartElements`, {headers :{'authorization' : localStorage.getItem('userToken')}}).then(response=>{
+        dispatch({
+            type: productActions.GET_CART, // get the products for the card
+            payload: response.data
+        })
+    })
+}
+
+export function cartAction(productId){
     return(dispatch)=>{
         try {
-            axios.post(`${ROOT_URL}addtocart`, {headers : {'authorization' : localStorage.getItem('userToken')}}).then(response=>{
+            axios.post(`${ROOT_URL}addtocart?productId=${productId}`, {}, {headers : {'authorization' : localStorage.getItem('userToken')}}).then(response=>{
                 if(response){
-                    // cartNumber++;
-                    dispatch({
-                        type: productActions.GET_CART, // get the products for the card
-                        payload: response.data
-                    })
+                    getCartElements(dispatch);
                 }
             })
         } catch (error) {
@@ -93,3 +98,18 @@ export function getRelated(category){
     }
 }
 
+export function deletecartelement(){
+    return(dispatch, productId, navigate)=>{
+        try {
+            axios.get(`${ROOT_URL}deletecartelement?productId=${productId}`, {headers : {'authorization' : localStorage.getItem('userToken')}}).then(response=>{
+                console.log(response);
+                if(response){
+                    getCartElements(dispatch);
+                    navigate('/cart')
+                }
+            })
+        } catch (error) {
+            console.log(error.message);
+        }
+    }    
+}

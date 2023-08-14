@@ -20,12 +20,6 @@
     font-size: 1.5rem;
 }
 
-hr {
-    border: 0;
-    border-bottom: 1px solid #0b2a19;
-    margin-bottom: 3rem;
-    margin-top: 2rem;
-}
 
 
 .cartBody {
@@ -110,7 +104,7 @@ hr {
 .checkoutButton:hover {
     background-color: white;
     color: green;
-    border: 1px solid green;
+    /* border: 1px solid green; */
     transition: 200ms;
 }
 

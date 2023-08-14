@@ -8,11 +8,15 @@ import { useDispatch } from "react-redux";
 const Product  = (props) =>{
 
 
+    let numofItems = 0;
+    
     function wordtransform(description){
         let toReturn = '';
         description = description.split('').map(letter =>{if(toReturn.length != 12) {toReturn += letter}});
         description = description.map
     }
+
+    console.log(props.content);
     
     const id = props.id;
     const navigate = useNavigate();
@@ -29,7 +33,7 @@ const Product  = (props) =>{
                <img src={props.content.Image} alt="img-thumbnail" className="card-img-top" />
                <div className="card-body">
                     <h5 className="cart-title"> $ {props.content.Price.$numberDecimal}</h5>
-                    <p className="card-text">{props.content.Description}</p>
+                    <p className="card-text overflow-hidden">{props.content.Description}</p>
                     <button className="btn btn-primary">Add to Cart</button>
                </div>
             </div>

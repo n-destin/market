@@ -7,12 +7,13 @@ const getSignedUrl = (file)=>{
 }
 
 const uploadToAws = (signedUrl, file, url)=>{
+    return url;
     return new Promise((resolve, reject)=>{
-        axios.put(signedUrl, file, { headers : {'Content-Type' : file.type}}).then(response=>{
-            resolve(url)
-        }).catch(error=>{
-            reject(error);
-        })
+        // axios.put(signedUrl, file, { headers : {'Content-Type' : file.type}}).then(response=>{
+        //     resolve(url)
+        // }).catch(error=>{
+        //     reject(error);
+        // })
     })
 }
 

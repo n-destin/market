@@ -21,6 +21,7 @@ function Products (){
     }, [])
 
     const products = useSelector((store)=>{return store.products.all;})
+    console.log(typeof(products));
     const userInformation = useSelector((store)=>{return store.user.userInformation});
 
     return(

@@ -41,7 +41,8 @@ const Navigation = (props) => {
         if (authenticated) {
             return (
                 <div className="p-0 bg-transparent text-white border-start-0 m-0" onClick={() => { navigate('/account') }}>
-                    <p style={{fontSize : 'small'}}>Welcome, {localStorage.getItem('useName')}</p>
+                    {console.log(localStorage.getItem('userInfo').firstName)}
+                    <p style={{fontSize : 'small'}}>Welcome, {localStorage.getItem('firstName')}</p>
                     <h3 style={{fontSize : 'medium', marginTop : '-.6rem'}}>Account & Orders</h3>
                 </div>
             )

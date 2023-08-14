@@ -67,9 +67,9 @@ const Account = (props) => {
                             <img src={(Profile) ? Profile : profileHolder} alt="personalImage" className="profileImage" />
                         </div>
                         <div className="partTwo">
-                            <h4 className="head_content">Your member id:  <span className="userId">some user id here; to be handled</span></h4>
-                            <h4 className="head_content">Email :  <span className="spanning_element_email">some email here<Link className="changeButton">Change emial address</Link></span></h4>
-                            <h4 className="head_content">Linked Mobile: <span className="spanning_element">some phone number here<Link className="changeButton">Change phone number</Link></span></h4>
+                            <h4 className="head_content">Your member id:  <span className="userId">{localStorage.getItem('userId')}</span></h4>
+                            <h4 className="head_content">Email :  <span className="spanning_element_email">{localStorage.getItem('email')}</span></h4>
+                            <h4 className="head_content">  Account owner: <span className="spanning_element">{localStorage.getItem('firstName')}</span></h4>
                         </div>
                     </div>
                     <hr className="horizontal" />
