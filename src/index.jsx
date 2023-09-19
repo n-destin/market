@@ -5,10 +5,11 @@ import { Provider } from "react-redux";
 import rootReducer from "./reducers/rootReducer";
 import { configureStore } from "@reduxjs/toolkit";
 import {ActionsType} from './actions/useractions'
-import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min';
 
 
-const store = configureStore({
+export const store = configureStore({
     reducer: rootReducer,
 })
 

@@ -12,6 +12,8 @@ import {ROOT_URL } from '../../actions/useractions';
 // import { getChatMessages } from '../../actions/useractions';
 import {io} from 'socket.io-client'
 import axios from 'axios';
+import { useDispatch, useSelector } from 'react-redux';
+import { defaultSelection } from '../../actions/productActions';
 
 
 const ChatRoom = () => {
@@ -26,10 +28,12 @@ const ChatRoom = () => {
   const [selectedDisplay, setSelectedDisplay] = useState('All');
   const [currentRoom, setCurrentRoom] = useState();
   const [activePerson, setActivePerson] = useState('No Active User')
+  
+  const conversationId = useSelector(store=> {return store.products.converstationId});
 
   let unreadMessages = 0;
 
-
+  // keep a variable that checks if a user created a new conversation, and that notifies the user that yes there is, and then call the function
 
   const socket = io(ROOT_URL)
   socket.on('connect', async()=>{
@@ -40,10 +44,15 @@ const ChatRoom = () => {
     })
   })
 
+  const dispatch = useDispatch();
+  const selectionHandler  = defaultSelection();
+
+
+
   const handleSelection = (conversationId)=>{
-    setSelected(conversationId);
-    setCurrentRoom(conversationId);
+    selectionHandler(dispatch, conversationId)
     socket.emit('get_messages', conversationId, (messages)=>{ // request the messages and this always updated user when he joins
+      console.log(messages );
       setMessages(messages);
     })
   }
@@ -79,8 +88,10 @@ const Handler = (props)=>{
             <div>
             {(!conversations)? <div className='peopleContainer'>
                 <img src={props.image} alt="another-image"  className='personsImage'/>
-                <p className='conversationsText'>No messages yet</p>
-            </div> : conversations.map(conversation=>{
+                <p className='conversationsText'>No conversations yet</p>
+            </div> :  
+            Object.keys(conversations).map(conversation=>{
+              console.log('assigning conversation');
                socket.emit('join_room', conversation) // join rooms ...  and the conversation Ids are from the user model
                 return <ConversationHandler conversationName = {conversations[conversation].conversationName} conversationId ={conversation}/>
             })
@@ -88,7 +99,7 @@ const Handler = (props)=>{
         </div> 
         )
     }else{
-        if(selected){ // just to make messaging system appear
+        if(conversationId){ // just to make messaging system appear
             return(
                 <div className='nothingHolderselected'>
                     {setinputClass('displayNoneInputClass')}
@@ -135,8 +146,9 @@ const Handler = (props)=>{
         text: (processedMessage) ? processedMessage :  input,
         timestamp: new Date().toDateString()
       };
+      console.log(conversationId);
       setInput('');
-      socket.emit('new_message', newMessage, currentRoom);
+      socket.emit('new_message', newMessage, conversationId);
       setInput('');
     }
   };
@@ -199,4 +211,9 @@ const Handler = (props)=>{
   );
 };
 
+
+
 export default ChatRoom;
+
+
+

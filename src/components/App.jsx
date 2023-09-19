@@ -15,7 +15,7 @@ import TransactionDashboard from "./personal/transactions";
 import ContactSupportPage from "./productActions/support";
 import Checkout from "./productActions/checkout";
 import Category from '../components/productActions/categoryPage'
-
+import RequireAuthentication from "./requireAuthentication";
 
 function App (props){
 
@@ -34,16 +34,16 @@ function App (props){
                 <Route path="/products/:id" element ={<ProductPage/>}/>
                 <Route  path="/" element = {<Products/>} />
                 <Route path={`/category/:category_name`} element = {<Category />}/>
-                <Route path="/account" element = {<Account />}/>
-                <Route path="account/messages" element = {<ChatRoom />}/>
-                <Route path="account/Cart" element ={<Cart />}/>
+                <Route path="/account" element = {<RequireAuthentication><Account /></RequireAuthentication>}/>
+                <Route path="account/messages" element = {<RequireAuthentication><ChatRoom /></RequireAuthentication>}/>
+                <Route path="account/Cart" element ={<RequireAuthentication><Cart /></RequireAuthentication>}/>
                 <Route path="/login" element ={<Login />} />
                 <Route path="/signup" element ={<SingUp/>} />
                 <Route path="/support" element = {<ContactSupportPage />}/>
-                <Route path ="/chat" element ={<Chat/>}/>
-                <Route path="/sell" element ={<CreateProduct/>}/>
-                <Route path="/transactions" element ={<TransactionDashboard />}/>
-                <Route path="/checkout" element ={<Checkout/>}/>
+                <Route path ="/chat" element ={<RequireAuthentication><Chat/></RequireAuthentication>}/>
+                <Route path="/sell" element ={<RequireAuthentication><CreateProduct/></RequireAuthentication>}/>
+                <Route path="/transactions" element ={<RequireAuthentication><TransactionDashboard /></RequireAuthentication>}/>
+                <Route path="/checkout" element ={<RequireAuthentication><Checkout/></RequireAuthentication>}/>
             </Routes>
         </BrowserRouter>
     )

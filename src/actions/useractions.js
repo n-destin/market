@@ -1,5 +1,8 @@
 import axios from "axios"
+import { useDispatch } from "react-redux"
+import { defaultSelection } from "./productActions"
 export const ROOT_URL = 'http://localhost:9090/'
+
 
 export const ActionsType = {
     DELETE_ACCOUNT : 'DELETE_ACCOUNT',
@@ -9,6 +12,7 @@ export const ActionsType = {
     GET_CONVERSATIONS : 'GET_CHAT_PERSONS',
     GET_MESSAGES : 'GET_MESSAGES'
 }
+
 
 export function createAccount(userInfo){
     return (dispatch, navigate)=>{
@@ -71,12 +75,15 @@ export async function getPersonalInformation(){
 }
 
 
+
 export function createConversation(productId){
-    return(dispatch)=>{
+    return(navigate)=>{
         try {
             axios.post(`${ROOT_URL}createconversation?productId=${productId}`, {}, {headers : {'authorization' : localStorage.getItem('userToken')}}).then(response=>{
                 if(response){
-                    dispatch('/account/messages');
+                    const selectionHandler = defaultSelection();
+                    selectionHandler(response.data.message)
+                    navigate('/account/messages');
                 }
             })
         } catch (error) {

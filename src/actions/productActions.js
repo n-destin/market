@@ -1,12 +1,13 @@
 import axios from "axios"
 import { ActionsType, ROOT_URL } from "./useractions"
+import {store} from '../index'
 
 export const productActions = {
     GET_PRODUCTS : 'FETCH_PRODUCTS',
     GET_PRODUCT : 'FETCH_PRODUCT',
-    GET_CART : 'GET_CART'
+    GET_CART : 'GET_CART',
+    DEFAULT_SELECTION : 'DEFAULT_SELECTION'
 }
-
 
 
 export function getProducts(){
@@ -97,6 +98,16 @@ export function getRelated(category){
         })
     }
 }
+
+export function defaultSelection (){
+    return (conversationId)=>{
+        console.log(conversationId);
+        store.dispatch({
+            type: productActions.DEFAULT_SELECTION,
+            payload : conversationId
+        })
+    }
+  }
 
 export function deletecartelement(){
     return(dispatch, productId, navigate)=>{

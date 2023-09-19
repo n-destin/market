@@ -81,7 +81,6 @@ const CreateProduct = ()=>{
     const toSend = {Name: productName, Image: productImage, Description: productDescription, productCategory: productCategory, Price: productPrice, productCondition: productCondition, Productpurpose: Productpurpose}
 
     const createProductHolder = createProduct(toSend);
-
     const navigate = useNavigate();
 
     return(

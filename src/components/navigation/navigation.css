@@ -15,7 +15,7 @@ body, html {
     flex-direction: row;
 }
 
-.iconbar {
+.navbar {
     background-color: rgb(29, 65, 29);
     display: flex;
     flex-direction: row;

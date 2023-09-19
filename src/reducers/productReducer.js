@@ -18,6 +18,10 @@ const productReducer = produce((previousState, action = {})=>{
             break;
         case productActions.GET_CART:
             previousState.cartElements = action.payload;
+            break;
+        case productActions.DEFAULT_SELECTION:
+            previousState.conversationId = action.payload;
+            break;
         default:
             return previousState;
     }

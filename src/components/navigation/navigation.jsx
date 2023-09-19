@@ -1,5 +1,5 @@
 import React, {useEffect} from "react";
-import './navigation.css'
+// import './navigation.css'
 import inbox from '../../images/message.png'
 import cart from '../../images/cart.png'
 import tradein from '../../images/sell.png'
@@ -23,9 +23,6 @@ const Navigation = (props) => {
         "Inbox": {
             "account/messages": inbox
         },
-        "Notice": {
-            "Notice": Notice,
-        },
         "Post": {
             "sell": tradein
         },
@@ -41,20 +38,20 @@ const Navigation = (props) => {
         if (authenticated) {
             return (
                 <div className="p-0 bg-transparent text-white border-start-0 m-0" onClick={() => { navigate('/account') }}>
-                    {console.log(localStorage.getItem('userInfo').firstName)}
                     <p style={{fontSize : 'small'}}>Welcome, {localStorage.getItem('firstName')}</p>
                     <h3 style={{fontSize : 'medium', marginTop : '-.6rem'}}>Account & Orders</h3>
                 </div>
             )
         } else {
             return (
-                <div className="card p-0" onClick={() => {
-                    navigate('/account');
+                <div className="p-0 bg-transparent text-white border-start-0 mt-1 align-middle" onClick={() => {
+                    navigate('/login');
                 }}>
-                    <img src={account} alt="" className="account-image" />
-                    <div className="navBeside">
-                        <p className="sign-in-text">Sign in / Register</p>
-                    </div>
+                    {/* <img src={account} alt="" className="account-image m-2" /> */}
+                    <h3 style={{fontSize : 'medium', marginTop : '-.6rem', backgroundColor: '#447e3a', padding : '1rem', borderRadius : '.2rem', cursor: 'pointer'}}>Sign in / Register</h3>
+                    {/* <div className="navBeside">
+                        <p className="sign-in-text"></p>
+                    </div> */}
                 </div>
             )
         }
@@ -77,30 +74,38 @@ return <Icon name='name' icon={iconsNavigation[iconKey][Object.keys(iconsNavigat
 })
 
 return (
-    <div className='navbar p-0 bg-lime-800 flex flex-row'>
-        <div className="container-fluid iconbar">
-                {/* <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#Wrapper" aria-controls="Wrapper" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>     */}
-                <Link to="/" className="navbar-brand text-white ml-5 p-0">The College Market</Link>
+    <nav className="navbar navbar-expand-lg bg-success bg-gradient">
+        <Link to="/" className="navbar-brand text-white">The College Market</Link>
+        <button
+          className="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span className="navbar-toggler-icon"></span>
+        </button>
+        <div className="collapse navbar-collapse" id="navbarNav">
+          <ul className="navbar-nav">
+            <li className="nav-item">
                 <SignInHandler />
-                <div className="searchContainer">
-                    <div className="searchWrap">
-                        <input type="text" className="searchBar" placeholder="Search..." />
-                        <button className="searchButton"><i className="fa fa-search"></i></button>
-                    </div>
-                </div>
-                <div className="iconContainer">                
-                <div className="collapse navbar-collapse d-flex flex-row mt-3" id="Wrapper">
-                    <div className="navbar-nav me-0 d-flex flex-row">
-                        {IconsToRender}
-                    </div>
-                </div>
-            </div>
+            </li>
+            <li className="nav-item searchContainer">
+              <div className="col-900 d-flex flex-row">
+                <input class="form-control" type="search" placeholder="Search..." aria-label="Search" />
+                <button class="btn" type="submit">Search</button>
+              </div>
+            </li>
+            <li className="nav-item iconContainer">
+              <div className="navbar-nav d-flex">
+                {IconsToRender}
+              </div>
+            </li>
+          </ul>
         </div>
-        <Subnavigation />
-        <Effect  />
-    </div>
+    </nav>
     )
 
 }
