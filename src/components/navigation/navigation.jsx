@@ -1,5 +1,4 @@
 import React, {useEffect} from "react";
-// import './navigation.css'
 import inbox from '../../images/message.png'
 import cart from '../../images/cart.png'
 import tradein from '../../images/sell.png'
@@ -26,6 +25,9 @@ const Navigation = (props) => {
         "Post": {
             "sell": tradein
         },
+        "Notice" : {
+            "Notice": Notice
+        },
         "Support": {
             "support": support
         },
@@ -37,7 +39,7 @@ const Navigation = (props) => {
     const SignInHandler = () => {
         if (authenticated) {
             return (
-                <div className="p-0 bg-transparent text-white border-start-0 m-0" onClick={() => { navigate('/account') }}>
+                <div className="p-0 bg-transparent text-white border-start-0 align-self-center" onClick={() => { navigate('/account') }} style ={{marginRight:'7rem', marginLeft : '7rem', }}>
                     <p style={{fontSize : 'small'}}>Welcome, {localStorage.getItem('firstName')}</p>
                     <h3 style={{fontSize : 'medium', marginTop : '-.6rem'}}>Account & Orders</h3>
                 </div>
@@ -47,11 +49,7 @@ const Navigation = (props) => {
                 <div className="p-0 bg-transparent text-white border-start-0 mt-1 align-middle" onClick={() => {
                     navigate('/login');
                 }}>
-                    {/* <img src={account} alt="" className="account-image m-2" /> */}
                     <h3 style={{fontSize : 'medium', marginTop : '-.6rem', backgroundColor: '#447e3a', padding : '1rem', borderRadius : '.2rem', cursor: 'pointer'}}>Sign in / Register</h3>
-                    {/* <div className="navBeside">
-                        <p className="sign-in-text"></p>
-                    </div> */}
                 </div>
             )
         }
@@ -61,21 +59,17 @@ const Navigation = (props) => {
 const IconsToRender = Object.keys(iconsNavigation).map(iconKey => {
     if(iconKey === "Notice") {
         return (
-            <div className="dropdown">
+            // <div className="dropdown d-flex flex-row">
                 <Icon name='name' icon={iconsNavigation[iconKey][Object.keys(iconsNavigation[iconKey])[0]]} action={Object.keys(iconsNavigation[iconKey])[0]} title={iconKey} />
-                <div className="nav-item dropdown-content">
-                    <Link to="/post-announcement">Post Announcement</Link>
-                    <Link to="/view-announcements">View Announcements</Link>
-                </div>
-            </div>
+            // </div>
 );
 }
-return <Icon name='name' icon={iconsNavigation[iconKey][Object.keys(iconsNavigation[iconKey])[0]]} action={Object.keys(iconsNavigation[iconKey])[0]} title={iconKey} />;
+return <Icon name='name' icon={iconsNavigation[iconKey][Object.keys(iconsNavigation[iconKey])[0]]} action={Object.keys(iconsNavigation[iconKey])[0]} title={iconKey} className ="d-flex flex-row" />;
 })
 
 return (
-    <nav className="navbar navbar-expand-lg bg-success bg-gradient">
-        <Link to="/" className="navbar-brand text-white">The College Market</Link>
+    <nav className="navbar navbar-expand-lg bg-success bg-gradient p-0">
+        <Link to="/" className="navbar-brand text-white align-self-center p-0" style={{marginLeft:'4rem'}}>The College Market</Link>
         <button
           className="navbar-toggler"
           type="button"
@@ -88,18 +82,18 @@ return (
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarNav">
-          <ul className="navbar-nav">
-            <li className="nav-item">
+          <ul className="navbar-nav mt-2">
+            <li className="nav-item m-0">
                 <SignInHandler />
             </li>
-            <li className="nav-item searchContainer">
-              <div className="col-900 d-flex flex-row">
-                <input class="form-control" type="search" placeholder="Search..." aria-label="Search" />
-                <button class="btn" type="submit">Search</button>
+            <li className="nav-item searchContainer m-0">
+              <div className="col-900 d-flex flex-row mt-2">
+                <input class="form-control align-self-center" type="search" placeholder="Search..." aria-label="Search" style={{width:'30em', height:'2rem'}}/>
+                <button class="btn text-white p-0 border-white align-self-center" type="submit" style={{width: '5rem', marginRight:'7rem', marginLeft : '1rem'}}>Search</button>
               </div>
             </li>
-            <li className="nav-item iconContainer">
-              <div className="navbar-nav d-flex">
+            <li className="nav-item iconContainer m-0">
+              <div className="navbar-nav d-flex align-items-center">
                 {IconsToRender}
               </div>
             </li>

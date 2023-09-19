@@ -11,7 +11,6 @@ export const productActions = {
 
 
 export function getProducts(){
-    
     return(dispatch)=>{
         try {
             axios.get(`${ROOT_URL}products`).then(response =>{
