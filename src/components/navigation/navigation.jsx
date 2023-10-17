@@ -84,7 +84,7 @@ return (
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav mt-2">
             <li className="nav-item m-0">
-                <SignInHandler />
+                {/* <SignInHandler /> */}
             </li>
             <li className="nav-item searchContainer m-0">
               <div className="col-900 d-flex flex-row mt-2">
